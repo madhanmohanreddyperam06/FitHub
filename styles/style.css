@@ -1,0 +1,2158 @@
+/* Base styles and CSS variables */
+:root {
+    --primary-color: wheat;
+    --bg-blur: rgba(240, 248, 255, 0.836);
+    --chat-bg: rgba(240, 248, 255, 0.626);
+    --spacing-sm: clamp(5px, 1vw, 10px);
+    --spacing-md: clamp(10px, 2vw, 20px);
+    --spacing-lg: clamp(20px, 4vw, 40px);
+    --border-radius-sm: 10px;
+    --border-radius-md: 20px;
+    --border-radius-lg: 50px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url("../assets/bg.jpg");
+    background-size: contain;
+    background-position: center top 80px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #000; /* Fallback color */
+    overflow-x: hidden;
+    color: inherit;
+}
+
+.logo {
+    color: white;
+    font-size: clamp(24px, 5vw, 40px);
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.logo a,
+nav a .logo,
+nav a:has(.logo) {
+    text-decoration: none;
+}
+
+.bgtext {
+    font-size: clamp(2rem, 8vw, 11rem);
+    text-align: center;
+    color: rgba(204, 206, 206, 0.621);
+    margin: var(--spacing-lg) auto;
+    padding: 0 var(--spacing-md);
+    word-wrap: break-word;
+}
+
+/* Navigation */
+nav {
+    width: 100%;
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1000;
+    flex-wrap: nowrap;
+    gap: var(--spacing-md);
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    position: relative;
+    z-index: 1001;
+    flex-wrap: nowrap;
+}
+
+/* Header Features */
+.header-features {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+    margin-right: 0;
+}
+
+.header-feature-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius-md);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    font-size: 0.9rem;
+    font-weight: 500;
+    height: 40px;
+    white-space: nowrap;
+}
+
+.header-feature-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.feature-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.feature-text {
+    white-space: nowrap;
+}
+
+/* Select Box */
+.select-box {
+    position: relative;
+    min-width: 150px;
+    z-index: 1002;
+    height: 40px;
+}
+
+.select-heading {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 16px;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 40px;
+    user-select: none;
+    position: relative;
+    z-index: 1003;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.select-heading:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.select-heading img {
+    transition: transform 0.4s;
+    margin-left: var(--spacing-sm);
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius-md);
+    backdrop-filter: blur(10px);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px;
+}
+
+.active-options {
+    display: flex;
+}
+
+.options a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 100%;
+}
+
+.option {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    transition: all 0.3s;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+
+.option:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.15);
+}
+
+/* Main Content */
+main {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    position: relative;
+    padding: var(--spacing-md);
+}
+
+/* Chat Box */
+.chat-box {
+    position: fixed;
+    width: min(500px, 90%);
+    height: min(600px, 70vh);
+    bottom: 8%;
+    right: 5%;
+    background-color: var(--chat-bg);
+    border-radius: var(--border-radius-lg);
+    backdrop-filter: blur(5px);
+    padding: var(--spacing-md);
+    transform: translateX(1300px);
+    transition: all 0.5s;
+    z-index: 25;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.chat-header .h1 {
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.refresh-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.refresh-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: rotate(180deg);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.refresh-btn svg {
+    color: white;
+    stroke: white;
+}
+
+.refresh-btn img {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(1);
+}
+
+.active-chat-box {
+    transform: translateX(0);
+}
+
+.chat-container {
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    font-size: clamp(14px, 2vw, 20px);
+    padding-right: var(--spacing-sm);
+}
+
+.input-area {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.prompt {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: black;
+    color: white;
+    font-size: clamp(13px, 1.5vw, 16px);
+    border-radius: var(--border-radius-md);
+    border: none;
+    outline: none;
+}
+
+.input-area button {
+    padding: var(--spacing-sm);
+    background: black;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease;
+}
+
+.input-area button:hover {
+    background: #333;
+    transform: scale(1.05);
+}
+
+.input-area button img {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(1);
+    object-fit: cover;
+}
+
+/* Chat Messages */
+.user-chat-box,
+.ai-chat-box {
+    max-width: min(70%, 300px);
+    width: fit-content;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: white;
+    border-radius: var(--border-radius-md);
+    word-wrap: break-word;
+}
+
+.message-label {
+    font-size: clamp(8px, 1.5vw, 10px);
+    font-weight: 600;
+    margin-bottom: 2px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.user-chat-box {
+    background-color: black;
+    align-self: flex-start;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) var(--border-radius-md);
+}
+
+.ai-chat-box {
+    background-color: rgba(0, 0, 0, 0.681);
+    align-self: flex-end;
+    border-radius: var(--border-radius-md) 0 var(--border-radius-md) var(--border-radius-md);
+}
+
+.user-chat-box .text,
+.ai-chat-box .text {
+    font-size: clamp(12px, 2vw, 14px);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Hide voice assistant and chatbot on all pages except main page */
+body:not(.index-page) .virtual-assistant,
+body:not(.index-page) .chatbot-container,
+body:not(.index-page) .chat-box,
+body:not(.index-page) .speak-page,
+body:not(.index-page) .footer {
+    display: none !important;
+}
+
+/* Hide header navigation on personalized plans and nutrition guide pages */
+body:not(.index-page) nav {
+    display: none !important;
+}
+
+/* Adjust main content when header is hidden */
+body:not(.index-page) main {
+    margin-top: 0;
+    padding-top: var(--spacing-lg);
+}
+
+/* Back Button Styles */
+.back-button-container {
+    margin-bottom: var(--spacing-md);
+    text-align: left;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, #4ecdc4, #ff6b6b);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+.back-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover .back-icon {
+    transform: translateX(-3px);
+}
+
+.back-text {
+    white-space: nowrap;
+}
+
+/* Also hide any chatbot-related elements that might be in the navigation */
+body:not(.index-page) .right-nav img#chatbotimg {
+display: none;
+}
+
+/* Apply footer color pattern to workout pages */
+body:not(.index-page) {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+body:not(.index-page) main {
+    background: transparent;
+    margin: 0;
+    padding: var(--spacing-md);
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    position: static;
+    overflow: visible;
+}
+
+body:not(.index-page) main::before {
+    display: none;
+}
+
+body:not(.index-page) nav {
+    display: none !important;
+}
+
+body:not(.index-page) .logo {
+    color: white;
+}
+
+body:not(.index-page) .select-heading {
+    background: rgba(255, 255, 255, 0.9);
+    color: #1a1a1a;
+}
+
+body:not(.index-page) .option {
+    color: #1a1a1a;
+}
+
+body:not(.index-page) .option:hover {
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    color: white;
+}
+
+body:not(.index-page) .header-feature-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+body:not(.index-page) .header-feature-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+body:not(.index-page) .svgs {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-md);
+}
+
+body:not(.index-page) .svgs img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+}
+
+/* Complete styling for personalized plans and nutrition guide pages */
+body:not(.index-page) .personalized-plans-container,
+body:not(.index-page) .nutrition-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+body:not(.index-page) .personalized-plans-container::before,
+body:not(.index-page) .nutrition-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+    background-size: 300% 100%;
+    animation: gradientShift 8s ease infinite;
+    z-index: 1;
+}
+
+/* Page titles and descriptions */
+body:not(.index-page) .page-title {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+body:not(.index-page) .page-description {
+    color: #b0b0b0;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Enhanced form sections for personalized plans */
+body:not(.index-page) .form-section {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+body:not(.index-page) .form-section:hover {
+    background: rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.2);
+}
+
+body:not(.index-page) .form-section h3 {
+    color: #ffffff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
+}
+
+/* Enhanced form styling for personalized plans */
+body:not(.index-page) .plan-form,
+body:not(.index-page) .nutrition-form {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.index-page) .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+body:not(.index-page) .form-group {
+    position: relative;
+    z-index: 2;
+}
+
+body:not(.index-page) .form-group label {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
+}
+
+body:not(.index-page) .form-group input,
+body:not(.index-page) .form-group select,
+body:not(.index-page) .form-group textarea {
+    background: rgba(255, 255, 255, 0.95);
+    color: #000000;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-md);
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.index-page) .form-group input:focus,
+body:not(.index-page) .form-group select:focus,
+body:not(.index-page) .form-group textarea:focus {
+    border-color: #4ecdc4;
+    box-shadow: 0 0 15px rgba(78, 205, 196, 0.5);
+    outline: none;
+    background: #ffffff;
+    transform: translateY(-1px);
+}
+
+body:not(.index-page) .form-group input::placeholder,
+body:not(.index-page) .form-group textarea::placeholder {
+    color: #666666;
+    font-weight: 400;
+    font-style: italic;
+}
+
+body:not(.index-page) .submit-btn {
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    color: #ffffff;
+    border: none;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+    margin-top: var(--spacing-md);
+}
+
+body:not(.index-page) .submit-btn:hover {
+    background: linear-gradient(135deg, #4ecdc4, #ff6b6b);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+}
+
+body:not(.index-page) .submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Enhanced results styling for personalized plans */
+body:not(.index-page) .plan-result,
+body:not(.index-page) .nutrition-result {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body:not(.index-page) .plan-result h3,
+body:not(.index-page) .nutrition-result h3 {
+    color: #ffffff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 1.4rem;
+}
+
+body:not(.index-page) .plan-result h4,
+body:not(.index-page) .nutrition-result h4 {
+    color: #4ecdc4;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem;
+}
+
+body:not(.index-page) .user-stats {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.index-page) .stat-item {
+    text-align: center;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+body:not(.index-page) .stat-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+body:not(.index-page) .stat-label {
+    color: #cccccc;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body:not(.index-page) .stat-value {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Enhanced schedule grid for personalized plans */
+body:not(.index-page) .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+body:not(.index-page) .schedule-item,
+body:not(.index-page) .nutrition-item {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-lg);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.index-page) .schedule-item:hover,
+body:not(.index-page) .nutrition-item:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.2);
+}
+
+body:not(.index-page) .schedule-item h4,
+body:not(.index-page) .nutrition-item h4 {
+    color: #4ecdc4;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+body:not(.index-page) .schedule-item h4::before,
+body:not(.index-page) .nutrition-item h4::before {
+    content: '📅';
+    font-size: 1.2rem;
+}
+
+body:not(.index-page) .workout-type {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-sm);
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+body:not(.index-page) .exercise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body:not(.index-page) .exercise-list li {
+    color: #ffffff;
+    padding: var(--spacing-sm) 0;
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+}
+
+body:not(.index-page) .exercise-list li::before {
+    content: '•';
+    color: #4ecdc4;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Enhanced plan tips for personalized plans */
+body:not(.index-page) .plan-tips {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.index-page) .plan-tips h4 {
+    color: #ffffff;
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+body:not(.index-page) .plan-tips h4::before {
+    content: '💡';
+    font-size: 1.3rem;
+}
+
+body:not(.index-page) .plan-tips ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body:not(.index-page) .plan-tips ul li {
+    color: #dddddd;
+    padding: var(--spacing-sm) 0;
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+}
+
+body:not(.index-page) .plan-tips ul li::before {
+    content: '✓';
+    color: #4ecdc4;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* Nutrition specific styles */
+body:not(.index-page) .nutrition-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+body:not(.index-page) .nutrition-stat {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.index-page) .nutrition-stat:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.2);
+}
+
+body:not(.index-page) .nutrition-stat-label {
+    color: #cccccc;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+body:not(.index-page) .nutrition-stat-value {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body:not(.index-page) .meal-plan {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.index-page) .meal-plan h4 {
+    color: #4ecdc4;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+body:not(.index-page) .meal-plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body:not(.index-page) .meal-plan ul li {
+    color: #ffffff;
+    padding: var(--spacing-sm) 0;
+    position: relative;
+    padding-left: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+    font-size: 1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+body:not(.index-page) .meal-plan ul li::before {
+    content: '🍽';
+    position: absolute;
+    left: 0;
+    font-size: 1.1rem;
+}
+
+/* Virtual Assistant - shown only on main page */
+.virtual-assistant {
+position: fixed;
+bottom: 5%;
+left: 5%;
+z-index: 20;
+    bottom: 5%;
+    left: 5%;
+    z-index: 20;
+}
+
+.virtual-assistant img {
+    width: clamp(80px, 15vw, 120px);
+    height: auto;
+    cursor: pointer;
+    filter: drop-shadow(2px 2px 10px rgba(0, 0, 255, 0.433));
+    transition: transform 0.3s ease;
+}
+
+.virtual-assistant img:hover {
+    transform: scale(1.1);
+}
+
+/* Workout Images Grid */
+.svgs {
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.775);
+    backdrop-filter: blur(5px);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.svgs img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-sm);
+    transition: transform 0.3s ease;
+}
+
+.svgs img:hover {
+    transform: scale(1.05);
+}
+
+/* Speak Page */
+.speak-page {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.64);
+    backdrop-filter: blur(4px);
+    z-index: 30;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+}
+
+.speak-page h1 {
+    color: white;
+    font-size: clamp(24px, 4vw, 32px);
+}
+
+#voice {
+    width: clamp(150px, 30vw, 200px);
+    height: auto;
+    border-radius: 50%;
+    margin-top: var(--spacing-md);
+}
+
+/* Scrollbar Styling */
+.chat-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    nav {
+        padding: var(--spacing-sm);
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+
+    .right-nav {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-sm);
+    }
+
+    .header-features {
+        width: 100%;
+        justify-content: center;
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+
+    .header-feature-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        height: 36px;
+        flex: 1;
+        min-width: 120px;
+        justify-content: center;
+    }
+
+    .feature-text {
+        display: inline-block;
+    }
+
+    .header-feature-btn .feature-icon {
+        font-size: 1rem;
+        width: 24px;
+        height: 24px;
+        margin-right: 4px;
+    }
+
+    .select-box {
+        width: 100%;
+        max-width: 300px;
+        height: 36px;
+        margin: 0 auto;
+    }
+
+    .select-heading {
+        height: 36px;
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .options {
+        max-height: 250px;
+    }
+
+    .option:hover {
+        transform: none;
+    }
+
+    .chat-box {
+        width: 95%;
+        height: 80vh;
+        right: 2.5%;
+        bottom: 5%;
+    }
+
+    .virtual-assistant {
+        position: fixed;
+        bottom: 2%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .svgs {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        width: 95%;
+        gap: var(--spacing-sm);
+    }
+
+    .logo {
+        font-size: clamp(20px, 6vw, 32px);
+        text-align: center;
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    nav {
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+        --spacing-sm: 4px;
+        --spacing-md: 8px;
+        --spacing-lg: 12px;
+    }
+
+    nav {
+        padding: var(--spacing-sm);
+        gap: var(--spacing-sm);
+    }
+
+    .right-nav {
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-sm);
+    }
+
+    .header-features {
+        gap: var(--spacing-xs);
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .header-feature-btn {
+        padding: 4px 8px;
+        font-size: 0.7rem;
+        height: 32px;
+        min-width: 100px;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .feature-text {
+        font-size: 0.6rem;
+        line-height: 1;
+    }
+
+    .header-feature-btn .feature-icon {
+        font-size: 0.9rem;
+        width: 20px;
+        height: 20px;
+        margin-right: 0;
+    }
+
+    .select-box {
+        width: 100%;
+        max-width: 250px;
+        height: 32px;
+    }
+
+    .select-heading {
+        height: 32px;
+        padding: 4px 8px;
+        font-size: 0.7rem;
+    }
+
+    .select-heading img {
+        width: 10px;
+        height: 10px;
+    }
+
+    .chat-box {
+        width: 100%;
+        height: 85vh;
+        right: 0;
+        bottom: 0;
+        border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    }
+
+    .virtual-assistant img {
+        width: 80px;
+    }
+
+    .svgs {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+        width: 95%;
+    }
+
+    .user-chat-box,
+    .ai-chat-box {
+        width: 100%;
+    }
+
+    .option {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    .options {
+        max-height: 200px;
+    }
+
+    .logo {
+        font-size: clamp(18px, 5vw, 28px);
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 360px) {
+    .header-feature-btn {
+        min-width: 90px;
+        font-size: 0.6rem;
+        height: 30px;
+    }
+
+    .feature-text {
+        font-size: 0.5rem;
+    }
+
+    .select-box {
+        max-width: 200px;
+        height: 30px;
+    }
+
+    .select-heading {
+        height: 30px;
+        font-size: 0.6rem;
+        padding: 4px 6px;
+    }
+}
+
+/* Mobile styles for personalized plans and nutrition guide */
+@media screen and (max-width: 768px) {
+    body:not(.index-page) main {
+        margin: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    body:not(.index-page) .personalized-plans-container,
+    body:not(.index-page) .nutrition-container {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .plan-form, .nutrition-form {
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .schedule-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .user-stats {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body:not(.index-page) main {
+        margin: var(--spacing-sm);
+        padding: var(--spacing-sm);
+    }
+
+    .plan-form, .nutrition-form {
+        padding: var(--spacing-sm);
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 0.9rem;
+        padding: var(--spacing-sm);
+    }
+
+    .submit-btn {
+        padding: var(--spacing-md);
+        font-size: 1rem;
+    }
+
+    .schedule-item {
+        padding: var(--spacing-sm);
+    }
+
+    .schedule-item h4 {
+        font-size: 1rem;
+    }
+
+    .workout-type {
+        font-size: 0.9rem;
+    }
+
+    .exercise-list li {
+        font-size: 0.8rem;
+    }
+
+    .plan-tips h4 {
+        font-size: 1rem;
+    }
+
+    .plan-tips ul li {
+        font-size: 0.8rem;
+    }
+}
+
+/* Touch Device Specific */
+@media (hover: none) {
+    .select-box:hover .options {
+        display: none;
+    }
+    
+    .select-box.active .options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .option:active {
+        background-color: rgb(163, 51, 107);
+        color: white;
+    }
+}
+
+/* Professional Footer Styles */
+.footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #ffffff;
+    padding: 60px 0 0;
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+    background-size: 300% 100%;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    border-radius: 2px;
+}
+
+.footer-description {
+    color: #b0b0b0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin: 0;
+}
+
+.footer-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 15px;
+    font-size: 0.95rem;
+}
+
+.footer-links a::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    color: #4ecdc4;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    padding-left: 20px;
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 25px 0;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.footer-bottom-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    color: #b0b0b0;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.footer-bottom-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-bottom-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #4ecdc4;
+    transition: width 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom-links a:hover::after {
+    width: 100%;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 0 0;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 var(--spacing-md);
+    }
+    
+    .footer-title {
+        font-size: 1.3rem;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .footer-bottom-links {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+/* Personalized Plans & Nutrition Guide Styles */
+.personalized-plans-container,
+.nutrition-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius-md);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.page-description {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+/* Form Styles */
+.workout-plan-form,
+.nutrition-form {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-section h3 {
+    color: #1a1a1a;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4ecdc4;
+    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.checkbox-item:hover {
+    background: #f8f9fa;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.checkbox-item span {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.generate-plan-btn,
+.calculate-nutrition-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: var(--spacing-lg);
+}
+
+.generate-plan-btn:hover,
+.calculate-nutrition-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(78, 205, 196, 0.3);
+}
+
+/* Result Styles */
+.plan-result,
+.nutrition-result {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    margin-top: var(--spacing-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.plan-header,
+.nutrition-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.plan-header h3,
+.nutrition-header h3 {
+    color: #1a1a1a;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.plan-header p,
+.nutrition-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.user-stats,
+.nutrition-stats {
+    background: #f8f9fa;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* Schedule Grid */
+.schedule-grid,
+.meal-schedule {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.schedule-item,
+.meal-day {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #4ecdc4;
+}
+
+.schedule-item h4,
+.meal-day h4 {
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.workout-type {
+    background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.exercise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.exercise-list li {
+    padding: 5px 0;
+    color: #333;
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.exercise-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4ecdc4;
+    font-weight: bold;
+}
+
+/* Meal Plan Styles */
+.meal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.meal-item:last-child {
+    border-bottom: none;
+}
+
+.meal-time {
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 0.9rem;
+}
+
+.meal-food {
+    color: #666;
+    font-size: 0.9rem;
+    text-align: right;
+    max-width: 60%;
+}
+
+/* Macro Breakdown */
+.macro-breakdown {
+    margin-bottom: var(--spacing-lg);
+}
+
+.macro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.macro-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.macro-item:hover {
+    transform: translateY(-5px);
+}
+
+.macro-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.macro-name {
+    display: block;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.macro-amount {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #4ecdc4;
+    margin-bottom: 5px;
+}
+
+.macro-percent {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Plan Actions */
+.plan-actions,
+.nutrition-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-lg);
+}
+
+.download-btn,
+.regenerate-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #4ecdc4, #45b7d1);
+    color: white;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+}
+
+.regenerate-btn {
+    background: #f8f9fa;
+    color: #333;
+    border: 2px solid #e1e5e9;
+}
+
+.regenerate-btn:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+}
+
+/* Tips Section */
+.plan-tips,
+.nutrition-tips {
+    background: #f8f9fa;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-top: var(--spacing-lg);
+}
+
+.plan-tips h4,
+.nutrition-tips h4 {
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.plan-tips ul,
+.nutrition-tips ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.plan-tips li,
+.nutrition-tips li {
+    padding: 8px 0;
+    color: #333;
+    position: relative;
+    padding-left: 25px;
+}
+
+.plan-tips li:before,
+.nutrition-tips li:before {
+    content: "💡";
+    position: absolute;
+    left: 0;
+}
+
+/* Responsive Design for New Pages */
+@media (max-width: 768px) {
+    .personalized-plans-container,
+    .nutrition-container {
+        padding: var(--spacing-md);
+        margin: var(--spacing-md);
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .schedule-grid,
+    .meal-schedule {
+        grid-template-columns: 1fr;
+    }
+    
+    .macro-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .plan-actions,
+    .nutrition-actions {
+        flex-direction: column;
+    }
+    
+    .download-btn,
+    .regenerate-btn {
+        width: 100%;
+    }
+}

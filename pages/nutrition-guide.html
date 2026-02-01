@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Guide - FitHub</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="icon" href="../favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+</head>
+<body>
+    <main>
+        <div class="back-button-container">
+            <a href="../index.html" class="back-button">
+                <span class="back-icon">←</span>
+                <span class="back-text">Back to Home</span>
+            </a>
+        </div>
+        <div class="nutrition-container">
+            <h1 class="page-title">🥗 Nutrition Guide</h1>
+            <p class="page-description">Personalized nutrition plans based on your fitness goals, body metrics, and dietary preferences</p>
+            
+            <div class="nutrition-form-container">
+                <form id="nutritionForm" class="nutrition-form">
+                    <div class="form-section">
+                        <h3>📊 Personal Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nut-age">Age</label>
+                                <input type="number" id="nut-age" name="age" min="16" max="100" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nut-gender">Gender</label>
+                                <select id="nut-gender" name="gender" required>
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nut-height">Height (cm)</label>
+                                <input type="number" id="nut-height" name="height" min="100" max="250" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nut-weight">Weight (kg)</label>
+                                <input type="number" id="nut-weight" name="weight" min="30" max="200" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>🎯 Fitness & Lifestyle</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nut-goal">Fitness Goal</label>
+                                <select id="nut-goal" name="goal" required>
+                                    <option value="">Select Goal</option>
+                                    <option value="weight-loss">Weight Loss</option>
+                                    <option value="muscle-gain">Muscle Gain</option>
+                                    <option value="maintenance">Maintenance</option>
+                                    <option value="endurance">Improve Endurance</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nut-activity">Activity Level</label>
+                                <select id="nut-activity" name="activity" required>
+                                    <option value="">Select Activity</option>
+                                    <option value="sedentary">Sedentary (little/no exercise)</option>
+                                    <option value="light">Light (1-3 days/week)</option>
+                                    <option value="moderate">Moderate (3-5 days/week)</option>
+                                    <option value="active">Active (6-7 days/week)</option>
+                                    <option value="very-active">Very Active (twice/day)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nut-diet">Dietary Preference</label>
+                                <select id="nut-diet" name="diet" required>
+                                    <option value="">Select Diet</option>
+                                    <option value="omnivore">Omnivore</option>
+                                    <option value="vegetarian">Vegetarian</option>
+                                    <option value="vegan">Vegan</option>
+                                    <option value="keto">Keto</option>
+                                    <option value="paleo">Paleo</option>
+                                    <option value="mediterranean">Mediterranean</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nut-allergies">Food Allergies</label>
+                                <input type="text" id="nut-allergies" name="allergies" placeholder="e.g., nuts, dairy, gluten">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="calculate-nutrition-btn">🧮 Calculate My Nutrition Plan</button>
+                </form>
+            </div>
+
+            <div id="nutritionResult" class="nutrition-result" style="display: none;">
+                <h2>🎯 Your Personalized Nutrition Plan</h2>
+                <div id="nutritionContent"></div>
+                <div class="nutrition-actions">
+                    <button onclick="downloadNutritionPlan()" class="download-btn">📥 Download Plan</button>
+                    <button onclick="regenerateNutritionPlan()" class="regenerate-btn">🔄 Recalculate</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Professional Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">FitHub</h3>
+                <p class="footer-description">Your AI-powered fitness companion for personalized workout guidance and nutrition advice.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook" onclick="return openFacebook()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter" onclick="return openTwitter()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram" onclick="return openInstagram()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/workout.html">All Workouts</a></li>
+                    <li><a href="../pages/back.html">Back Workout</a></li>
+                    <li><a href="../pages/chest.html">Chest Workout</a></li>
+                    <li><a href="../pages/biceps-triceps.html">Arms Workout</a></li>
+                    <li><a href="../pages/shoulder.html">Shoulder Workout</a></li>
+                    <li><a href="../pages/leg.html">Leg Workout</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="return openChat()">AI Chatbot</a></li>
+                    <li><a href="#" onclick="return openVoiceAssistant()">Voice Assistant</a></li>
+                    <li><a href="#" onclick="return openPersonalizedPlans()">Personalized Plans</a></li>
+                    <li><a href="#" onclick="return openNutritionGuide()">Nutrition Guide</a></li>
+                    <li><a href="#" onclick="return openProgressTracking()">Progress Tracking</a></li>
+                    <li><a href="#" onclick="return openExerciseLibrary()">Exercise Library</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="return sendEmail()">support@fithub.com</a></li>
+                    <li><a href="#" onclick="return makePhoneCall()">+1 (234) 567-890</a></li>
+                    <li><a href="#" onclick="return openPrivacyPolicy()">Privacy Policy</a></li>
+                    <li><a href="#" onclick="return openTermsOfService()">Terms of Service</a></li>
+                    <li><a href="#" onclick="return openCookiePolicy()">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 FitHub. All rights reserved. Made with ❤️ for fitness enthusiasts.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" onclick="return openAccessibility()">Accessibility</a>
+                    <a href="#" onclick="return openSitemap()">Sitemap</a>
+                    <a href="#" onclick="return openFAQ()">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Nutrition Calculator Logic
+        document.getElementById('nutritionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculateNutrition();
+        });
+
+        function calculateNutrition() {
+            const formData = new FormData(document.getElementById('nutritionForm'));
+            const data = Object.fromEntries(formData.entries());
+            
+            // Calculate BMR using Mifflin-St Jeor Equation
+            const age = parseInt(data.age);
+            const weight = parseFloat(data.weight);
+            const height = parseFloat(data.height);
+            const gender = data.gender;
+            
+            let bmr;
+            if (gender === 'male') {
+                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+            } else {
+                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+            }
+            
+            // Calculate TDEE based on activity level
+            const activityMultipliers = {
+                'sedentary': 1.2,
+                'light': 1.375,
+                'moderate': 1.55,
+                'active': 1.725,
+                'very-active': 1.9
+            };
+            
+            const tdee = bmr * (activityMultipliers[data.activity] || 1.2);
+            
+            // Adjust calories based on goal
+            let targetCalories;
+            let goalDescription;
+            switch(data.goal) {
+                case 'weight-loss':
+                    targetCalories = tdee - 500; // 500 calorie deficit
+                    goalDescription = 'Weight Loss (500 calorie deficit)';
+                    break;
+                case 'muscle-gain':
+                    targetCalories = tdee + 300; // 300 calorie surplus
+                    goalDescription = 'Muscle Gain (300 calorie surplus)';
+                    break;
+                case 'maintenance':
+                    targetCalories = tdee;
+                    goalDescription = 'Maintenance';
+                    break;
+                default:
+                    targetCalories = tdee;
+                    goalDescription = 'Balanced Nutrition';
+            }
+            
+            // Calculate macros
+            const macros = calculateMacros(targetCalories, data.goal, data.diet);
+            
+            // Generate meal plan
+            const mealPlan = generateMealPlan(macros, data.diet, data.allergies);
+            
+            // Display results
+            displayNutritionPlan(data, bmr, tdee, targetCalories, macros, mealPlan, goalDescription);
+        }
+
+        function calculateMacros(calories, goal, diet) {
+            let proteinRatio, carbRatio, fatRatio;
+            
+            // Adjust ratios based on goal
+            switch(goal) {
+                case 'muscle-gain':
+                    proteinRatio = 0.3;  // 30% protein
+                    carbRatio = 0.4;     // 40% carbs
+                    fatRatio = 0.3;      // 30% fat
+                    break;
+                case 'weight-loss':
+                    proteinRatio = 0.35; // 35% protein
+                    carbRatio = 0.35;    // 35% carbs
+                    fatRatio = 0.3;      // 30% fat
+                    break;
+                default:
+                    proteinRatio = 0.25; // 25% protein
+                    carbRatio = 0.45;    // 45% carbs
+                    fatRatio = 0.3;      // 30% fat
+            }
+            
+            // Adjust for specific diets
+            if (diet === 'keto') {
+                proteinRatio = 0.25;
+                carbRatio = 0.05;
+                fatRatio = 0.7;
+            } else if (diet === 'vegan') {
+                proteinRatio = Math.max(proteinRatio, 0.2);
+            }
+            
+            const protein = Math.round((calories * proteinRatio) / 4);
+            const carbs = Math.round((calories * carbRatio) / 4);
+            const fat = Math.round((calories * fatRatio) / 9);
+            
+            return { protein, carbs, fat, proteinRatio, carbRatio, fatRatio };
+        }
+
+        function generateMealPlan(macros, diet, allergies) {
+            const mealPlans = {
+                'omnivore': {
+                    breakfast: [
+                        'Scrambled eggs with whole wheat toast',
+                        'Greek yogurt with berries and nuts',
+                        'Oatmeal with protein powder and fruit'
+                    ],
+                    lunch: [
+                        'Grilled chicken salad with quinoa',
+                        'Turkey sandwich with vegetables',
+                        'Salmon with sweet potato and broccoli'
+                    ],
+                    dinner: [
+                        'Lean beef with roasted vegetables',
+                        'Chicken stir-fry with brown rice',
+                        'Baked fish with asparagus and quinoa'
+                    ],
+                    snacks: [
+                        'Protein shake with banana',
+                        'Apple with almond butter',
+                        'Greek yogurt with granola'
+                    ]
+                },
+                'vegetarian': {
+                    breakfast: [
+                        'Tofu scramble with vegetables',
+                        'Greek yogurt with nuts and honey',
+                        'Oatmeal with plant protein powder'
+                    ],
+                    lunch: [
+                        'Lentil curry with brown rice',
+                        'Quinoa salad with chickpeas',
+                        'Vegetable stir-fry with tofu'
+                    ],
+                    dinner: [
+                        'Black bean burgers with sweet potato',
+                        'Eggplant parmesan with whole wheat pasta',
+                        'Vegetable curry with lentils'
+                    ],
+                    snacks: [
+                        'Hummus with carrot sticks',
+                        'Protein smoothie with plant milk',
+                        'Trail mix with nuts and seeds'
+                    ]
+                },
+                'vegan': {
+                    breakfast: [
+                        'Tofu scramble with nutritional yeast',
+                        'Oatmeal with plant protein and berries',
+                        'Smoothie bowl with plant protein'
+                    ],
+                    lunch: [
+                        'Lentil and vegetable bowl',
+                        'Chickpea salad with tahini dressing',
+                        'Quinoa stir-fry with tempeh'
+                    ],
+                    dinner: [
+                        'Vegan curry with coconut milk',
+                        'Stuffed bell peppers with quinoa',
+                        'Pasta with walnut bolognese'
+                    ],
+                    snacks: [
+                        'Vegan protein shake',
+                        'Fruit with nut butter',
+                        'Roasted chickpeas'
+                    ]
+                }
+            };
+
+            const basePlan = mealPlans[diet] || mealPlans['omnivore'];
+            
+            // Filter out meals with common allergens if specified
+            if (allergies) {
+                const allergenList = allergies.toLowerCase().split(',').map(a => a.trim());
+                // Simple filtering - in real app, this would be more sophisticated
+                return basePlan;
+            }
+            
+            return basePlan;
+        }
+
+        function displayNutritionPlan(data, bmr, tdee, targetCalories, macros, mealPlan, goalDescription) {
+            const resultDiv = document.getElementById('nutritionResult');
+            const contentDiv = document.getElementById('nutritionContent');
+            
+            // Calculate BMI
+            const height = parseFloat(data.height) / 100;
+            const weight = parseFloat(data.weight);
+            const bmi = (weight / (height * height)).toFixed(1);
+            
+            // Generate meal schedule
+            let mealScheduleHTML = '<div class="meal-schedule">';
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            
+            days.forEach(day => {
+                mealScheduleHTML += `
+                    <div class="meal-day">
+                        <h4>${day}</h4>
+                        <div class="meal-item">
+                            <span class="meal-time">🌅 Breakfast</span>
+                            <span class="meal-food">${mealPlan.breakfast[Math.floor(Math.random() * mealPlan.breakfast.length)]}</span>
+                        </div>
+                        <div class="meal-item">
+                            <span class="meal-time">☀️ Lunch</span>
+                            <span class="meal-food">${mealPlan.lunch[Math.floor(Math.random() * mealPlan.lunch.length)]}</span>
+                        </div>
+                        <div class="meal-item">
+                            <span class="meal-time">🌙 Dinner</span>
+                            <span class="meal-food">${mealPlan.dinner[Math.floor(Math.random() * mealPlan.dinner.length)]}</span>
+                        </div>
+                        <div class="meal-item">
+                            <span class="meal-time">🍎 Snack</span>
+                            <span class="meal-food">${mealPlan.snacks[Math.floor(Math.random() * mealPlan.snacks.length)]}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            mealScheduleHTML += '</div>';
+
+            contentDiv.innerHTML = `
+                <div class="nutrition-header">
+                    <h3>Your Personalized Nutrition Plan</h3>
+                    <p>${goalDescription}</p>
+                </div>
+                
+                <div class="nutrition-stats">
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">BMI:</span>
+                            <span class="stat-value">${bmi}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">BMR:</span>
+                            <span class="stat-value">${Math.round(bmr)} kcal</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">TDEE:</span>
+                            <span class="stat-value">${Math.round(tdee)} kcal</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Target Calories:</span>
+                            <span class="stat-value">${Math.round(targetCalories)} kcal</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="macro-breakdown">
+                    <h4>📊 Daily Macro Targets</h4>
+                    <div class="macro-grid">
+                        <div class="macro-item">
+                            <div class="macro-icon">🥩</div>
+                            <div class="macro-info">
+                                <span class="macro-name">Protein</span>
+                                <span class="macro-amount">${macros.protein}g</span>
+                                <span class="macro-percent">${Math.round(macros.proteinRatio * 100)}%</span>
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-icon">🍞</div>
+                            <div class="macro-info">
+                                <span class="macro-name">Carbs</span>
+                                <span class="macro-amount">${macros.carbs}g</span>
+                                <span class="macro-percent">${Math.round(macros.carbRatio * 100)}%</span>
+                            </div>
+                        </div>
+                        <div class="macro-item">
+                            <div class="macro-icon">🥑</div>
+                            <div class="macro-info">
+                                <span class="macro-name">Fats</span>
+                                <span class="macro-amount">${macros.fat}g</span>
+                                <span class="macro-percent">${Math.round(macros.fatRatio * 100)}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="meal-plan-section">
+                    <h4>🍽️ Sample Meal Plan</h4>
+                    ${mealScheduleHTML}
+                </div>
+                
+                <div class="nutrition-tips">
+                    <h4>💡 Nutrition Tips</h4>
+                    <ul>
+                        <li>Drink at least 8 glasses of water per day</li>
+                        <li>Eat every 3-4 hours to maintain energy levels</li>
+                        <li>Include protein in every meal for muscle recovery</li>
+                        <li>Choose whole foods over processed options</li>
+                        <li>Listen to your hunger and fullness cues</li>
+                        <li>Plan meals ahead to stay on track</li>
+                        <li>Allow for occasional treats to maintain sustainability</li>
+                    </ul>
+                </div>
+            `;
+            
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function downloadNutritionPlan() {
+            alert('Download feature coming soon! You can screenshot your nutrition plan for now.');
+        }
+
+        function regenerateNutritionPlan() {
+            document.getElementById('nutritionResult').style.display = 'none';
+            document.getElementById('nutritionForm').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

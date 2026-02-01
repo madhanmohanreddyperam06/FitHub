@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Workout Plans - FitHub</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="icon" href="../favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+</head>
+<body>
+    <main>
+        <div class="back-button-container">
+            <a href="../index.html" class="back-button">
+                <span class="back-icon">←</span>
+                <span class="back-text">Back to Home</span>
+            </a>
+        </div>
+        <div class="personalized-plans-container">
+            <h1 class="page-title">💪 Personalized Workout Plans</h1>
+            <p class="page-description">Get custom workout routines tailored to your fitness goals, body metrics, and experience level</p>
+            
+            <div class="plan-form-container">
+                <form id="workoutPlanForm" class="workout-plan-form">
+                    <div class="form-section">
+                        <h3>📊 Personal Information</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="16" max="100" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="height">Height (cm)</label>
+                                <input type="number" id="height" name="height" min="100" max="250" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="weight">Weight (kg)</label>
+                                <input type="number" id="weight" name="weight" min="30" max="200" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>🎯 Fitness Goals</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="goal">Primary Goal</label>
+                                <select id="goal" name="goal" required>
+                                    <option value="">Select Goal</option>
+                                    <option value="weight-loss">Weight Loss</option>
+                                    <option value="muscle-gain">Muscle Gain</option>
+                                    <option value="endurance">Improve Endurance</option>
+                                    <option value="strength">Build Strength</option>
+                                    <option value="general-fitness">General Fitness</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Experience Level</label>
+                                <select id="experience" name="experience" required>
+                                    <option value="">Select Level</option>
+                                    <option value="beginner">Beginner (0-6 months)</option>
+                                    <option value="intermediate">Intermediate (6-24 months)</option>
+                                    <option value="advanced">Advanced (2+ years)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Time Available (minutes)</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Select Time</option>
+                                    <option value="20">20 minutes</option>
+                                    <option value="30">30 minutes</option>
+                                    <option value="45">45 minutes</option>
+                                    <option value="60">60 minutes</option>
+                                    <option value="90">90 minutes</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency">Days per Week</label>
+                                <select id="frequency" name="frequency" required>
+                                    <option value="">Select Frequency</option>
+                                    <option value="3">3 days</option>
+                                    <option value="4">4 days</option>
+                                    <option value="5">5 days</option>
+                                    <option value="6">6 days</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>🏋️ Equipment & Limitations</h3>
+                        <div class="form-group">
+                            <label>Available Equipment</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="equipment" value="bodyweight">
+                                    <span>Bodyweight Only</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="equipment" value="dumbbells">
+                                    <span>Dumbbells</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="equipment" value="resistance-bands">
+                                    <span>Resistance Bands</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="equipment" value="barbell">
+                                    <span>Barbell</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="equipment" value="treadmill">
+                                    <span>Treadmill</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="equipment" value="stationary-bike">
+                                    <span>Stationary Bike</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="injuries">Injuries or Limitations</label>
+                            <textarea id="injuries" name="injuries" rows="3" placeholder="e.g., Knee problems, shoulder pain, etc."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="generate-plan-btn">🚀 Generate My Workout Plan</button>
+                </form>
+            </div>
+
+            <div id="planResult" class="plan-result" style="display: none;">
+                <h2>🎯 Your Personalized Workout Plan</h2>
+                <div id="planContent"></div>
+                <div class="plan-actions">
+                    <button onclick="downloadPlan()" class="download-btn">📥 Download Plan</button>
+                    <button onclick="regeneratePlan()" class="regenerate-btn">🔄 Regenerate</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Professional Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">FitHub</h3>
+                <p class="footer-description">Your AI-powered fitness companion for personalized workout guidance and nutrition advice.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook" onclick="return openFacebook()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter" onclick="return openTwitter()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram" onclick="return openInstagram()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/workout.html">All Workouts</a></li>
+                    <li><a href="../pages/back.html">Back Workout</a></li>
+                    <li><a href="../pages/chest.html">Chest Workout</a></li>
+                    <li><a href="../pages/biceps-triceps.html">Arms Workout</a></li>
+                    <li><a href="../pages/shoulder.html">Shoulder Workout</a></li>
+                    <li><a href="../pages/leg.html">Leg Workout</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Features</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="return openChat()">AI Chatbot</a></li>
+                    <li><a href="#" onclick="return openVoiceAssistant()">Voice Assistant</a></li>
+                    <li><a href="#" onclick="return openPersonalizedPlans()">Personalized Plans</a></li>
+                    <li><a href="#" onclick="return openNutritionGuide()">Nutrition Guide</a></li>
+                    <li><a href="#" onclick="return openProgressTracking()">Progress Tracking</a></li>
+                    <li><a href="#" onclick="return openExerciseLibrary()">Exercise Library</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="return sendEmail()">support@fithub.com</a></li>
+                    <li><a href="#" onclick="return makePhoneCall()">+1 (234) 567-890</a></li>
+                    <li><a href="#" onclick="return openPrivacyPolicy()">Privacy Policy</a></li>
+                    <li><a href="#" onclick="return openTermsOfService()">Terms of Service</a></li>
+                    <li><a href="#" onclick="return openCookiePolicy()">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 FitHub. All rights reserved. Made with ❤️ for fitness enthusiasts.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" onclick="return openAccessibility()">Accessibility</a>
+                    <a href="#" onclick="return openSitemap()">Sitemap</a>
+                    <a href="#" onclick="return openFAQ()">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Workout Plan Generation Logic
+        document.getElementById('workoutPlanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            generateWorkoutPlan();
+        });
+
+        function generateWorkoutPlan() {
+            const formData = new FormData(document.getElementById('workoutPlanForm'));
+            const data = Object.fromEntries(formData.entries());
+            
+            // Calculate BMI
+            const height = parseFloat(data.height) / 100; // Convert to meters
+            const weight = parseFloat(data.weight);
+            const bmi = (weight / (height * height)).toFixed(1);
+            
+            // Get equipment
+            const equipment = formData.getAll('equipment');
+            
+            // Generate workout plan based on inputs
+            const plan = createWorkoutPlan(data, bmi, equipment);
+            
+            // Display the plan
+            displayWorkoutPlan(plan, data, bmi);
+        }
+
+        function createWorkoutPlan(data, bmi, equipment) {
+            const plans = {
+                'weight-loss': {
+                    beginner: {
+                        name: 'Beginner Weight Loss Plan',
+                        description: 'Perfect for starting your weight loss journey',
+                        schedule: generateWeightLossSchedule(data.frequency, data.time, equipment, 'beginner')
+                    },
+                    intermediate: {
+                        name: 'Intermediate Weight Loss Plan',
+                        description: 'Step up your fat burning routine',
+                        schedule: generateWeightLossSchedule(data.frequency, data.time, equipment, 'intermediate')
+                    },
+                    advanced: {
+                        name: 'Advanced Weight Loss Plan',
+                        description: 'Maximum calorie burn and conditioning',
+                        schedule: generateWeightLossSchedule(data.frequency, data.time, equipment, 'advanced')
+                    }
+                },
+                'muscle-gain': {
+                    beginner: {
+                        name: 'Beginner Muscle Building Plan',
+                        description: 'Start building lean muscle mass',
+                        schedule: generateMuscleGainSchedule(data.frequency, data.time, equipment, 'beginner')
+                    },
+                    intermediate: {
+                        name: 'Intermediate Muscle Building Plan',
+                        description: 'Accelerate muscle growth and strength',
+                        schedule: generateMuscleGainSchedule(data.frequency, data.time, equipment, 'intermediate')
+                    },
+                    advanced: {
+                        name: 'Advanced Muscle Building Plan',
+                        description: 'Maximum hypertrophy and strength gains',
+                        schedule: generateMuscleGainSchedule(data.frequency, data.time, equipment, 'advanced')
+                    }
+                },
+                'endurance': {
+                    beginner: {
+                        name: 'Beginner Endurance Plan',
+                        description: 'Build cardiovascular fitness',
+                        schedule: generateEnduranceSchedule(data.frequency, data.time, equipment, 'beginner')
+                    },
+                    intermediate: {
+                        name: 'Intermediate Endurance Plan',
+                        description: 'Improve stamina and performance',
+                        schedule: generateEnduranceSchedule(data.frequency, data.time, equipment, 'intermediate')
+                    },
+                    advanced: {
+                        name: 'Advanced Endurance Plan',
+                        description: 'Peak athletic performance',
+                        schedule: generateEnduranceSchedule(data.frequency, data.time, equipment, 'advanced')
+                    }
+                },
+                'strength': {
+                    beginner: {
+                        name: 'Beginner Strength Plan',
+                        description: 'Build foundational strength',
+                        schedule: generateStrengthSchedule(data.frequency, data.time, equipment, 'beginner')
+                    },
+                    intermediate: {
+                        name: 'Intermediate Strength Plan',
+                        description: 'Increase power and strength',
+                        schedule: generateStrengthSchedule(data.frequency, data.time, equipment, 'intermediate')
+                    },
+                    advanced: {
+                        name: 'Advanced Strength Plan',
+                        description: 'Maximum strength and power development',
+                        schedule: generateStrengthSchedule(data.frequency, data.time, equipment, 'advanced')
+                    }
+                },
+                'general-fitness': {
+                    beginner: {
+                        name: 'General Fitness Plan',
+                        description: 'Balanced approach to overall fitness',
+                        schedule: generateGeneralFitnessSchedule(data.frequency, data.time, equipment, 'beginner')
+                    },
+                    intermediate: {
+                        name: 'Enhanced Fitness Plan',
+                        description: 'Take your fitness to the next level',
+                        schedule: generateGeneralFitnessSchedule(data.frequency, data.time, equipment, 'intermediate')
+                    },
+                    advanced: {
+                        name: 'Peak Fitness Plan',
+                        description: 'Comprehensive fitness optimization',
+                        schedule: generateGeneralFitnessSchedule(data.frequency, data.time, equipment, 'advanced')
+                    }
+                }
+            };
+
+            return plans[data.goal]?.[data.experience] || plans['general-fitness'][data.experience];
+        }
+
+        function generateWeightLossSchedule(frequency, time, equipment, level) {
+            const cardioOptions = equipment.includes('treadmill') ? 'Treadmill' : 'Jumping Jacks';
+            const strengthOptions = equipment.includes('dumbbells') ? 'Dumbbell Exercises' : 'Bodyweight Strength';
+            
+            return {
+                'Monday': { type: 'Cardio', exercises: [cardioOptions + ' - ' + time + ' minutes', 'Core Work - 10 minutes'] },
+                'Tuesday': { type: 'Strength', exercises: [strengthOptions + ' - ' + (parseInt(time) - 10) + ' minutes', 'Cool Down - 10 minutes'] },
+                'Wednesday': { type: 'Active Recovery', exercises: ['Light Walking - 30 minutes', 'Stretching - 15 minutes'] },
+                'Thursday': { type: 'HIIT', exercises: ['High Intensity Intervals - 20 minutes', 'Recovery - 10 minutes'] },
+                'Friday': { type: 'Full Body', exercises: [strengthOptions + ' - ' + (parseInt(time) - 5) + ' minutes', 'Core - 5 minutes'] },
+                'Saturday': { type: 'Cardio', exercises: [cardioOptions + ' - ' + time + ' minutes', 'Flexibility - 10 minutes'] },
+                'Sunday': { type: 'Rest', exercises: ['Complete Rest Day', 'Light stretching optional'] }
+            };
+        }
+
+        function generateMuscleGainSchedule(frequency, time, equipment, level) {
+            const hasWeights = equipment.includes('dumbbells') || equipment.includes('barbell');
+            const strengthType = hasWeights ? 'Weight Training' : 'Bodyweight Strength';
+            
+            return {
+                'Monday': { type: 'Upper Body', exercises: [strengthType + ' - Chest & Triceps', time + ' minutes', '3 sets of 8-12 reps'] },
+                'Tuesday': { type: 'Lower Body', exercises: [strengthType + ' - Legs & Glutes', time + ' minutes', '3-4 sets of 8-12 reps'] },
+                'Wednesday': { type: 'Rest', exercises: ['Active Recovery', 'Light cardio optional'] },
+                'Thursday': { type: 'Upper Body', exercises: [strengthType + ' - Back & Biceps', time + ' minutes', '3 sets of 8-12 reps'] },
+                'Friday': { type: 'Lower Body', exercises: [strengthType + ' - Shoulders & Legs', time + ' minutes', '3-4 sets of 8-12 reps'] },
+                'Saturday': { type: 'Core & Cardio', exercises: ['Core Workout - 20 minutes', 'Light Cardio - 20 minutes'] },
+                'Sunday': { type: 'Rest', exercises: ['Complete Rest Day'] }
+            };
+        }
+
+        function generateEnduranceSchedule(frequency, time, equipment, level) {
+            const cardioEquipment = equipment.includes('treadmill') || equipment.includes('stationary-bike') ? 'Machine Cardio' : 'Running/Jogging';
+            
+            return {
+                'Monday': { type: 'Steady State Cardio', exercises: [cardioEquipment + ' - ' + time + ' minutes', 'Moderate intensity'] },
+                'Tuesday': { type: 'Interval Training', exercises: ['HIIT Intervals - 20 minutes', 'Recovery - 10 minutes'] },
+                'Wednesday': { type: 'Active Recovery', exercises: ['Light Cardio - 30 minutes', 'Stretching'] },
+                'Thursday': { type: 'Tempo Training', exercises: [cardioEquipment + ' - ' + (parseInt(time) - 10) + ' minutes', 'High tempo pace'] },
+                'Friday': { type: 'Long Distance', exercises: [cardioEquipment + ' - ' + (parseInt(time) + 20) + ' minutes', 'Steady pace'] },
+                'Saturday': { type: 'Cross Training', exercises: ['Different Cardio Activity', time + ' minutes'] },
+                'Sunday': { type: 'Rest', exercises: ['Complete Rest'] }
+            };
+        }
+
+        function generateStrengthSchedule(frequency, time, equipment, level) {
+            const hasWeights = equipment.includes('dumbbells') || equipment.includes('barbell');
+            const trainingType = hasWeights ? 'Weight Training' : 'Progressive Bodyweight';
+            
+            return {
+                'Monday': { type: 'Power Day', exercises: [trainingType + ' - Compound Movements', time + ' minutes', '5 sets of 3-5 reps'] },
+                'Tuesday': { type: 'Strength Day', exercises: [trainingType + ' - Heavy Lifts', time + ' minutes', '4-5 sets of 5-8 reps'] },
+                'Wednesday': { type: 'Active Recovery', exercises: ['Light Movement', 'Mobility work'] },
+                'Thursday': { type: 'Hypertrophy', exercises: [trainingType + ' - Moderate Weight', time + ' minutes', '3-4 sets of 8-12 reps'] },
+                'Friday': { type: 'Power & Strength', exercises: [trainingType + ' - Mixed Intensity', time + ' minutes', 'Varied reps and sets'] },
+                'Saturday': { type: 'Accessory Work', exercises: ['Core & Stability', (parseInt(time) - 20) + ' minutes', 'High reps'] },
+                'Sunday': { type: 'Rest', exercises: ['Complete Rest'] }
+            };
+        }
+
+        function generateGeneralFitnessSchedule(frequency, time, equipment, level) {
+            const hasCardio = equipment.includes('treadmill') || equipment.includes('stationary-bike');
+            const hasWeights = equipment.includes('dumbbells') || equipment.includes('barbell');
+            
+            return {
+                'Monday': { type: 'Full Body Strength', exercises: [hasWeights ? 'Weight Training' : 'Bodyweight', time + ' minutes', 'Full body workout'] },
+                'Tuesday': { type: 'Cardio', exercises: [hasCardio ? 'Machine Cardio' : 'Bodyweight Cardio', time + ' minutes', 'Moderate intensity'] },
+                'Wednesday': { type: 'Active Recovery', exercises: ['Light Activity', '30 minutes'] },
+                'Thursday': { type: 'Upper Body', exercises: [hasWeights ? 'Upper Body Weights' : 'Upper Body BW', time + ' minutes', 'Upper focus'] },
+                'Friday': { type: 'Lower Body', exercises: [hasWeights ? 'Lower Body Weights' : 'Lower Body BW', time + ' minutes', 'Lower focus'] },
+                'Saturday': { type: 'Flexibility & Core', exercises: ['Stretching & Core', (parseInt(time) - 20) + ' minutes', 'Mobility work'] },
+                'Sunday': { type: 'Rest', exercises: ['Rest Day', 'Light walking optional'] }
+            };
+        }
+
+        function displayWorkoutPlan(plan, data, bmi) {
+            const resultDiv = document.getElementById('planResult');
+            const contentDiv = document.getElementById('planContent');
+            
+            let scheduleHTML = '<div class="schedule-grid">';
+            for (const [day, workout] of Object.entries(plan.schedule)) {
+                scheduleHTML += '<div class="schedule-item">' +
+                    '<h4>' + day + '</h4>' +
+                    '<div class="workout-type">' + workout.type + '</div>' +
+                    '<ul class="exercise-list">';
+                
+                workout.exercises.forEach(function(ex) {
+                    scheduleHTML += '<li>' + ex + '</li>';
+                });
+                
+                scheduleHTML += '</ul></div>';
+            }
+            scheduleHTML += '</div>';
+
+            contentDiv.innerHTML = '<div class="plan-header">' +
+                '<h3>' + plan.name + '</h3>' +
+                '<p>' + plan.description + '</p>' +
+                '</div>' +
+                '<div class="user-stats">' +
+                '<div class="stat-item">' +
+                '<span class="stat-label">BMI:</span>' +
+                '<span class="stat-value">' + bmi + '</span>' +
+                '</div>' +
+                '<div class="stat-item">' +
+                '<span class="stat-label">Goal:</span>' +
+                '<span class="stat-value">' + data.goal.replace('-', ' ').toUpperCase() + '</span>' +
+                '</div>' +
+                '<div class="stat-item">' +
+                '<span class="stat-label">Level:</span>' +
+                '<span class="stat-value">' + data.experience.toUpperCase() + '</span>' +
+                '</div>' +
+                '</div>' +
+                '<div class="workout-schedule">' +
+                '<h4>📅 Weekly Schedule</h4>' +
+                scheduleHTML +
+                '</div>' +
+                '<div class="plan-tips">' +
+                '<h4>💡 Tips for Success</h4>' +
+                '<ul>' +
+                '<li>Stay hydrated - drink water before, during, and after workouts</li>' +
+                '<li>Warm up properly before each session (5-10 minutes)</li>' +
+                '<li>Focus on proper form over heavy weights</li>' +
+                '<li>Get adequate rest and recovery between sessions</li>' +
+                '<li>Listen to your body and adjust intensity as needed</li>' +
+                '<li>Track your progress and celebrate small victories</li>' +
+                '</ul>' +
+                '</div>';
+            
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function downloadPlan() {
+            // Implementation for downloading the plan
+            alert('Download feature coming soon! You can screenshot your plan for now.');
+        }
+
+        function regeneratePlan() {
+            document.getElementById('planResult').style.display = 'none';
+            document.getElementById('workoutPlanForm').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
