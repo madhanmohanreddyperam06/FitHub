@@ -22,8 +22,8 @@ body {
     width: 100%;
     min-height: 100vh;
     background-image: url("../assets/bg.jpg");
-    background-size: contain;
-    background-position: center top 80px;
+    background-size: 80% auto;
+    background-position: center top 60px;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: #000; /* Fallback color */
@@ -51,6 +51,36 @@ nav a:has(.logo) {
     margin: var(--spacing-lg) auto;
     padding: 0 var(--spacing-md);
     word-wrap: break-word;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1003;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Navigation */
@@ -1028,10 +1058,7 @@ body:not(.index-page) .meal-plan ul li::before {
 
 /* Virtual Assistant - shown only on main page */
 .virtual-assistant {
-position: fixed;
-bottom: 5%;
-left: 5%;
-z-index: 20;
+    position: fixed;
     bottom: 5%;
     left: 5%;
     z-index: 20;
@@ -1047,6 +1074,12 @@ z-index: 20;
 
 .virtual-assistant img:hover {
     transform: scale(1.1);
+}
+
+/* Ensure virtual assistant is below footer when scrolling */
+.footer {
+    position: relative;
+    z-index: 25;
 }
 
 /* Workout Images Grid */
@@ -1210,6 +1243,123 @@ z-index: 20;
     nav {
         justify-content: center;
         align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .right-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 80px var(--spacing-md) var(--spacing-md);
+        transition: right 0.3s ease;
+        z-index: 1002;
+        overflow-y: auto;
+        gap: var(--spacing-lg);
+    }
+    
+    .right-nav.active {
+        right: 0;
+    }
+    
+    .header-features {
+        width: 100%;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+    
+    .header-feature-btn {
+        width: 100%;
+        justify-content: center;
+        padding: var(--spacing-md);
+        font-size: 1rem;
+        height: auto;
+        min-width: auto;
+    }
+
+    .select-box {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        margin: 0;
+    }
+
+    .select-heading {
+        height: auto;
+        padding: var(--spacing-md);
+        font-size: 1rem;
+    }
+
+    .options {
+        max-height: none;
+        position: static;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .options.active-options {
+        display: flex;
+    }
+
+    .option:hover {
+        transform: none;
+    }
+    
+    .chatbot-container {
+        margin-top: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .chatbot-container img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .chat-box {
+        width: 95%;
+        height: 80vh;
+        right: 2.5%;
+        bottom: 5%;
+    }
+
+    .virtual-assistant {
+        position: fixed;
+        bottom: 2%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .svgs {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        width: 95%;
+        gap: var(--spacing-sm);
+    }
+
+    .logo {
+        font-size: clamp(20px, 6vw, 32px);
+        text-align: center;
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    nav {
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-sm);
     }
 }
 
@@ -1450,7 +1600,13 @@ z-index: 20;
     padding: 60px 0 0;
     margin-top: auto;
     position: relative;
-    overflow: hidden;
+    z-index: 25;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer.visible {
+    transform: translateY(0);
 }
 
 .footer::before {
@@ -1724,6 +1880,10 @@ z-index: 20;
 
 .form-section {
     margin-bottom: var(--spacing-lg);
+    background: rgba(0, 0, 0, 0.6);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .form-section h3 {
@@ -1794,7 +1954,7 @@ z-index: 20;
 }
 
 .checkbox-item:hover {
-    background: #f8f9fa;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .checkbox-item input[type="checkbox"] {
@@ -1872,7 +2032,7 @@ z-index: 20;
 
 .user-stats,
 .nutrition-stats {
-    background: #f8f9fa;
+    background: rgba(0, 0, 0, 0.6);
     padding: var(--spacing-md);
     border-radius: var(--border-radius-sm);
     margin-bottom: var(--spacing-lg);
@@ -1917,7 +2077,7 @@ z-index: 20;
 
 .schedule-item,
 .meal-day {
-    background: #f8f9fa;
+    background: rgba(0, 0, 0, 0.6);
     padding: 15px;
     border-radius: 8px;
     border-left: 4px solid #4ecdc4;
@@ -2001,7 +2161,7 @@ z-index: 20;
 }
 
 .macro-item {
-    background: #f8f9fa;
+    background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 8px;
     text-align: center;
@@ -2069,20 +2229,20 @@ z-index: 20;
 }
 
 .regenerate-btn {
-    background: #f8f9fa;
-    color: #333;
-    border: 2px solid #e1e5e9;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .regenerate-btn:hover {
-    background: #e9ecef;
+    background: rgba(0, 0, 0, 0.8);
     transform: translateY(-2px);
 }
 
 /* Tips Section */
 .plan-tips,
 .nutrition-tips {
-    background: #f8f9fa;
+    background: rgba(0, 0, 0, 0.6);
     padding: var(--spacing-md);
     border-radius: 8px;
     margin-top: var(--spacing-lg);

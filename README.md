@@ -4,8 +4,6 @@ A comprehensive, modern fitness web application featuring AI-powered chatbot ass
 
 ## 🖼️ Main Dashboard
 
-![FitHub Main Dashboard](assets/Screenshot 2026-02-01 220745.png)
-
 **The main dashboard features:**
 - Clean, modern interface with FitHub branding
 - AI-powered chatbot "Chitti🤖" for fitness assistance

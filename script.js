@@ -8,6 +8,51 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.log('Subpage detected - hiding voice assistant and chatbot');
     }
+    
+    // Hamburger menu functionality
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const rightNav = document.getElementById('rightNav');
+    
+    if (hamburgerMenu && rightNav) {
+        hamburgerMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.toggle('active');
+            rightNav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!hamburgerMenu.contains(event.target) && !rightNav.contains(event.target)) {
+                hamburgerMenu.classList.remove('active');
+                rightNav.classList.remove('active');
+            }
+        });
+    }
+    
+    // Footer scroll detection - only on main page
+    const footer = document.querySelector('.footer');
+    if (footer && document.body.classList.contains('index-page')) {
+        // Hide footer initially
+        footer.classList.remove('visible');
+        
+        // Show/hide footer based on scroll position
+        function handleFooterScroll() {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const threshold = documentHeight - 300; // Show footer when 300px from bottom
+            
+            if (scrollPosition >= threshold) {
+                footer.classList.add('visible');
+            } else {
+                footer.classList.remove('visible');
+            }
+        }
+        
+        // Check scroll position on scroll
+        window.addEventListener('scroll', handleFooterScroll);
+        
+        // Check initial scroll position
+        handleFooterScroll();
+    }
 });
 
 let select = document.querySelector(".select-heading");
