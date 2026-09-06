@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize Search and Filter logic if on exercise pages
     initExerciseSearchFilter();
+
+    // Initialize Daily Motivational Quote for every refresh
+    initDailyMotivationQuote();
 });
 
 // Startup Splash Screen Controller - Only triggers on app launch or page refresh
@@ -105,11 +108,30 @@ const fitnessQuotes = [
     "Action is the foundational key to all success.",
     "Your only limit is you. Push harder than yesterday!",
     "Success starts with self-discipline and daily consistency.",
-    "Small daily improvements over time lead to stunning results."
+    "Small daily improvements over time lead to stunning results.",
+    "The hard work you put in today will build the strength you feel tomorrow.",
+    "Don't limit your challenges. Challenge your limits.",
+    "The difference between try and triumph is just a little extra umph!",
+    "Strength does not come from physical capacity. It comes from an indomitable will.",
+    "Energy flows where attention goes. Focus on your goals!",
+    "Believe you can and you're halfway there.",
+    "Consistency is what transforms average into excellence.",
+    "You don't have to be extreme, just consistent.",
+    "Discipline is choosing between what you want now and what you want most.",
+    "Make today count. Your future self will thank you!"
 ];
 
 function getRandomFitnessQuote() {
     return fitnessQuotes[Math.floor(Math.random() * fitnessQuotes.length)];
+}
+
+function initDailyMotivationQuote() {
+    const quoteElement = document.getElementById("dailyQuoteText");
+    if (!quoteElement) return;
+
+    // Pick a random quote from the array on every page load/refresh
+    const randomIndex = Math.floor(Math.random() * fitnessQuotes.length);
+    quoteElement.innerText = `"${fitnessQuotes[randomIndex]}"`;
 }
 
 let select = document.querySelector(".select-heading");
@@ -120,30 +142,38 @@ let selectText = document.querySelector(".select-heading span");
 let selectBox = document.querySelector(".select-box");
 
 // Close dropdown when clicking outside
-document.addEventListener('click', (e) => {
-    if (!selectBox.contains(e.target)) {
-        options.classList.remove("active-options");
-        arrow.classList.remove("rotate");
-        selectBox.classList.remove("active");
-    }
-});
+if (selectBox) {
+    document.addEventListener('click', (e) => {
+        if (!selectBox.contains(e.target)) {
+            if (options) options.classList.remove("active-options");
+            if (arrow) arrow.classList.remove("rotate");
+            selectBox.classList.remove("active");
+        }
+    });
+}
 
 // Toggle dropdown
-select.addEventListener("click", (e) => {
-    e.stopPropagation();
-    options.classList.toggle("active-options");
-    arrow.classList.toggle("rotate");
-    selectBox.classList.toggle("active");
-});
+if (select) {
+    select.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (options) options.classList.toggle("active-options");
+        if (arrow) arrow.classList.toggle("rotate");
+        if (selectBox) selectBox.classList.toggle("active");
+    });
+}
 
 // Handle option selection
 optionItems.forEach((item) => {
     item.addEventListener("click", (e) => {
-        e.stopPropagation();
-        selectText.innerText = item.innerText;
-        options.classList.remove("active-options");
-        arrow.classList.remove("rotate");
-        selectBox.classList.remove("active");
+        const parentLink = item.closest("a");
+        if (parentLink && parentLink.getAttribute("href")) {
+            window.location.href = parentLink.getAttribute("href");
+        } else {
+            if (selectText) selectText.innerText = item.innerText;
+            if (options) options.classList.remove("active-options");
+            if (arrow) arrow.classList.remove("rotate");
+            if (selectBox) selectBox.classList.remove("active");
+        }
     });
 });
 
@@ -810,8 +840,54 @@ function scrollToTop() {
     return false;
 }
 
-// Auto-initialize footer links when DOM is loaded
+/* Hero Dynamic Typing Effect */
+function initHeroTypingEffect() {
+    const targetEl = document.getElementById('heroTypingText');
+    if (!targetEl) return;
+    
+    const phrases = [
+        "Personalized AI Workout Routines",
+        "Real-Time Camera Pose Tracking",
+        "Smart Macro & Nutrition Intelligence",
+        "24/7 Intelligent Assistant Chitti"
+    ];
+    
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 60;
+    
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
+        
+        if (isDeleting) {
+            targetEl.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            typeSpeed = 30;
+        } else {
+            targetEl.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            typeSpeed = 60;
+        }
+        
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            isDeleting = true;
+            typeSpeed = 2200;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typeSpeed = 350;
+        }
+        
+        setTimeout(type, typeSpeed);
+    }
+    
+    type();
+}
+
+// Auto-initialize footer links and typing effect when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    initHeroTypingEffect();
     const footerLinks = document.querySelectorAll('.footer-links a[onclick], .footer-bottom-links a[onclick]');
     footerLinks.forEach(link => {
         link.addEventListener('click', function(e) {

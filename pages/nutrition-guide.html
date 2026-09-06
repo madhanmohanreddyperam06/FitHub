@@ -41,12 +41,7 @@
             <div class="select-box">
                 <div class="select-heading"><span>More</span><img src="../assets/arrow.svg" alt="arrow"></div>
                 <div class="options">
-                    <a href="workout.html"><div class="option">All Workouts</div></a>
-                    <a href="back.html"><div class="option">Back Workout</div></a>
-                    <a href="chest.html"><div class="option">Chest Workout</div></a>
-                    <a href="biceps-triceps.html"><div class="option">Biceps & Triceps</div></a>
-                    <a href="shoulder.html"><div class="option">Shoulder Workout</div></a>
-                    <a href="leg.html"><div class="option">Leg Workout</div></a>
+                    <a href="workout.html"><div class="option">Exercise Library</div></a>
                 </div>
             </div>
         </div>
@@ -59,22 +54,25 @@
             </a>
         </div>
         <div class="nutrition-container">
-            <h1 class="page-title">🥗 Nutrition Guide</h1>
-            <p class="page-description">Personalized nutrition plans based on your fitness goals, body metrics, and dietary preferences</p>
+            <div class="hero-badge-wrap">
+                <span class="hero-status-badge"><span class="pulse-dot"></span> AI NUTRITION ENGINE V2.0</span>
+            </div>
+            <h1 class="page-title">Smart Nutrition & Macro Intelligence</h1>
+            <p class="page-description">Precision macro calculations, personalized meal timing, and dietary optimization engineered for your goals.</p>
             
             <div class="nutrition-form-container">
                 <form id="nutritionForm" class="nutrition-form">
                     <div class="form-section">
-                        <h3>📊 Personal Information</h3>
+                        <h3>Biometric Profile</h3>
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="nut-age">Age</label>
-                                <input type="number" id="nut-age" name="age" min="16" max="100" required>
+                                <input type="number" id="nut-age" name="age" min="16" max="100" placeholder="e.g. 25" required>
                             </div>
                             <div class="form-group">
                                 <label for="nut-gender">Gender</label>
                                 <select id="nut-gender" name="gender" required>
-                                    <option value="">Select</option>
+                                    <option value="">Select Gender</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
@@ -82,68 +80,68 @@
                             </div>
                             <div class="form-group">
                                 <label for="nut-height">Height (cm)</label>
-                                <input type="number" id="nut-height" name="height" min="100" max="250" required>
+                                <input type="number" id="nut-height" name="height" min="100" max="250" placeholder="e.g. 175" required>
                             </div>
                             <div class="form-group">
                                 <label for="nut-weight">Weight (kg)</label>
-                                <input type="number" id="nut-weight" name="weight" min="30" max="200" required>
+                                <input type="number" id="nut-weight" name="weight" min="30" max="200" placeholder="e.g. 70" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-section">
-                        <h3>🎯 Fitness & Lifestyle</h3>
+                        <h3>Fitness & Lifestyle</h3>
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="nut-goal">Fitness Goal</label>
                                 <select id="nut-goal" name="goal" required>
                                     <option value="">Select Goal</option>
-                                    <option value="weight-loss">Weight Loss</option>
-                                    <option value="muscle-gain">Muscle Gain</option>
-                                    <option value="maintenance">Maintenance</option>
-                                    <option value="endurance">Improve Endurance</option>
+                                    <option value="weight-loss">Weight Loss & Fat Reduction</option>
+                                    <option value="muscle-gain">Muscle Hypertrophy & Bulk</option>
+                                    <option value="maintenance">Weight Maintenance & Lean</option>
+                                    <option value="endurance">Athletic Endurance</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="nut-activity">Activity Level</label>
                                 <select id="nut-activity" name="activity" required>
                                     <option value="">Select Activity</option>
-                                    <option value="sedentary">Sedentary (little/no exercise)</option>
-                                    <option value="light">Light (1-3 days/week)</option>
-                                    <option value="moderate">Moderate (3-5 days/week)</option>
-                                    <option value="active">Active (6-7 days/week)</option>
-                                    <option value="very-active">Very Active (twice/day)</option>
+                                    <option value="sedentary">Sedentary (desk job, minimal movement)</option>
+                                    <option value="light">Light Activity (1-3 workout days)</option>
+                                    <option value="moderate">Moderate Activity (3-5 workout days)</option>
+                                    <option value="active">Active (6-7 workout days)</option>
+                                    <option value="very-active">Athlete / Physical Labor</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="nut-diet">Dietary Preference</label>
                                 <select id="nut-diet" name="diet" required>
-                                    <option value="">Select Diet</option>
-                                    <option value="omnivore">Omnivore</option>
-                                    <option value="vegetarian">Vegetarian</option>
-                                    <option value="vegan">Vegan</option>
-                                    <option value="keto">Keto</option>
+                                    <option value="">Select Diet Type</option>
+                                    <option value="omnivore">Standard / Omnivore</option>
+                                    <option value="vegetarian">High-Protein Vegetarian</option>
+                                    <option value="vegan">Plant-Based / Vegan</option>
+                                    <option value="keto">Ketogenic (Low Carb)</option>
                                     <option value="paleo">Paleo</option>
                                     <option value="mediterranean">Mediterranean</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="nut-allergies">Food Allergies</label>
-                                <input type="text" id="nut-allergies" name="allergies" placeholder="e.g., nuts, dairy, gluten">
+                                <label for="nut-allergies">Food Intolerances / Restrictions</label>
+                                <input type="text" id="nut-allergies" name="allergies" placeholder="e.g., Peanuts, Dairy, Gluten...">
                             </div>
                         </div>
                     </div>
 
-                    <button type="submit" class="calculate-nutrition-btn">🧮 Calculate My Nutrition Plan</button>
+                    <button type="submit" class="submit-btn calculate-nutrition-btn">Generate Nutrition Plan ➔</button>
                 </form>
             </div>
 
             <div id="nutritionResult" class="nutrition-result" style="display: none;">
-                <h2>🎯 Your Personalized Nutrition Plan</h2>
+                <h2>Your Personalized Nutrition Plan</h2>
                 <div id="nutritionContent"></div>
                 <div class="nutrition-actions">
-                    <button onclick="downloadNutritionPlan()" class="download-btn">📥 Download Plan</button>
-                    <button onclick="regenerateNutritionPlan()" class="regenerate-btn">🔄 Recalculate</button>
+                    <button onclick="downloadNutritionPlan()" class="download-btn">Download PDF Plan</button>
+                    <button onclick="regenerateNutritionPlan()" class="regenerate-btn">Recalculate Macros</button>
                 </div>
             </div>
         </div>

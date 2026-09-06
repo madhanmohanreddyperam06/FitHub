@@ -41,12 +41,7 @@
             <div class="select-box">
                 <div class="select-heading"><span>More</span><img src="../assets/arrow.svg" alt="arrow"></div>
                 <div class="options">
-                    <a href="workout.html"><div class="option">All Workouts</div></a>
-                    <a href="back.html"><div class="option">Back Workout</div></a>
-                    <a href="chest.html"><div class="option">Chest Workout</div></a>
-                    <a href="biceps-triceps.html"><div class="option">Biceps & Triceps</div></a>
-                    <a href="shoulder.html"><div class="option">Shoulder Workout</div></a>
-                    <a href="leg.html"><div class="option">Leg Workout</div></a>
+                    <a href="workout.html"><div class="option">Exercise Library</div></a>
                 </div>
             </div>
         </div>
@@ -59,22 +54,25 @@
             </a>
         </div>
         <div class="personalized-plans-container">
-            <h1 class="page-title">💪 Personalized Workout Plans</h1>
-            <p class="page-description">Get custom workout routines tailored to your fitness goals, body metrics, and experience level</p>
+            <div class="hero-badge-wrap">
+                <span class="hero-status-badge"><span class="pulse-dot"></span> AI PLAN GENERATOR V2.0</span>
+            </div>
+            <h1 class="page-title">Personalized Workout Generator</h1>
+            <p class="page-description">Advanced AI algorithm tailors an optimized workout regime based on your biometrics, target goals, and training experience.</p>
             
             <div class="plan-form-container">
                 <form id="workoutPlanForm" class="workout-plan-form">
                     <div class="form-section">
-                        <h3>📊 Personal Information</h3>
+                        <h3>Biometric Profile</h3>
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="age">Age</label>
-                                <input type="number" id="age" name="age" min="16" max="100" required>
+                                <input type="number" id="age" name="age" min="16" max="100" placeholder="e.g. 25" required>
                             </div>
                             <div class="form-group">
                                 <label for="gender">Gender</label>
                                 <select id="gender" name="gender" required>
-                                    <option value="">Select</option>
+                                    <option value="">Select Gender</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
@@ -82,27 +80,27 @@
                             </div>
                             <div class="form-group">
                                 <label for="height">Height (cm)</label>
-                                <input type="number" id="height" name="height" min="100" max="250" required>
+                                <input type="number" id="height" name="height" min="100" max="250" placeholder="e.g. 175" required>
                             </div>
                             <div class="form-group">
                                 <label for="weight">Weight (kg)</label>
-                                <input type="number" id="weight" name="weight" min="30" max="200" required>
+                                <input type="number" id="weight" name="weight" min="30" max="200" placeholder="e.g. 70" required>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-section">
-                        <h3>🎯 Fitness Goals</h3>
+                        <h3>Training Objectives</h3>
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="goal">Primary Goal</label>
                                 <select id="goal" name="goal" required>
                                     <option value="">Select Goal</option>
-                                    <option value="weight-loss">Weight Loss</option>
-                                    <option value="muscle-gain">Muscle Gain</option>
-                                    <option value="endurance">Improve Endurance</option>
-                                    <option value="strength">Build Strength</option>
-                                    <option value="general-fitness">General Fitness</option>
+                                    <option value="weight-loss">Weight Loss & Shred</option>
+                                    <option value="muscle-gain">Muscle Hypertrophy</option>
+                                    <option value="endurance">Endurance & Stamina</option>
+                                    <option value="strength">Maximum Strength</option>
+                                    <option value="general-fitness">General Functional Fitness</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -115,31 +113,31 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="time">Time Available (minutes)</label>
+                                <label for="time">Session Duration</label>
                                 <select id="time" name="time" required>
-                                    <option value="">Select Time</option>
-                                    <option value="20">20 minutes</option>
+                                    <option value="">Select Duration</option>
+                                    <option value="20">20 minutes (Quick HIIT)</option>
                                     <option value="30">30 minutes</option>
                                     <option value="45">45 minutes</option>
-                                    <option value="60">60 minutes</option>
-                                    <option value="90">90 minutes</option>
+                                    <option value="60">60 minutes (Standard)</option>
+                                    <option value="90">90 minutes (Intensive)</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="frequency">Days per Week</label>
+                                <label for="frequency">Frequency (Days / Week)</label>
                                 <select id="frequency" name="frequency" required>
                                     <option value="">Select Frequency</option>
-                                    <option value="3">3 days</option>
-                                    <option value="4">4 days</option>
-                                    <option value="5">5 days</option>
-                                    <option value="6">6 days</option>
+                                    <option value="3">3 Days / Week</option>
+                                    <option value="4">4 Days / Week</option>
+                                    <option value="5">5 Days / Week</option>
+                                    <option value="6">6 Days / Week</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-section">
-                        <h3>🏋️ Equipment & Limitations</h3>
+                        <h3>Equipment & Limitations</h3>
                         <div class="form-group">
                             <label>Available Equipment</label>
                             <div class="checkbox-group">
@@ -157,25 +155,25 @@
                                 </label>
                                 <label class="checkbox-item">
                                     <input type="checkbox" name="equipment" value="barbell">
-                                    <span>Barbell</span>
+                                    <span>Barbell & Plates</span>
                                 </label>
                                 <label class="checkbox-item">
                                     <input type="checkbox" name="equipment" value="treadmill">
-                                    <span>Treadmill</span>
+                                    <span>Treadmill / Cardio</span>
                                 </label>
                                 <label class="checkbox-item">
                                     <input type="checkbox" name="equipment" value="stationary-bike">
-                                    <span>Stationary Bike</span>
+                                    <span>Gym Machines</span>
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="injuries">Injuries or Limitations</label>
-                            <textarea id="injuries" name="injuries" rows="3" placeholder="e.g., Knee problems, shoulder pain, etc."></textarea>
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label for="injuries">Medical / Injury Notes</label>
+                            <textarea id="injuries" name="injuries" rows="2" placeholder="Note any joint pain, past injuries, or physical restrictions..."></textarea>
                         </div>
                     </div>
 
-                    <button type="submit" class="generate-plan-btn">🚀 Generate My Workout Plan</button>
+                    <button type="submit" class="submit-btn generate-plan-btn">Generate Personalized Plan ➔</button>
                 </form>
             </div>
 
