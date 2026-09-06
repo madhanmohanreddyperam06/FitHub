@@ -64,18 +64,19 @@ canvas#pose-canvas {
   position: absolute;
   top: 12px;
   left: 12px;
-  background: rgba(13, 15, 18, 0.8);
-  border: 1px solid rgba(78, 205, 196, 0.4);
-  color: #4ecdc4;
-  padding: 4px 12px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .trainer-controls-panel {
-  background: rgba(22, 27, 34, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(18, 18, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   padding: 24px;
   backdrop-filter: blur(16px);
@@ -85,8 +86,8 @@ canvas#pose-canvas {
 }
 
 .rep-counter-box {
-  background: linear-gradient(135deg, rgba(78, 205, 196, 0.15) 0%, rgba(255, 107, 107, 0.15) 100%);
-  border: 1px solid rgba(78, 205, 196, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
   padding: 20px;
   text-align: center;
@@ -96,14 +97,14 @@ canvas#pose-canvas {
   display: block;
   font-size: 0.8rem;
   font-weight: 800;
-  color: #8b949e;
+  color: rgba(255, 255, 255, 0.7);
   letter-spacing: 1px;
 }
 
 .rep-count {
   font-size: 4rem;
   font-weight: 900;
-  color: #4ecdc4;
+  color: #ffffff;
   line-height: 1;
 }
 

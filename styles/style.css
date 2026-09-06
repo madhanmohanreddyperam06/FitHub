@@ -880,7 +880,7 @@ body:not(.index-page) .exercise-list li {
 
 body:not(.index-page) .exercise-list li::before {
     content: '•';
-    color: #4ecdc4;
+    color: #ffffff;
     position: absolute;
     left: 0;
     font-size: 1.2rem;
@@ -889,31 +889,26 @@ body:not(.index-page) .exercise-list li::before {
 
 /* Enhanced plan tips for personalized plans */
 body:not(.index-page) .plan-tips {
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--border-radius-sm);
-    padding: var(--spacing-lg);
-    margin-top: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 24px;
     position: relative;
     z-index: 2;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 body:not(.index-page) .plan-tips h4 {
     color: #ffffff;
-    margin-bottom: var(--spacing-md);
-    font-weight: 600;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    font-size: 1.2rem;
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-}
-
-body:not(.index-page) .plan-tips h4::before {
-    content: '💡';
-    font-size: 1.3rem;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 body:not(.index-page) .plan-tips ul {
@@ -2273,26 +2268,36 @@ body:not(.index-page) .meal-plan ul li::before {
 .macro-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
+    gap: 16px;
 }
 
 .macro-item {
-    background: #0c0c0c;
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 14px;
-    border-radius: 8px;
+    padding: 18px 14px;
+    border-radius: 14px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .macro-item:hover {
-    transform: translateY(-2px);
-    border-color: #ffffff;
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.07);
 }
 
-.macro-icon {
-    font-size: 1.6rem;
-    margin-bottom: 6px;
+.macro-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .macro-name {
@@ -2305,8 +2310,8 @@ body:not(.index-page) .meal-plan ul li::before {
 
 .macro-amount {
     display: block;
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: 800;
     color: #ffffff;
     margin-bottom: 4px;
 }
@@ -2314,7 +2319,7 @@ body:not(.index-page) .meal-plan ul li::before {
 .macro-percent {
     display: block;
     font-size: 0.8rem;
-    color: #aaaaaa;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* Plan Actions */
@@ -3103,8 +3108,8 @@ body:not(.index-page) .meal-plan ul li::before {
 .splash-logo {
     font-size: 3rem;
     font-weight: 900;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-transform: none;
     color: #ffffff;
     text-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.2);
     margin: 0;

@@ -33,12 +33,12 @@ async function setupWebcam() {
     webcam.srcObject = stream;
     return new Promise((resolve) => {
       webcam.onloadedmetadata = () => {
-        if (camStatus) camStatus.innerText = "● AI Camera Active";
+        if (camStatus) camStatus.innerText = "AI Camera Active";
         resolve(webcam);
       };
     });
   } catch (err) {
-    if (camStatus) camStatus.innerText = "❌ Camera Access Denied";
+    if (camStatus) camStatus.innerText = "Camera Access Denied";
     console.error("Camera access error:", err);
   }
 }
@@ -81,7 +81,7 @@ function drawPose(pose) {
   }
 
   // Draw Skeleton Lines
-  ctx.strokeStyle = '#4ecdc4';
+  ctx.strokeStyle = '#ffffff';
   ctx.lineWidth = 3;
   for (let [p1Name, p2Name] of skeletonPairs) {
     const p1 = keypointMap[p1Name];
@@ -99,7 +99,7 @@ function drawPose(pose) {
     if (kp.score > 0.35) {
       ctx.beginPath();
       ctx.arc(kp.x, kp.y, 6, 0, 2 * Math.PI);
-      ctx.fillStyle = '#ff6b6b';
+      ctx.fillStyle = '#ffffff';
       ctx.fill();
     }
   }
@@ -122,12 +122,12 @@ function analyzeExerciseForm(pose) {
     
     if (hipKneeDistance < 60 && !isDown) {
       isDown = true;
-      if (feedbackEl) feedbackEl.innerText = "🟢 Good Squat Depth!";
+      if (feedbackEl) feedbackEl.innerText = "Good Squat Depth!";
     } else if (hipKneeDistance > 110 && isDown) {
       isDown = false;
       repCount++;
       if (repCountEl) repCountEl.innerText = repCount;
-      if (feedbackEl) feedbackEl.innerText = "💪 Rep Counted! Great job!";
+      if (feedbackEl) feedbackEl.innerText = "Rep Counted! Great job!";
     }
   }
 }
