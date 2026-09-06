@@ -1,24 +1,168 @@
-body {
-  font-family: Arial;
-  background: #111;
-  color: #fff;
+.ai-trainer-body {
+  background-color: #000000;
+  color: #f0f6fc;
+  min-height: 100vh;
+}
+
+.trainer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.trainer-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.trainer-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.trainer-header p {
+  color: #8b949e;
+}
+
+.trainer-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 4 / 3;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+video#webcam {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+canvas#pose-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+  pointer-events: none;
+}
+
+.cam-overlay-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(13, 15, 18, 0.8);
+  border: 1px solid rgba(78, 205, 196, 0.4);
+  color: #4ecdc4;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.trainer-controls-panel {
+  background: rgba(22, 27, 34, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.rep-counter-box {
+  background: linear-gradient(135deg, rgba(78, 205, 196, 0.15) 0%, rgba(255, 107, 107, 0.15) 100%);
+  border: 1px solid rgba(78, 205, 196, 0.3);
+  border-radius: 16px;
+  padding: 20px;
   text-align: center;
 }
 
-video, canvas {
-  border: 2px solid #fff;
-  margin-top: 10px;
+.rep-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #8b949e;
+  letter-spacing: 1px;
 }
 
-.controls {
-  margin-top: 20px;
+.rep-count {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #4ecdc4;
+  line-height: 1;
 }
 
-button {
-  margin: 10px;
-  padding: 10px 20px;
-  background: #0f0;
-  border: none;
-  color: black;
-  cursor: pointer;
+.form-feedback-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #ffffff;
 }
+
+.exercise-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exercise-selector select {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.action-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.quick-query input {
+  width: 100%;
+  max-width: 320px;
+  padding: 6px 12px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  outline: none;
+  font-size: 0.88rem;
+}
+
+.exercise-selector select {
+  max-width: 320px;
+  height: 38px;
+  padding: 6px 12px;
+  font-size: 0.88rem;
+}
+
+.action-btns button {
+  padding: 7px 14px;
+  font-size: 0.85rem;
+  height: 36px;
+  border-radius: 8px;
+}
+

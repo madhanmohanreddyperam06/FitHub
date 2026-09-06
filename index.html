@@ -11,8 +11,42 @@
     <link rel="manifest" href="site.webmanifest">
 </head>
 <body>
+    <!-- Ultra-Stylish Animated Startup Landing Splash Screen -->
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-bg"></div>
+        <div class="splash-glow-orb"></div>
+        <div class="splash-content">
+            <div class="splash-logo-wrapper">
+                <h1 class="splash-logo">FitHub</h1>
+            </div>
+            <p class="splash-tagline">Train <span class="dot">•</span> Transform <span class="dot">•</span> Thrive</p>
+            
+            <div class="splash-cyber-loader">
+                <div class="splash-ring-spinner">
+                    <div class="ring-outer"></div>
+                    <div class="ring-inner"></div>
+                </div>
+                <div class="splash-counter" id="splashCounter">0%</div>
+            </div>
+
+            <div class="splash-loader-bar-track">
+                <div class="splash-progress-bar" id="splashProgressBar"></div>
+            </div>
+
+            <div class="splash-status" id="splashStatus">Initializing Engine...</div>
+        </div>
+    </div>
+    <div class="mobile-top-bar">
+        <a href="index.html" class="logo-container">
+            <img src="assets/FitHub.png" alt="FitHub Logo" class="logo-img">
+            <span class="logo-text">FitHub</span>
+        </a>
+    </div>
     <nav>
-        <a href="index.html"><h1 class="logo">FitHub</h1></a>
+        <a href="index.html" class="logo-container desktop-logo">
+            <img src="assets/FitHub.png" alt="FitHub Logo" class="logo-img">
+            <span class="logo-text">FitHub</span>
+        </a>
         <div class="hamburger-menu" id="hamburgerMenu">
             <span></span>
             <span></span>
@@ -20,76 +54,162 @@
         </div>
         <div class="right-nav" id="rightNav">
             <div class="header-features">
-                <a href="pages/personalized-plans.html" class="header-feature-btn">
-                    <span class="feature-text">Personalized Plans</span>
-                </a>
-                <a href="pages/nutrition-guide.html" class="header-feature-btn">
-                    <span class="feature-text">Nutrition Guide</span>
-                </a>
+                <a href="index.html" class="header-feature-btn"><span class="feature-text">Home</span></a>
+                <a href="pages/personalized-plans.html" class="header-feature-btn"><span class="feature-text">Personalized Plan</span></a>
+                <a href="pages/nutrition-guide.html" class="header-feature-btn"><span class="feature-text">Nutrition Guide</span></a>
+                <a href="ai_features/ai.html" class="header-feature-btn"><span class="feature-text">AI Pose Trainer</span></a>
+            </div>
+            <div class="chatbot-container" title="Open Chitti AI Chatbot">
+                <img src="assets/chatbot.svg" alt="Chatbot" id="chatbotimg">
+                <span class="chitti-nav-label">Chitti</span>
             </div>
             <div class="select-box">
                 <div class="select-heading">
-                    <span>All Workout</span>
-                    <img src="assets/arrow.svg" alt="img">
+                    <span>More</span>
+                    <img src="assets/arrow.svg" alt="arrow">
                 </div>
                 <div class="options">
-                    <a href="pages/workout.html"><div class="option">All Workout</div></a>
+                    <a href="pages/workout.html"><div class="option">All Workouts</div></a>
                     <a href="pages/back.html"><div class="option">Back Workout</div></a>
                     <a href="pages/chest.html"><div class="option">Chest Workout</div></a>
                     <a href="pages/biceps-triceps.html"><div class="option">Biceps & Triceps</div></a>
-                    <a href="pages/shoulder.html"><div class="option">Shoulder</div></a>
+                    <a href="pages/shoulder.html"><div class="option">Shoulder Workout</div></a>
                     <a href="pages/leg.html"><div class="option">Leg Workout</div></a>
                 </div>
-            </div>
-            <div class="chatbot-container">
-                <img src="assets/chatbot.svg" alt="img" id="chatbotimg">
             </div>
         </div>
     </nav>
     <main>
-        <h1 class="bgtext"></h1>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">🤖 AI-Powered Fitness Companion</div>
+            <h1 class="hero-title">Transform Your Fitness With <span>AI Intelligence</span></h1>
+            <p class="hero-subtitle">Custom workout plans, real-time posture coaching, scientific nutrition guidance, and your 24/7 AI fitness assistant Chitti.</p>
+            <div class="hero-ctas">
+                <a href="pages/personalized-plans.html" class="cta-btn cta-btn-primary">🚀 Generate AI Workout Plan</a>
+                <a href="pages/workout.html" class="cta-btn cta-btn-secondary">🏋️ Browse Exercise Library</a>
+                <a href="ai_features/ai.html" class="cta-btn cta-btn-secondary">📹 Real-Time AI Pose Trainer</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-num">30+</div>
+                    <div class="stat-label">Animated Exercises</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Personalized Plans</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-num">24/7</div>
+                    <div class="stat-label">AI Fitness Assistance</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Motivational Quote -->
+        <div class="daily-tip-card">
+            <div class="tip-icon">💡</div>
+            <div class="tip-content">
+                <h4>Daily Fitness Motivation</h4>
+                <p id="dailyQuoteText">"The body achieves what the mind believes."</p>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <section class="features-section">
+            <div class="section-header">
+                <h2 class="section-title">Everything You Need to Succeed</h2>
+                <p class="section-desc">Comprehensive tools designed to optimize your training and nutrition journey.</p>
+            </div>
+            <div class="feature-cards-grid">
+                <a href="pages/personalized-plans.html" class="feature-card">
+                    <div class="card-icon">💪</div>
+                    <h3 class="card-title">Personalized Plans</h3>
+                    <p class="card-desc">Custom workout routines tailored to your age, goal, experience level, available equipment, and weekly schedule.</p>
+                    <span class="card-link">Create Plan &rarr;</span>
+                </a>
+                <a href="pages/nutrition-guide.html" class="feature-card">
+                    <div class="card-icon">🥗</div>
+                    <h3 class="card-title">Nutrition Calculator</h3>
+                    <p class="card-desc">Calculate BMR, TDEE, macronutrient splits (Protein/Carbs/Fats), custom meal recipes, and water intake tracker.</p>
+                    <span class="card-link">Calculate Nutrition &rarr;</span>
+                </a>
+                <a href="pages/workout.html" class="feature-card">
+                    <div class="card-icon">🏋️</div>
+                    <h3 class="card-title">Exercise Library</h3>
+                    <p class="card-desc">Comprehensive exercise demonstrations with targeted muscle details, instructions, sets/reps, and rest timer.</p>
+                    <span class="card-link">Explore Exercises &rarr;</span>
+                </a>
+                <a href="ai_features/ai.html" class="feature-card">
+                    <div class="card-icon">📹</div>
+                    <h3 class="card-title">AI Pose Trainer</h3>
+                    <p class="card-desc">TensorFlow.js pose estimation through your webcam for real-time rep counting and posture alignment feedback.</p>
+                    <span class="card-link">Launch Trainer &rarr;</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Chatbot Drawer -->
         <div class="chat-box">
             <div class="chat-header">
-                <div class="h1">chitti🤖</div>
+                <div class="h1">Chitti 🤖</div>
                 <button class="refresh-btn" id="refreshChat" title="Refresh Chat">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
                     </svg>
                 </button>
             </div>
-            <div class="chat-container">
-                
+            <div class="chat-container"></div>
+            <div class="input-area">
+                <input type="text" class="prompt" placeholder="Ask Chitti anything about fitness...">
+                <button class="send-btn" title="Send Message"><img src="assets/btn.svg" alt="Send"></button>
             </div>
-           <div class="input-area">
-                <input type="text" class="prompt" placeholder="ask anything......">
-                <button class="send-btn"><img src="assets/btn.svg" alt="Send"></button>
-           </div>
         </div>
 
-        <div class="virtual-assistant">
-            <img src="assets/ai.png" alt="img" width="120px">
+        <div class="virtual-assistant" title="Activate Voice Assistant">
+            <img src="assets/ai.png" alt="Voice Assistant" width="100px">
         </div>
     </main>
     
-    <!-- Professional Footer -->
+    <!-- Professional Dark-Theme Footer -->
     <footer class="footer">
+        <div class="footer-top-banner">
+            <div class="footer-banner-container">
+                <div class="footer-banner-info">
+                    <span class="status-badge"><span class="pulse-dot"></span> AI Pose Engine & Systems Operational</span>
+                    <h2>Train Smarter with FitHub AI</h2>
+                    <p>Elevate your fitness journey with real-time pose tracking, personalized workout regimes, and intelligent nutrition coaching.</p>
+                </div>
+                <div class="footer-subscribe-box">
+                    <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to FitHub updates!');">
+                        <input type="email" placeholder="Enter your email address" required aria-label="Email Address">
+                        <button type="submit" class="btn-subscribe">Subscribe</button>
+                    </form>
+                    <span class="subscribe-subtext">Join 10,000+ fitness enthusiasts. No spam, ever.</span>
+                </div>
+            </div>
+        </div>
+
         <div class="footer-content">
-            <div class="footer-section">
-                <h3 class="footer-title">FitHub</h3>
-                <p class="footer-description">Your AI-powered fitness companion for personalized workout guidance and nutrition advice.</p>
+            <div class="footer-section brand-section">
+                <div class="footer-logo">
+                    <span class="logo-text">FitHub</span>
+                    <span class="logo-badge">AI</span>
+                </div>
+                <p class="footer-description">Your premier AI-powered fitness ecosystem designed for high-performance training, intelligent pose estimation, and personalized wellness.</p>
                 <div class="social-links">
                     <a href="#" class="social-link" aria-label="Facebook" onclick="return openFacebook()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                         </svg>
                     </a>
                     <a href="#" class="social-link" aria-label="Twitter" onclick="return openTwitter()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                         </svg>
                     </a>
                     <a href="#" class="social-link" aria-label="Instagram" onclick="return openInstagram()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
                         </svg>
                     </a>
@@ -97,33 +217,34 @@
             </div>
             
             <div class="footer-section">
-                <h3 class="footer-title">Quick Links</h3>
+                <h3 class="footer-title">Workouts</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
                     <li><a href="pages/workout.html">All Workouts</a></li>
-                    <li><a href="pages/back.html">Back Workout</a></li>
-                    <li><a href="pages/chest.html">Chest Workout</a></li>
-                    <li><a href="pages/biceps-triceps.html">Arms Workout</a></li>
-                    <li><a href="pages/shoulder.html">Shoulder Workout</a></li>
-                    <li><a href="pages/leg.html">Leg Workout</a></li>
+                    <li><a href="pages/chest.html">Chest Training</a></li>
+                    <li><a href="pages/back.html">Back & Lats</a></li>
+                    <li><a href="pages/biceps-triceps.html">Biceps & Triceps</a></li>
+                    <li><a href="pages/shoulder.html">Shoulder Focus</a></li>
+                    <li><a href="pages/leg.html">Leg & Lower Body</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3 class="footer-title">Features</h3>
+                <h3 class="footer-title">AI Features</h3>
                 <ul class="footer-links">
-                    <li><a href="#" onclick="return openChat()">AI Chatbot</a></li>
-                    <li><a href="#" onclick="return openVoiceAssistant()">Voice Assistant</a></li>
+                    <li><a href="ai_features/ai.html">AI Pose Trainer</a></li>
+                    <li><a href="#" onclick="return openChat()">Chitti AI Assistant</a></li>
                     <li><a href="pages/personalized-plans.html">Personalized Plans</a></li>
                     <li><a href="pages/nutrition-guide.html">Nutrition Guide</a></li>
+                    <li><a href="#" onclick="return openVoiceAssistant()">Voice Command AI</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3 class="footer-title">Contact</h3>
+                <h3 class="footer-title">Support & Legal</h3>
                 <ul class="footer-links">
                     <li><a href="#" onclick="return sendEmail()">support@fithub.com</a></li>
                     <li><a href="#" onclick="return makePhoneCall()">+91 9110395993</a></li>
+                    <li><a href="#" onclick="return openFAQ()">Help & FAQ</a></li>
                     <li><a href="#" onclick="return openPrivacyPolicy()">Privacy Policy</a></li>
                     <li><a href="#" onclick="return openTermsOfService()">Terms of Service</a></li>
                     <li><a href="#" onclick="return openCookiePolicy()">Cookie Policy</a></li>
@@ -133,11 +254,13 @@
         
         <div class="footer-bottom">
             <div class="footer-bottom-content">
-                <p>&copy; 2024 Madhan Mohan Reddy Peram. All rights reserved</p>
+                <p>&copy; 2024 FitHub AI. Built by Madhan Mohan Reddy Peram. All rights reserved.</p>
                 <div class="footer-bottom-links">
                     <a href="#" onclick="return openAccessibility()">Accessibility</a>
                     <a href="#" onclick="return openSitemap()">Sitemap</a>
-                    <a href="#" onclick="return openFAQ()">FAQ</a>
+                    <button class="back-to-top" onclick="return scrollToTop()" aria-label="Back to top">
+                        ↑ Top
+                    </button>
                 </div>
             </div>
         </div>

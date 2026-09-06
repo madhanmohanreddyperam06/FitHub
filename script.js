@@ -1,15 +1,18 @@
-// Detect if we're on the main page and add appropriate class
+// Detect page and initialize UI enhancements
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if current page is index.html (main page)
     const currentPage = window.location.pathname.split('/').pop();
     if (currentPage === 'index.html' || currentPage === '' || currentPage === '/') {
         document.body.classList.add('index-page');
-        console.log('Main page detected - showing voice assistant and chatbot');
-    } else {
-        console.log('Subpage detected - hiding voice assistant and chatbot');
     }
+
+    // Startup Splash Screen Animation
+    initSplashScreen();
     
-    // Hamburger menu functionality
+    // Enforce dark theme
+    document.body.classList.remove('light-theme');
+    localStorage.removeItem('fithub_theme');
+
+    // Hamburger Menu
     const hamburgerMenu = document.getElementById('hamburgerMenu');
     const rightNav = document.getElementById('rightNav');
     
@@ -19,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             rightNav.classList.toggle('active');
         });
         
-        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!hamburgerMenu.contains(event.target) && !rightNav.contains(event.target)) {
                 hamburgerMenu.classList.remove('active');
@@ -27,33 +29,88 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // Footer scroll detection - only on main page
-    const footer = document.querySelector('.footer');
-    if (footer && document.body.classList.contains('index-page')) {
-        // Hide footer initially
-        footer.classList.remove('visible');
-        
-        // Show/hide footer based on scroll position
-        function handleFooterScroll() {
-            const scrollPosition = window.scrollY + window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const threshold = documentHeight - 300; // Show footer when 300px from bottom
-            
-            if (scrollPosition >= threshold) {
-                footer.classList.add('visible');
-            } else {
-                footer.classList.remove('visible');
-            }
-        }
-        
-        // Check scroll position on scroll
-        window.addEventListener('scroll', handleFooterScroll);
-        
-        // Check initial scroll position
-        handleFooterScroll();
-    }
+
+    // Initialize Chatbot Prompt Suggestion Chips
+    initChatPromptPills();
+
+    // Initialize Search and Filter logic if on exercise pages
+    initExerciseSearchFilter();
 });
+
+// Startup Splash Screen Controller - Only triggers on app launch or page refresh
+function initSplashScreen() {
+    const splashScreen = document.getElementById('splashScreen');
+    if (!splashScreen) return;
+
+    // Detect browser reload vs internal navigation
+    const navEntries = performance.getEntriesByType && performance.getEntriesByType('navigation');
+    const isReload = (navEntries && navEntries.length > 0 && navEntries[0].type === 'reload') || 
+                     (window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+    const hasSeenSplash = sessionStorage.getItem('fithub_splash_seen');
+
+    // If internal navigation (not page refresh) and already seen in session, hide immediately
+    if (hasSeenSplash && !isReload) {
+        splashScreen.style.display = 'none';
+        return;
+    }
+
+    // Mark splash as seen for current session
+    sessionStorage.setItem('fithub_splash_seen', 'true');
+
+    const progressBar = document.getElementById('splashProgressBar');
+    const splashCounter = document.getElementById('splashCounter');
+    const splashStatus = document.getElementById('splashStatus');
+
+    let progress = 0;
+    const statusMessages = [
+        "Initializing Engine...",
+        "Loading AI Models...",
+        "Structuring Workouts...",
+        "Finalizing Nutrition...",
+        "Ready to Train!"
+    ];
+
+    const interval = setInterval(() => {
+        progress += 1;
+        if (progressBar) {
+            progressBar.style.width = Math.min(progress, 100) + '%';
+        }
+        if (splashCounter) {
+            splashCounter.innerText = Math.min(progress, 100) + '%';
+        }
+        if (splashStatus) {
+            if (progress < 25) splashStatus.innerText = statusMessages[0];
+            else if (progress < 50) splashStatus.innerText = statusMessages[1];
+            else if (progress < 75) splashStatus.innerText = statusMessages[2];
+            else if (progress < 95) splashStatus.innerText = statusMessages[3];
+            else splashStatus.innerText = statusMessages[4];
+        }
+
+        if (progress >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                splashScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                }, 800);
+            }, 500);
+        }
+    }, 28);
+}
+
+
+// Daily Motivational Quotes
+const fitnessQuotes = [
+    "The body achieves what the mind believes.",
+    "Action is the foundational key to all success.",
+    "Your only limit is you. Push harder than yesterday!",
+    "Success starts with self-discipline and daily consistency.",
+    "Small daily improvements over time lead to stunning results."
+];
+
+function getRandomFitnessQuote() {
+    return fitnessQuotes[Math.floor(Math.random() * fitnessQuotes.length)];
+}
 
 let select = document.querySelector(".select-heading");
 let arrow = document.querySelector(".select-heading img");
@@ -576,16 +633,18 @@ function createModal() {
         
         .modal-container {
             position: relative;
-            background: white;
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 12px;
             max-width: 500px;
             width: 90%;
             max-height: 80vh;
             overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
             animation: modalSlideIn 0.3s ease-out;
+            color: #ffffff;
         }
-        
+
         @keyframes modalSlideIn {
             from {
                 opacity: 0;
@@ -596,111 +655,118 @@ function createModal() {
                 transform: translateY(0);
             }
         }
-        
+
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            border-bottom: 1px solid #eee;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            background: #000000;
             color: white;
             border-radius: 12px 12px 0 0;
         }
-        
+
         .modal-title {
             margin: 0;
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            font-weight: 700;
         }
-        
+
         .modal-close {
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
             color: white;
-            padding: 5px;
+            padding: 4px;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: background 0.3s ease;
         }
-        
+
         .modal-close:hover {
             background: rgba(255, 255, 255, 0.2);
         }
-        
+
         .modal-body {
-            padding: 20px;
+            padding: 16px;
         }
-        
+
         .modal-content p {
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: #333;
+            margin-bottom: 16px;
+            line-height: 1.5;
+            color: #dddddd;
+            font-size: 0.9rem;
         }
-        
+
         .legal-sections {
-            background: #f8f9fa;
-            padding: 15px;
+            background: #0c0c0c;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px;
             border-radius: 8px;
-            margin: 15px 0;
+            margin: 12px 0;
         }
-        
+
         .legal-sections h4 {
-            margin-bottom: 10px;
-            color: #1a1a1a;
+            margin-bottom: 8px;
+            color: #ffffff;
+            font-size: 0.95rem;
         }
-        
+
         .legal-sections ul {
             margin: 0;
-            padding-left: 20px;
+            padding-left: 18px;
         }
-        
+
         .legal-sections li {
-            margin-bottom: 8px;
-            color: #555;
+            margin-bottom: 6px;
+            color: #aaaaaa;
+            font-size: 0.85rem;
         }
-        
+
         .modal-actions {
             display: flex;
             gap: 10px;
             justify-content: flex-end;
-            margin-top: 20px;
+            margin-top: 16px;
         }
-        
+
         .btn {
-            padding: 10px 20px;
+            padding: 7px 14px;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 700;
             transition: all 0.3s ease;
+            height: 36px;
         }
-        
+
         .btn-primary {
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-            color: white;
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #ffffff;
         }
-        
+
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+            background: #dddddd;
+            color: #000000;
         }
-        
+
         .btn-secondary {
-            background: #f8f9fa;
-            color: #333;
-            border: 1px solid #dee2e6;
+            background: #000000;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .btn-secondary:hover {
-            background: #e9ecef;
+            background: #222222;
+            color: #ffffff;
         }
     `;
     
@@ -739,9 +805,13 @@ function openFAQ() {
     return false;
 }
 
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+}
+
 // Auto-initialize footer links when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Add click handlers to footer links that have onclick attributes
     const footerLinks = document.querySelectorAll('.footer-links a[onclick], .footer-bottom-links a[onclick]');
     footerLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -749,6 +819,155 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+/* Prompt Suggestions for Chatbot */
+function initChatPromptPills() {
+    const inputArea = document.querySelector('.input-area');
+    if (!inputArea) return;
+    
+    // Check if suggestions already exist
+    if (document.querySelector('.prompt-suggestions')) return;
+    
+    const suggestionsContainer = document.createElement('div');
+    suggestionsContainer.className = 'prompt-suggestions';
+    
+    const suggestions = [
+        "💪 Chest workout",
+        "🏋️ 3-day workout split",
+        "🥗 High protein diet",
+        "🔥 Fat loss tips"
+    ];
+    
+    suggestions.forEach(text => {
+        const chip = document.createElement('div');
+        chip.className = 'suggestion-chip';
+        chip.innerText = text;
+        chip.addEventListener('click', () => {
+            const promptInput = document.querySelector('.prompt');
+            const sendBtn = document.querySelector('.send-btn');
+            if (promptInput && sendBtn) {
+                promptInput.value = text.replace(/^[^\w]+/, '').trim();
+                sendBtn.click();
+            }
+        });
+        suggestionsContainer.appendChild(chip);
+    });
+    
+    inputArea.parentNode.insertBefore(suggestionsContainer, inputArea);
+}
+
+/* Rest Timer Functionality */
+let timerInterval = null;
+let timerSeconds = 60;
+
+function startRestTimer(defaultSeconds = 60, exerciseName = "Exercise Rest") {
+    let timerOverlay = document.getElementById('timerModalOverlay');
+    if (!timerOverlay) {
+        timerOverlay = document.createElement('div');
+        timerOverlay.id = 'timerModalOverlay';
+        timerOverlay.className = 'timer-modal-overlay';
+        timerOverlay.innerHTML = `
+            <div class="timer-modal">
+                <h3 id="timerExerciseName" style="color: white;">Rest Timer</h3>
+                <div class="timer-display" id="timerDisplay">01:00</div>
+                <div class="timer-controls">
+                    <button class="timer-btn timer-btn-primary" onclick="pauseResumeTimer()">Pause</button>
+                    <button class="timer-btn timer-btn-secondary" onclick="closeRestTimer()">Close</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(timerOverlay);
+    }
+    
+    document.getElementById('timerExerciseName').innerText = `Resting: ${exerciseName}`;
+    timerSeconds = defaultSeconds;
+    updateTimerDisplay();
+    timerOverlay.classList.add('active');
+    
+    clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        if (timerSeconds > 0) {
+            timerSeconds--;
+            updateTimerDisplay();
+        } else {
+            clearInterval(timerInterval);
+            speak("Rest period finished! Time for your next set!");
+            closeRestTimer();
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const minutes = Math.floor(timerSeconds / 60);
+    const secs = timerSeconds % 60;
+    const display = document.getElementById('timerDisplay');
+    if (display) {
+        display.innerText = `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+}
+
+let isTimerPaused = false;
+function pauseResumeTimer() {
+    if (isTimerPaused) {
+        isTimerPaused = false;
+        startRestTimer(timerSeconds, "Rest Timer");
+    } else {
+        isTimerPaused = true;
+        clearInterval(timerInterval);
+    }
+}
+
+function closeRestTimer() {
+    clearInterval(timerInterval);
+    const timerOverlay = document.getElementById('timerModalOverlay');
+    if (timerOverlay) {
+        timerOverlay.classList.remove('active');
+    }
+}
+
+/* Exercise Search and Muscle Category Filtering */
+function initExerciseSearchFilter() {
+    const searchInput = document.getElementById('exerciseSearchInput');
+    const chips = document.querySelectorAll('.filter-chips .chip');
+    const cards = document.querySelectorAll('.exercise-card');
+    
+    if (!searchInput && chips.length === 0) return;
+    
+    let currentCategory = 'all';
+    let searchQuery = '';
+    
+    function filterCards() {
+        cards.forEach(card => {
+            const title = card.querySelector('.exercise-title')?.innerText.toLowerCase() || '';
+            const category = card.getAttribute('data-category')?.toLowerCase() || 'all';
+            
+            const matchesSearch = title.includes(searchQuery);
+            const matchesCategory = currentCategory === 'all' || category.includes(currentCategory);
+            
+            if (matchesSearch && matchesCategory) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            filterCards();
+        });
+    }
+    
+    chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            chips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            currentCategory = chip.getAttribute('data-filter') || 'all';
+            filterCards();
+        });
+    });
+}
 
 
 
