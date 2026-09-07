@@ -24,6 +24,12 @@ A modern fitness web application with AI-powered chatbot, voice assistant, perso
   - Speech synthesis for audio feedback
   - Support for opening external applications and websites
   - Real-time speech recognition and transcription
+- **AI Pose Trainer**: Real-time posture and rep counting using TensorFlow.js
+  - Webcam-based pose detection with skeleton tracking
+  - Automated squat and push-up rep counting
+  - Real-time form feedback and guidance
+  - Voice command integration for hands-free control
+  - Stylish back button for easy navigation
 
 ### 🏋️ Workout System
 - **Multiple Workout Categories**: Comprehensive exercise library with animated demonstrations
@@ -108,38 +114,43 @@ A modern fitness web application with AI-powered chatbot, voice assistant, perso
 
 ```text
 AI-Powered Fitness Trainer/
-├── index.html                    # Main dashboard with AI features
-├── script.js                     # Core JavaScript functionality (547 lines)
-├── styles/
-│   └── style.css                 # Main stylesheet with responsive design (846+ lines)
-├── pages/                        # Workout and feature pages
-│   ├── workout.html              # All workouts compilation page
-│   ├── back.html                 # Back workout exercises
-│   ├── chest.html                # Chest workout exercises
-│   ├── biceps-triceps.html       # Arms workout exercises
-│   ├── shoulder.html             # Shoulder workout exercises
-│   ├── leg.html                  # Leg workout exercises
-│   ├── personalized-plans.html  # AI workout plan generator
-│   └── nutrition-guide.html      # Nutrition calculator and meal planner
-├── ai_features/                  # AI and voice assistant modules
-│   ├── ai.html                   # Standalone AI interface
-│   ├── ai-style.css              # AI feature styling
-│   ├── chatbot.js                # Chatbot logic
-│   ├── voice.js                  # Voice recognition
-│   └── pose.js                   # Pose detection (TensorFlow.js)
-├── assets/                       # Images, GIFs, and media
-│   ├── *.gif                     # Exercise demonstration GIFs (30+ files)
-│   ├── *.svg                     # UI icons and graphics
-│   ├── *.png                     # UI elements and screenshots
-│   └── *.jpg                     # Background images
-├── favicons/                     # Website icons and favicons
-│   ├── favicon.ico
-│   ├── apple-touch-icon.png
-│   ├── android-chrome-*.png
-│   └── favicon-*.png
-├── site.webmanifest             # PWA manifest
-├── LICENSE                       # MIT License
-└── README.md                     # This file
+├── public/
+│   ├── index.html                    # Main dashboard with AI features
+│   ├── script.js                     # Core JavaScript functionality
+│   ├── css/
+│   │   └── style.css                 # Main stylesheet with responsive design
+│   ├── js/
+│   │   └── script.js                 # JavaScript functionality
+│   ├── pages/                        # Workout and feature pages
+│   │   ├── workout.html              # All workouts compilation page
+│   │   ├── back.html                 # Back workout exercises
+│   │   ├── chest.html                # Chest workout exercises
+│   │   ├── biceps-triceps.html       # Arms workout exercises
+│   │   ├── shoulder.html             # Shoulder workout exercises
+│   │   ├── leg.html                  # Leg workout exercises
+│   │   ├── personalized-plans.html  # AI workout plan generator
+│   │   └── nutrition-guide.html      # Nutrition calculator and meal planner
+│   ├── assets/                       # Images, GIFs, and media
+│   │   ├── images/
+│   │   │   ├── branding/             # Logo and branding images
+│   │   │   └── *.png                 # UI elements and screenshots
+│   │   ├── icons/                    # UI icons and favicons
+│   │   │   ├── favicon.ico
+│   │   │   ├── apple-touch-icon.png
+│   │   │   └── *.svg                 # SVG icons
+│   │   └── animations/
+│   │       ├── workouts/            # Exercise demonstration GIFs (30+ files)
+│   │       └── ui/                   # UI animations
+│   └── site.webmanifest             # PWA manifest
+├── src/
+│   └── ai-features/                  # AI and voice assistant modules
+│       ├── ai.html                   # AI Pose Trainer interface
+│       ├── ai-style.css              # AI feature styling
+│       ├── chatbot.js                # Chatbot logic
+│       ├── voice.js                  # Voice recognition
+│       └── pose.js                   # Pose detection (TensorFlow.js)
+├── LICENSE                           # MIT License
+└── README.md                         # This file
 ```
 
 ## 🏗️ Architecture Overview
@@ -160,27 +171,34 @@ The application follows a client-side architecture with no backend dependencies:
 - **Error Handling**: Graceful degradation for rate limits and API errors
 - **Real-time Processing**: Async/await pattern for API calls
 
-#### 2. Voice Assistant System (`script.js` + `ai_features/voice.js`)
+#### 2. Voice Assistant System (`script.js` + `src/ai-features/voice.js`)
 - **Web Speech API**: Browser-native speech recognition
 - **Speech Synthesis**: Text-to-speech for audio feedback
 - **Command Processing**: Natural language parsing for navigation
 - **Cross-Platform Support**: Works on Chrome, Firefox, Safari, Edge
 
-#### 3. Workout Plan Generator (`pages/personalized-plans.html`)
+#### 3. AI Pose Trainer (`src/ai-features/pose.js`)
+- **TensorFlow.js Integration**: MoveNet model for pose detection
+- **Real-time Tracking**: Webcam-based skeleton visualization
+- **Rep Counting**: Automated squat and push-up counting
+- **Form Analysis**: Exercise form feedback and guidance
+- **Canvas Rendering**: Real-time pose visualization overlay
+
+#### 4. Workout Plan Generator (`pages/personalized-plans.html`)
 - **Form Processing**: Client-side form validation and data collection
 - **Algorithmic Planning**: Rule-based workout generation
 - **BMI Calculation**: Health metric computations
 - **Equipment Logic**: Adaptive exercise selection based on available equipment
 - **Schedule Generation**: Weekly workout planning based on frequency
 
-#### 4. Nutrition Calculator (`pages/nutrition-guide.html`)
+#### 5. Nutrition Calculator (`pages/nutrition-guide.html`)
 - **Scientific Calculations**: Mifflin-St Jeor Equation for BMR
 - **Activity Multipliers**: TDEE calculation with 5 activity levels
 - **Macro Distribution**: Protein/carb/fat ratio optimization
 - **Dietary Adaptation**: Meal plan adjustment for different diets
 - **Allergy Filtering**: Basic allergen consideration in meal planning
 
-#### 5. Responsive UI (`styles/style.css`)
+#### 6. Responsive UI (`css/style.css`)
 - **CSS Custom Properties**: Consistent theming and easy maintenance
 - **Media Queries**: Mobile-first responsive design
 - **Glassmorphism**: Modern UI with backdrop blur effects
@@ -213,6 +231,16 @@ The application follows a client-side architecture with no backend dependencies:
   - "Open YouTube/Google/Facebook/Instagram"
   - "Time" / "Date" (current time/date)
 - **External Apps**: "Open calculator/WhatsApp"
+
+### AI Pose Trainer Usage
+- **Open AI Trainer**: Click "AI Pose Trainer" in the navigation menu
+- **Start Camera**: Click "Start Camera" to enable webcam access
+- **Select Exercise**: Choose between Squats or Push-Ups
+- **Perform Exercise**: Position yourself in front of the camera
+- **Track Reps**: Watch the rep counter update as you complete reps
+- **Get Feedback**: Receive real-time form feedback and guidance
+- **Voice Commands**: Use voice commands for hands-free control
+- **Navigate Back**: Use the stylish back button to return to home
 
 ### Personalized Workout Plans
 1. **Enter Personal Information**: Age, gender, height, weight
