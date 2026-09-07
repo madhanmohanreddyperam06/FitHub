@@ -386,9 +386,6 @@ const FitHubDashboard = {
             <button class="dock-item-btn" onclick="openChat()">
                 <span>🤖</span><span class="dock-label">Chitti</span>
             </button>
-            <button class="dock-item-btn" onclick="openVoiceAssistant()">
-                <span>🎙️</span><span class="dock-label">Voice</span>
-            </button>
         `;
 
         document.body.appendChild(dock);
@@ -972,224 +969,16 @@ const FitHubExercises = {
 };
 
 // ============================================================================
-// 8. Universal Global Voice Assistant (FitHubVoice)
+// 8. Voice Assistant (Temporarily Disabled - Will be reimplemented later)
 // ============================================================================
 const FitHubVoice = {
-    recognition: null,
-    modal: null,
-    isListening: false,
-
-    init() {
-        this.injectModal();
-        const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (SpeechRec) {
-            this.recognition = new SpeechRec();
-            this.recognition.continuous = false;
-            this.recognition.interimResults = false;
-            this.recognition.lang = 'en-US';
-
-            this.recognition.onstart = () => {
-                this.isListening = true;
-                this.showModal();
-            };
-
-            this.recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                this.handleResult(transcript);
-            };
-
-            this.recognition.onerror = (event) => {
-                console.warn("Voice error:", event.error);
-                this.updateTranscript(`Error: ${event.error}. Please try again.`);
-                setTimeout(() => this.hideModal(), 2000);
-            };
-
-            this.recognition.onend = () => {
-                this.isListening = false;
-            };
-        }
-
-        const vaBtn = document.querySelector('.virtual-assistant');
-        if (vaBtn) {
-            vaBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                FitHubAudio.playClick();
-                this.start();
-            });
-        }
-    },
-
-    injectModal() {
-        if (document.getElementById('fithubVoiceModal')) {
-            this.modal = document.getElementById('fithubVoiceModal');
-            return;
-        }
-
-        const oldSpeak = document.querySelector('.speak-page');
-        if (oldSpeak && oldSpeak.parentNode) {
-            oldSpeak.parentNode.removeChild(oldSpeak);
-        }
-
-        const div = document.createElement('div');
-        div.id = 'fithubVoiceModal';
-        div.className = 'speak-page';
-        div.innerHTML = `
-            <div class="speak-visualizer">🎙️</div>
-            <h2 style="color:#ffffff; font-size:1.6rem; font-weight:700;">FitHub Voice Assistant</h2>
-            <p style="color:#a1a1aa; font-size:0.9rem; margin-top:4px;">Listening for your command...</p>
-            <div class="speak-transcript" id="voiceTranscript">"Speak now..."</div>
-            <div class="speak-hint-chips">
-                <span class="speak-hint-chip">"Start Workout"</span>
-                <span class="speak-hint-chip">"Open Chest"</span>
-                <span class="speak-hint-chip">"Start 60s Rest"</span>
-                <span class="speak-hint-chip">"Open Pose Trainer"</span>
-                <span class="speak-hint-chip">"Motivate Me"</span>
-            </div>
-            <button class="speak-close-btn" id="voiceModalCloseBtn">Cancel</button>
-        `;
-
-        document.body.appendChild(div);
-        this.modal = div;
-
-        document.getElementById('voiceModalCloseBtn').addEventListener('click', () => {
-            FitHubAudio.playClick();
-            this.stop();
-        });
-    },
-
-    start() {
-        if (!this.recognition) {
-            alert("Speech recognition is not supported in this browser. Please use Chrome or Edge.");
-            return;
-        }
-        try {
-            this.updateTranscript("Listening...");
-            this.recognition.start();
-        } catch (e) {
-            this.showModal();
-        }
-    },
-
-    stop() {
-        if (this.recognition && this.isListening) {
-            this.recognition.stop();
-        }
-        this.hideModal();
-    },
-
-    showModal() {
-        if (this.modal) this.modal.classList.add('active-speak');
-    },
-
-    hideModal() {
-        if (this.modal) this.modal.classList.remove('active-speak');
-    },
-
-    updateTranscript(text) {
-        const el = document.getElementById('voiceTranscript');
-        if (el) el.innerText = `"${text}"`;
-    },
-
-    speak(text) {
-        if (!window.speechSynthesis || FitHubAudio.muted) return;
-        window.speechSynthesis.cancel();
-        const utter = new SpeechSynthesisUtterance(text);
-        utter.rate = 1.0;
-        utter.pitch = 1.0;
-        utter.volume = 1.0;
-        utter.lang = 'en-US';
-        window.speechSynthesis.speak(utter);
-    },
-
-    handleResult(rawCommand) {
-        const cmd = rawCommand.toLowerCase().trim();
-        this.updateTranscript(cmd);
-
-        setTimeout(() => {
-            this.hideModal();
-            this.executeCommand(cmd);
-        }, 800);
-    },
-
-    executeCommand(cmd) {
-        if (cmd.includes('start workout') || cmd.includes('begin workout')) {
-            this.speak("Launching Guided Workout Session");
-            FitHubWorkoutPlayer.start('quick');
-        } else if (cmd.includes('chest')) {
-            this.speak("Opening Chest Workouts");
-            window.location.href = FitHubPath.page('chest.html');
-        } else if (cmd.includes('back')) {
-            this.speak("Opening Back Workouts");
-            window.location.href = FitHubPath.page('back.html');
-        } else if (cmd.includes('bicep') || cmd.includes('tricep') || cmd.includes('arm')) {
-            this.speak("Opening Arms Workouts");
-            window.location.href = FitHubPath.page('biceps-triceps.html');
-        } else if (cmd.includes('shoulder')) {
-            this.speak("Opening Shoulder Workouts");
-            window.location.href = FitHubPath.page('shoulder.html');
-        } else if (cmd.includes('leg')) {
-            this.speak("Opening Leg Workouts");
-            window.location.href = FitHubPath.page('leg.html');
-        } else if (cmd.includes('library') || cmd.includes('all workout') || cmd.includes('exercise')) {
-            this.speak("Opening Exercise Library");
-            window.location.href = FitHubPath.page('workout.html');
-        } else if (cmd.includes('plan') || cmd.includes('routine')) {
-            this.speak("Opening Personalized Workout Plans");
-            window.location.href = FitHubPath.page('personalized-plans.html');
-        } else if (cmd.includes('nutrition') || cmd.includes('diet') || cmd.includes('macro') || cmd.includes('meal')) {
-            this.speak("Opening Nutrition Guide");
-            window.location.href = FitHubPath.page('nutrition-guide.html');
-        } else if (cmd.includes('pose') || cmd.includes('camera') || cmd.includes('trainer') || cmd.includes('ai workout')) {
-            this.speak("Opening AI Pose Trainer");
-            window.location.href = FitHubPath.page('ai.html');
-        } else if (cmd.includes('home') || cmd.includes('dashboard')) {
-            this.speak("Navigating Home");
-            window.location.href = FitHubPath.page('index.html');
-        } else if (cmd.includes('water') || cmd.includes('drink')) {
-            FitHubState.addWater(1);
-            this.speak("Logged one glass of water. Keep hydrating!");
-        } else if (cmd.includes('rest') || cmd.includes('timer')) {
-            let seconds = 60;
-            if (cmd.includes('30')) seconds = 30;
-            else if (cmd.includes('45')) seconds = 45;
-            else if (cmd.includes('90')) seconds = 90;
-            else if (cmd.includes('120') || cmd.includes('2 minute')) seconds = 120;
-            this.speak(`Starting ${seconds} second rest timer`);
-            FitHubTimer.start(seconds, "Voice Timer");
-        } else if (cmd.includes('pause timer')) {
-            this.speak("Rest timer paused");
-            FitHubTimer.togglePause();
-        } else if (cmd.includes('stop timer') || cmd.includes('close timer')) {
-            this.speak("Rest timer stopped");
-            FitHubTimer.stop();
-        } else if (cmd.includes('chat') || cmd.includes('chitti')) {
-            if (cmd.includes('close')) {
-                this.speak("Closing chat");
-                FitHubChat.close();
-            } else {
-                this.speak("Opening Chitti assistant");
-                FitHubChat.open();
-            }
-        } else if (cmd.includes('motivate') || cmd.includes('quote')) {
-            const quote = fitnessQuotes[Math.floor(Math.random() * fitnessQuotes.length)];
-            this.speak(quote);
-        } else if (cmd.includes('who are you')) {
-            this.speak("I am FitHub Virtual Assistant, your hands-free fitness and training partner.");
-        } else if (cmd.includes('time')) {
-            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            this.speak(`The current time is ${time}`);
-        } else if (cmd.includes('date')) {
-            const date = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric' });
-            this.speak(`Today is ${date}`);
-        } else {
-            this.speak(`Searching Google for ${cmd}`);
-            window.open(`https://www.google.com/search?q=${encodeURIComponent(cmd)}`, '_blank');
-        }
-    }
+    init() {},
+    start() {},
+    stop() {},
+    speak() {}
 };
 
 function openVoiceAssistant() {
-    FitHubVoice.start();
     return false;
 }
 
@@ -1307,39 +1096,7 @@ const FitHubChat = {
         if (this.chatIcon) this.chatIcon.src = FitHubPath.asset('icons/chatbot.svg');
     },
 
-    listenForPrompt() {
-        const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (!SpeechRec) {
-            alert("Speech recognition not supported in this browser.");
-            return;
-        }
-
-        const rec = new SpeechRec();
-        rec.lang = 'en-US';
-        rec.interimResults = false;
-
-        rec.onstart = () => {
-            if (this.micBtn) this.micBtn.classList.add('listening');
-        };
-
-        rec.onresult = (event) => {
-            const transcript = event.results[0][0].transcript;
-            if (this.promptInput) {
-                this.promptInput.value = transcript;
-                this.handleSend();
-            }
-        };
-
-        rec.onerror = () => {
-            if (this.micBtn) this.micBtn.classList.remove('listening');
-        };
-
-        rec.onend = () => {
-            if (this.micBtn) this.micBtn.classList.remove('listening');
-        };
-
-        rec.start();
-    },
+    
 
     handleSend() {
         if (!this.promptInput || !this.promptInput.value.trim()) return;
@@ -1398,13 +1155,7 @@ const FitHubChat = {
 
         textElement.innerHTML = answer;
 
-        const speakBtn = document.createElement('button');
-        speakBtn.className = 'ai-speak-answer-btn';
-        speakBtn.innerHTML = '🔊 Listen';
-        speakBtn.addEventListener('click', () => {
-            FitHubVoice.speak(answer);
-        });
-        boxElement.appendChild(speakBtn);
+        // Speech audio disabled
 
         this.chatContainer.scrollTop = this.chatContainer.scrollHeight;
         this.saveHistory();

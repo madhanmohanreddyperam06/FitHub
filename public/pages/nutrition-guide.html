@@ -88,90 +88,96 @@
             <h1 class="page-title">Smart Nutrition & Macro Intelligence</h1>
             <p class="page-description">Precision macro calculations, personalized meal timing, and dietary optimization engineered for your goals.</p>
             
-            <div class="nutrition-form-container">
-                <form id="nutritionForm" class="nutrition-form">
-                    <div class="form-section">
-                        <h3>Biometric Profile</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="nut-age">Age</label>
-                                <input type="number" id="nut-age" name="age" min="16" max="100" placeholder="e.g. 25" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="nut-gender">Gender</label>
-                                <select id="nut-gender" name="gender" required>
-                                    <option value="">Select Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="nut-height">Height (cm)</label>
-                                <input type="number" id="nut-height" name="height" min="100" max="250" placeholder="e.g. 175" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="nut-weight">Weight (kg)</label>
-                                <input type="number" id="nut-weight" name="weight" min="30" max="200" placeholder="e.g. 70" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-section">
-                        <h3>Fitness & Lifestyle</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="nut-goal">Fitness Goal</label>
-                                <select id="nut-goal" name="goal" required>
-                                    <option value="">Select Goal</option>
-                                    <option value="weight-loss">Weight Loss & Fat Reduction</option>
-                                    <option value="muscle-gain">Muscle Hypertrophy & Bulk</option>
-                                    <option value="maintenance">Weight Maintenance & Lean</option>
-                                    <option value="endurance">Athletic Endurance</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="nut-activity">Activity Level</label>
-                                <select id="nut-activity" name="activity" required>
-                                    <option value="">Select Activity</option>
-                                    <option value="sedentary">Sedentary (desk job, minimal movement)</option>
-                                    <option value="light">Light Activity (1-3 workout days)</option>
-                                    <option value="moderate">Moderate Activity (3-5 workout days)</option>
-                                    <option value="active">Active (6-7 workout days)</option>
-                                    <option value="very-active">Athlete / Physical Labor</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="nut-diet">Dietary Preference</label>
-                                <select id="nut-diet" name="diet" required>
-                                    <option value="">Select Diet Type</option>
-                                    <option value="omnivore">Standard / Omnivore</option>
-                                    <option value="vegetarian">High-Protein Vegetarian</option>
-                                    <option value="vegan">Plant-Based / Vegan</option>
-                                    <option value="keto">Ketogenic (Low Carb)</option>
-                                    <option value="paleo">Paleo</option>
-                                    <option value="mediterranean">Mediterranean</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="nut-allergies">Food Intolerances / Restrictions</label>
-                                <input type="text" id="nut-allergies" name="allergies" placeholder="e.g., Peanuts, Dairy, Gluten...">
+            <!-- Single Outer Card + Single Inner Card for Nutrition Form -->
+            <div class="fithub-card-outer">
+                <div class="fithub-card-inner">
+                    <form id="nutritionForm" class="nutrition-form">
+                        <div class="form-section">
+                            <h3>Biometric Profile</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="nut-age">Age</label>
+                                    <input type="number" id="nut-age" name="age" min="16" max="100" placeholder="e.g. 25" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nut-gender">Gender</label>
+                                    <select id="nut-gender" name="gender" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nut-height">Height (cm)</label>
+                                    <input type="number" id="nut-height" name="height" min="100" max="250" placeholder="e.g. 175" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nut-weight">Weight (kg)</label>
+                                    <input type="number" id="nut-weight" name="weight" min="30" max="200" placeholder="e.g. 70" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <button type="submit" class="submit-btn calculate-nutrition-btn">Generate Nutrition Plan ➔</button>
-                </form>
+                        <div class="form-section">
+                            <h3>Fitness & Lifestyle</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="nut-goal">Fitness Goal</label>
+                                    <select id="nut-goal" name="goal" required>
+                                        <option value="">Select Goal</option>
+                                        <option value="weight-loss">Weight Loss & Fat Reduction</option>
+                                        <option value="muscle-gain">Muscle Hypertrophy & Bulk</option>
+                                        <option value="maintenance">Weight Maintenance & Lean</option>
+                                        <option value="endurance">Athletic Endurance</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nut-activity">Activity Level</label>
+                                    <select id="nut-activity" name="activity" required>
+                                        <option value="">Select Activity</option>
+                                        <option value="sedentary">Sedentary (desk job, minimal movement)</option>
+                                        <option value="light">Light Activity (1-3 workout days)</option>
+                                        <option value="moderate">Moderate Activity (3-5 workout days)</option>
+                                        <option value="active">Active (6-7 workout days)</option>
+                                        <option value="very-active">Athlete / Physical Labor</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nut-diet">Dietary Preference</label>
+                                    <select id="nut-diet" name="diet" required>
+                                        <option value="">Select Diet Type</option>
+                                        <option value="omnivore">Standard / Omnivore</option>
+                                        <option value="vegetarian">High-Protein Vegetarian</option>
+                                        <option value="vegan">Plant-Based / Vegan</option>
+                                        <option value="keto">Ketogenic (Low Carb)</option>
+                                        <option value="paleo">Paleo</option>
+                                        <option value="mediterranean">Mediterranean</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nut-allergies">Food Intolerances / Restrictions</label>
+                                    <input type="text" id="nut-allergies" name="allergies" placeholder="e.g., Peanuts, Dairy, Gluten...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="fithub-submit-btn">Generate Nutrition Plan ➔</button>
+                    </form>
+                </div>
             </div>
 
-            <div id="nutritionResult" class="nutrition-result" style="display: none; margin-top: 30px;">
-                <div id="nutritionContent"></div>
-                
-                <div class="nutrition-actions" style="display: flex; gap: 10px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
-                    <button type="button" onclick="generateGroceryListModal()" class="cta-btn cta-btn-primary">🛒 Grocery Checklist</button>
-                    <button type="button" onclick="downloadNutritionPlan()" class="cta-btn cta-btn-secondary">📥 Download Plan (.txt)</button>
-                    <button type="button" onclick="window.print()" class="cta-btn cta-btn-secondary">🖨️ Print View</button>
-                    <button type="button" onclick="regenerateNutritionPlan()" class="cta-btn cta-btn-secondary">↺ Recalculate</button>
+            <!-- Single Outer Card + Single Inner Card for Nutrition Results -->
+            <div id="nutritionResult" class="fithub-card-outer" style="display: none; margin-top: 32px;">
+                <div class="fithub-card-inner">
+                    <div id="nutritionContent"></div>
+                    
+                    <div class="nutrition-actions" style="display: flex; gap: 10px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
+                        <button type="button" onclick="generateGroceryListModal()" class="cta-btn cta-btn-primary">🛒 Grocery Checklist</button>
+                        <button type="button" onclick="downloadNutritionPlan()" class="cta-btn cta-btn-secondary">📥 Download Plan (.txt)</button>
+                        <button type="button" onclick="window.print()" class="cta-btn cta-btn-secondary">🖨️ Print View</button>
+                        <button type="button" onclick="regenerateNutritionPlan()" class="cta-btn cta-btn-secondary">↺ Recalculate</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -194,14 +200,11 @@
         </div>
     </div>
 
-    <div class="virtual-assistant" title="Activate Voice Assistant">
-        <img src="../assets/images/branding/ai.png" alt="Voice Assistant" width="100px">
-    </div>
-
     <script src="../js/script.js"></script>
     <script>
         let currentNutritionData = null;
         let activeMealSchedule = {};
+        let activeNutritionDay = 'Monday';
 
         const masterRecipes = {
             omnivore: {
@@ -418,33 +421,33 @@
 
             contentDiv.innerHTML = `
                 <div class="nutrition-header" style="text-align: center; margin-bottom: 20px;">
-                    <h2 style="color: #ffffff; font-size: 1.8rem; font-weight: 800;">Your Optimized Nutrition Plan</h2>
-                    <p style="color: #a1a1aa;">${goalDescription} • ${data.diet.toUpperCase()}</p>
+                    <h2 style="color: #ffffff; font-size: 1.8rem; font-weight: 800; margin-bottom: 6px;">Your Optimized Nutrition Plan</h2>
+                    <p style="color: #a1a1aa; font-size: 0.95rem;">${goalDescription} • <span style="color: #ffffff; font-weight: 700;">${data.diet.toUpperCase()}</span></p>
                 </div>
 
-                <!-- Metrics Grid -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px;">
-                    <div class="stat-card" style="text-align: center;">
-                        <span style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">BMI</span>
-                        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">${bmi}</div>
+                <!-- Metrics Ribbon (Single Unified Bar - No Nested Cards) -->
+                <div class="fithub-metrics-ribbon">
+                    <div class="fithub-metric-item">
+                        <div class="fithub-metric-label">BMI INDEX</div>
+                        <div class="fithub-metric-value">${bmi}</div>
                     </div>
-                    <div class="stat-card" style="text-align: center;">
-                        <span style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">BMR</span>
-                        <div style="font-size: 1.3rem; font-weight: 800; color: #ffffff;">${Math.round(bmr)} kcal</div>
+                    <div class="fithub-metric-item">
+                        <div class="fithub-metric-label">BMR</div>
+                        <div class="fithub-metric-value">${Math.round(bmr)} <span style="font-size: 0.75rem; font-weight: 500; color: #a1a1aa;">kcal</span></div>
                     </div>
-                    <div class="stat-card" style="text-align: center;">
-                        <span style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">TDEE EXPENSE</span>
-                        <div style="font-size: 1.3rem; font-weight: 800; color: #ffffff;">${Math.round(tdee)} kcal</div>
+                    <div class="fithub-metric-item">
+                        <div class="fithub-metric-label">TDEE EXPENSE</div>
+                        <div class="fithub-metric-value">${Math.round(tdee)} <span style="font-size: 0.75rem; font-weight: 500; color: #a1a1aa;">kcal</span></div>
                     </div>
-                    <div class="stat-card" style="text-align: center;">
-                        <span style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">TARGET INTAKE</span>
-                        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">${Math.round(targetCalories)} kcal</div>
+                    <div class="fithub-metric-item">
+                        <div class="fithub-metric-label">TARGET INTAKE</div>
+                        <div class="fithub-metric-value">${Math.round(targetCalories)} <span style="font-size: 0.75rem; font-weight: 500; color: #a1a1aa;">kcal</span></div>
                     </div>
                 </div>
 
-                <!-- Interactive Macro Progress Bars -->
-                <div class="water-tracker-card" style="margin-bottom: 24px;">
-                    <h4 style="color: #ffffff; font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;">📊 Daily Macronutrient Targets</h4>
+                <!-- Daily Macro Targets (Clean in-flow progress tracks) -->
+                <div style="margin-bottom: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 20px;">
+                    <h4 style="color: #ffffff; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 14px;">Daily Macronutrient Targets</h4>
                     <div class="macro-progress-container">
                         <div class="macro-bar-row">
                             <div class="macro-bar-header">
@@ -476,51 +479,77 @@
                     </div>
                 </div>
 
-                <!-- Meal Schedule with Swap Feature -->
-                <h4 style="color: #ffffff; font-size: 1.2rem; font-weight: 700; margin-bottom: 14px;">🍽️ Weekly Meal Blueprint</h4>
-                <div id="mealScheduleWrap"></div>
+                <!-- Meal Blueprint Header -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <h4 style="color: #ffffff; font-size: 1.1rem; font-weight: 700; margin: 0;">Weekly Meal Blueprint</h4>
+                    <span style="font-size: 0.8rem; color: #a1a1aa;">4 Meals / Day</span>
+                </div>
+
+                <!-- Interactive Day Tabs -->
+                <div class="day-tabs-container" id="nutritionDayTabs"></div>
+
+                <!-- Active Day Meal Items Container -->
+                <div class="meal-schedule-section" id="activeNutritionMealContent"></div>
             `;
 
-            renderMealBlueprint(safePool);
+            renderNutritionDayTabs(safePool);
+            renderNutritionDayMeals(safePool, activeNutritionDay);
 
             resultDiv.style.display = 'block';
             resultDiv.scrollIntoView({ behavior: 'smooth' });
         }
 
-        function renderMealBlueprint(pool) {
-            const wrap = document.getElementById('mealScheduleWrap');
-            if (!wrap) return;
+        function renderNutritionDayTabs(pool) {
+            const tabsContainer = document.getElementById('nutritionDayTabs');
+            if (!tabsContainer) return;
+            tabsContainer.innerHTML = '';
 
-            let html = '';
-            for (const day in activeMealSchedule) {
-                const meals = activeMealSchedule[day];
-                html += `
-                    <div style="background: #0d0d10; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; margin-bottom: 14px;">
-                        <h5 style="color: #ffffff; font-size: 1.05rem; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 12px;">${day}</h5>
-                        
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
-                            ${renderMealCard(day, 'breakfast', '🌅 Breakfast', meals.breakfast, pool.breakfast)}
-                            ${renderMealCard(day, 'lunch', '☀️ Lunch', meals.lunch, pool.lunch)}
-                            ${renderMealCard(day, 'dinner', '🌙 Dinner', meals.dinner, pool.dinner)}
-                            ${renderMealCard(day, 'snack', '🍎 Snack', meals.snack, pool.snack)}
-                        </div>
-                    </div>
-                `;
-            }
-            wrap.innerHTML = html;
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            days.forEach(day => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `day-tab-btn ${day === activeNutritionDay ? 'active' : ''}`;
+                btn.innerText = day;
+                btn.addEventListener('click', () => {
+                    FitHubAudio.playClick();
+                    activeNutritionDay = day;
+                    renderNutritionDayTabs(pool);
+                    renderNutritionDayMeals(pool, day);
+                });
+                tabsContainer.appendChild(btn);
+            });
         }
 
-        function renderMealCard(day, type, label, meal, pool) {
-            return `
-                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; justify-content: space-between;">
-                    <div>
-                        <div style="font-size: 0.75rem; font-weight: 700; color: #a1a1aa; margin-bottom: 4px;">${label}</div>
-                        <div id="mealText-${day}-${type}" style="font-size: 0.88rem; font-weight: 600; color: #ffffff; line-height: 1.3; margin-bottom: 6px;">${meal.name}</div>
-                        <div style="font-size: 0.75rem; color: #a1a1aa;">${meal.pro}g Pro • ${meal.carb}g Carb • ${meal.cal} kcal</div>
+        function renderNutritionDayMeals(pool, day) {
+            const content = document.getElementById('activeNutritionMealContent');
+            if (!content) return;
+
+            const meals = activeMealSchedule[day];
+            if (!meals) return;
+
+            const mealTypes = [
+                { key: 'breakfast', label: '🌅 Breakfast' },
+                { key: 'lunch', label: '☀️ Lunch' },
+                { key: 'dinner', label: '🌙 Dinner' },
+                { key: 'snack', label: '🍎 Snack' }
+            ];
+
+            let html = '';
+            mealTypes.forEach(({ key, label }) => {
+                const meal = meals[key];
+                html += `
+                    <div class="meal-row-item" id="mealRow-${day}-${key}">
+                        <div style="flex: 1; padding-right: 12px;">
+                            <div class="meal-row-tag">${label}</div>
+                            <div id="mealText-${day}-${key}" class="meal-row-name">${meal.name}</div>
+                            <div id="mealMacros-${day}-${key}" class="meal-row-macros">${meal.pro}g Protein • ${meal.carb}g Carbs • ${meal.fat || 12}g Fats • ${meal.cal} kcal</div>
+                        </div>
+                        <button type="button" class="swap-exercise-btn" onclick="swapMeal('${day}', '${key}')">🔄 Swap Meal</button>
                     </div>
-                    <button type="button" class="swap-exercise-btn" style="margin-top: 10px; align-self: flex-start;" onclick="swapMeal('${day}', '${type}')">🔄 Swap Meal</button>
-                </div>
-            `;
+                `;
+            });
+
+            content.innerHTML = html;
         }
 
         function swapMeal(day, type) {
@@ -539,10 +568,14 @@
             activeMealSchedule[day][type] = nextMeal;
 
             const textEl = document.getElementById(`mealText-${day}-${type}`);
+            const macrosEl = document.getElementById(`mealMacros-${day}-${type}`);
             if (textEl) {
                 textEl.innerText = nextMeal.name;
                 textEl.classList.add('rep-pulse');
                 setTimeout(() => textEl.classList.remove('rep-pulse'), 300);
+            }
+            if (macrosEl) {
+                macrosEl.innerText = `${nextMeal.pro}g Protein • ${nextMeal.carb}g Carbs • ${nextMeal.fat || 12}g Fats • ${nextMeal.cal} kcal`;
             }
         }
 

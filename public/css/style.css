@@ -623,26 +623,27 @@ body:not(.index-page) .page-description {
 }
 
 body:not(.index-page) .form-section {
-    background: #0d0d0d;
-    border: 1px solid #222222;
-    border-radius: 16px;
-    padding: 26px;
-    margin-bottom: 24px;
-    transition: all 0.25s ease;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 28px;
+    box-shadow: none;
+    transition: none;
 }
 
 body:not(.index-page) .form-section:hover {
-    border-color: #333333;
+    border-color: transparent;
 }
 
 body:not(.index-page) .form-section h3 {
     color: #ffffff;
-    border-bottom: 1px solid #222222;
-    padding-bottom: 12px;
-    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    margin-bottom: 18px;
     font-weight: 700;
-    font-size: 1.05rem;
-    letter-spacing: 0.5px;
+    font-size: 0.95rem;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
     position: relative;
 }
@@ -652,7 +653,7 @@ body:not(.index-page) .form-section h3::after {
     position: absolute;
     bottom: -1px;
     left: 0;
-    width: 32px;
+    width: 24px;
     height: 2px;
     background: #ffffff;
 }
@@ -683,10 +684,11 @@ body:not(.index-page) .form-group label {
 body:not(.index-page) .form-group input,
 body:not(.index-page) .form-group select,
 body:not(.index-page) .form-group textarea {
-    background: #141414 !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
     color: #ffffff !important;
-    border: 1px solid #282828 !important;
-    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    border-radius: 8px !important;
     padding: 10px 14px !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -706,8 +708,9 @@ body:not(.index-page) .form-group select:focus,
 body:not(.index-page) .form-group textarea:focus {
     border-color: #ffffff !important;
     outline: none !important;
-    background: #1a1a1a !important;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.12) !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    box-shadow: 0 0 0 1px #ffffff, 0 0 12px rgba(255, 255, 255, 0.2) !important;
 }
 
 .checkbox-group {
@@ -721,17 +724,18 @@ body:not(.index-page) .form-group textarea:focus {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: #141414;
-    border: 1px solid #282828;
-    border-radius: 10px;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 8px;
     padding: 10px 14px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .checkbox-item:hover {
-    background: #1c1c1c;
-    border-color: #444444;
+    background: #0a0a0a !important;
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .checkbox-item input[type="checkbox"] {
@@ -2035,31 +2039,37 @@ body:not(.index-page) .meal-plan ul li::before {
     line-height: 1.5;
 }
 
-/* Form Styles */
+/* Form Styles - Unboxed Clean Flow (No Nested Cards) */
 .workout-plan-form,
 .nutrition-form {
-    background: #080808;
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
 }
 
 .form-section {
-    margin-bottom: var(--spacing-lg);
-    background: #000000;
-    padding: var(--spacing-lg);
-    border-radius: var(--border-radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-bottom: 24px;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
 }
 
 .form-section h3 {
     color: #ffffff;
-    margin-bottom: var(--spacing-md);
-    font-size: 1.1rem;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .form-grid {
@@ -2083,16 +2093,17 @@ body:not(.index-page) .meal-plan ul li::before {
 .form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 6px 12px;
-    height: 38px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 14px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 8px;
-    font-size: 0.88rem;
-    transition: all 0.3s ease;
-    background: #0c0c0c;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    background: #000000;
+    background-color: #000000;
     color: #ffffff;
     box-sizing: border-box;
-    max-width: 320px;
+    width: 100%;
 }
 
 .form-group input:focus,
@@ -2100,8 +2111,9 @@ body:not(.index-page) .meal-plan ul li::before {
 .form-group textarea:focus {
     outline: none;
     border-color: #ffffff;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-    background: #141414;
+    box-shadow: 0 0 0 1px #ffffff, 0 0 12px rgba(255, 255, 255, 0.2);
+    background: #000000;
+    background-color: #000000;
 }
 
 .form-group textarea {
@@ -2876,7 +2888,7 @@ body:not(.index-page) .meal-plan ul li::before {
 .search-input:focus {
     border-color: #ffffff;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    background: #141414;
+    background: #000000;
 }
 
 .search-icon {
@@ -3377,7 +3389,8 @@ textarea,
     padding: 6px 12px;
     font-size: 0.88rem;
     border-radius: 8px;
-    background-color: #0c0c0c;
+    background-color: #000000;
+    background: #000000;
     border: 1px solid rgba(255, 255, 255, 0.18);
     color: #ffffff;
     box-sizing: border-box;
@@ -3391,6 +3404,8 @@ textarea {
 input:focus, select:focus, textarea:focus {
     border-color: #ffffff;
     outline: none;
+    background-color: #000000;
+    background: #000000;
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
@@ -3780,7 +3795,7 @@ button,
     padding: 2px 6px !important;
     font-size: 0.82rem !important;
     text-align: center;
-    background: #141416 !important;
+    background: #000000 !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 6px !important;
     color: #ffffff !important;
@@ -5385,4 +5400,443 @@ button,
         padding: 8px;
         font-size: 1.1rem;
     }
+}
+
+
+/* Voice features temporarily disabled */
+.virtual-assistant,
+.speak-page,
+.ai-speak-answer-btn,
+#fithubVoiceModal {
+    display: none !important;
+}
+
+/* ==========================================================================
+   2-TIER CARD ARCHITECTURE (ONE OUTER CARD + ONE INNER CARD)
+   ========================================================================== */
+.fithub-card-outer {
+    max-width: 860px;
+    margin: 0 auto 32px;
+    background: #08080a;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.04);
+    transition: border-color 0.25s ease;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.fithub-card-outer:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+}
+
+.fithub-card-inner {
+    background: #111115;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 28px 32px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .fithub-card-outer {
+        padding: 10px;
+        border-radius: 16px;
+        margin-bottom: 24px;
+    }
+    .fithub-card-inner {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+}
+
+/* Form sections inside inner card - unboxed flow (no sub-cards) */
+.fithub-card-inner .form-section,
+body:not(.index-page) .fithub-card-inner .form-section {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 26px !important;
+    box-shadow: none !important;
+    transition: none !important;
+}
+
+.fithub-card-inner .form-section h3,
+body:not(.index-page) .fithub-card-inner .form-section h3 {
+    color: #ffffff !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.fithub-card-inner .form-section h3::after {
+    display: none !important;
+}
+
+.fithub-card-inner .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.fithub-card-inner .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.fithub-card-inner .form-group label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #a1a1aa;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+.fithub-card-inner .form-group input,
+.fithub-card-inner .form-group textarea,
+body:not(.index-page) .fithub-card-inner .form-group input,
+body:not(.index-page) .fithub-card-inner .form-group textarea {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    border-radius: 8px !important;
+    padding: 10px 14px !important;
+    font-size: 0.9rem !important;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.fithub-card-inner .form-group input:focus,
+.fithub-card-inner .form-group textarea:focus,
+body:not(.index-page) .fithub-card-inner .form-group input:focus,
+body:not(.index-page) .fithub-card-inner .form-group textarea:focus {
+    border-color: #ffffff !important;
+    outline: none !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    box-shadow: 0 0 0 1px #ffffff, 0 0 12px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Checkbox group inside inner card */
+.fithub-card-inner .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.fithub-card-inner .checkbox-item {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 8px !important;
+    padding: 9px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    color: #e4e4e7;
+}
+
+.fithub-card-inner .checkbox-item:hover {
+    border-color: rgba(255, 255, 255, 0.45) !important;
+    background: #0a0a0a !important;
+}
+
+.fithub-card-inner .checkbox-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #ffffff;
+    cursor: pointer;
+}
+
+/* Primary generator submit button */
+.fithub-submit-btn {
+    width: 100%;
+    padding: 13px 20px;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+}
+
+.fithub-submit-btn:hover {
+    background: #e4e4e7 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+}
+
+/* ==========================================================================
+   DROPDOWN MENU SELECTIONS - PURE BLACK & WHITE DARK THEME
+   ========================================================================== */
+html, body, select, option {
+    color-scheme: dark;
+}
+
+select,
+.form-group select,
+#savedPlansSelect,
+body:not(.index-page) .form-group select,
+.fithub-card-inner select,
+body:not(.index-page) .fithub-card-inner select {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 8px !important;
+    padding: 8px 36px 8px 14px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    height: 42px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: calc(100% - 12px) center !important;
+    background-size: 14px 14px !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+select:focus,
+.form-group select:focus,
+#savedPlansSelect:focus,
+body:not(.index-page) .form-group select:focus,
+.fithub-card-inner select:focus,
+body:not(.index-page) .fithub-card-inner select:focus {
+    border-color: #ffffff !important;
+    outline: none !important;
+    background: #000000 !important;
+    background-color: #000000 !important;
+    box-shadow: 0 0 0 1px #ffffff, 0 0 12px rgba(255, 255, 255, 0.2) !important;
+}
+
+select:hover,
+.form-group select:hover,
+.fithub-card-inner select:hover {
+    border-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Options dropdown items - pure black */
+option,
+select option,
+.form-group select option,
+.fithub-card-inner select option {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    padding: 10px 14px !important;
+    font-size: 0.9rem !important;
+}
+
+/* Placeholder styling across all inputs */
+input::placeholder,
+textarea::placeholder,
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #71717a !important;
+    opacity: 1 !important;
+}
+
+/* Options dropdown items - pure black */
+option,
+select option,
+.form-group select option {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    color: #ffffff !important;
+    padding: 10px 14px !important;
+    font-size: 0.9rem !important;
+}
+
+option:checked,
+option:hover,
+option:focus {
+    background-color: #141418 !important;
+    background: #141418 !important;
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   RESULTS VIEW (ONE INNER CARD - NO NESTED SUB-CARDS)
+   ========================================================================== */
+.fithub-metrics-ribbon {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: #09090b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px 12px;
+    margin-bottom: 22px;
+    gap: 8px;
+}
+
+.fithub-metric-item {
+    text-align: center;
+    position: relative;
+    padding: 2px 6px;
+}
+
+.fithub-metric-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.fithub-metric-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #a1a1aa;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 4px;
+}
+
+.fithub-metric-value {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.3px;
+}
+
+@media (max-width: 600px) {
+    .fithub-metrics-ribbon {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .fithub-metric-item:not(:last-child)::after {
+        display: none;
+    }
+}
+
+/* Plan Exercise Rows - Clean list items with hairline dividers (no nested cards) */
+.plan-exercise-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 14px;
+}
+
+.plan-exercise-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background-color 0.2s ease;
+    gap: 12px;
+}
+
+.plan-exercise-row:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.plan-exercise-row:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.plan-exercise-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.plan-exercise-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+.plan-exercise-meta {
+    font-size: 0.8rem;
+    color: #a1a1aa;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.plan-exercise-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* Meal Blueprint Rows - Clean schedule without nested day/meal boxes */
+.meal-schedule-section {
+    margin-top: 18px;
+}
+
+.meal-row-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background-color 0.2s ease;
+    gap: 12px;
+}
+
+.meal-row-item:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.meal-row-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.meal-row-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #a1a1aa;
+    margin-bottom: 2px;
+}
+
+.meal-row-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.meal-row-macros {
+    font-size: 0.8rem;
+    color: #a1a1aa;
 }

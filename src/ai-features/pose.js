@@ -480,11 +480,7 @@ function triggerGoalCelebration() {
     banner.style.display = 'flex';
   }
 
-  if (window.speechSynthesis && soundEnabled) {
-    const msg = new SpeechSynthesisUtterance(`Congratulations! Target goal of ${targetReps} reps completed!`);
-    msg.rate = 1.0;
-    window.speechSynthesis.speak(msg);
-  }
+  // Voice announcement disabled
 }
 
 function closeGoalCelebration() {

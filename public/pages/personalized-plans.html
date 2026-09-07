@@ -89,151 +89,157 @@
             <p class="page-description">Advanced AI algorithm tailors an optimized workout regime based on your biometrics, target goals, and training experience.</p>
             
             <!-- Saved Plans Quick Loader -->
-            <div id="savedPlansContainer" style="max-width: 800px; margin: 0 auto 20px; display: none;">
-                <div style="background: #0e0e11; border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center;">
+            <div id="savedPlansContainer" style="max-width: 860px; margin: 0 auto 20px; display: none;">
+                <div style="background: #08080a; border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center;">
                     <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">📂 My Saved Plans</span>
-                    <select id="savedPlansSelect" style="height: 32px; padding: 4px 8px; font-size: 0.82rem; max-width: 250px;">
+                    <select id="savedPlansSelect" style="height: 38px; padding: 6px 36px 6px 12px; font-size: 0.85rem; max-width: 260px;">
                         <option value="">Choose a saved plan...</option>
                     </select>
                 </div>
             </div>
 
-            <div class="plan-form-container">
-                <form id="workoutPlanForm" class="workout-plan-form">
-                    <div class="form-section">
-                        <h3>Biometric Profile</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="age">Age</label>
-                                <input type="number" id="age" name="age" min="16" max="100" placeholder="e.g. 25" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="gender">Gender</label>
-                                <select id="gender" name="gender" required>
-                                    <option value="">Select Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="height">Height (cm)</label>
-                                <input type="number" id="height" name="height" min="100" max="250" placeholder="e.g. 175" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="weight">Weight (kg)</label>
-                                <input type="number" id="weight" name="weight" min="30" max="200" placeholder="e.g. 70" required>
+            <!-- Single Outer Card + Single Inner Card for Generator Form -->
+            <div class="fithub-card-outer">
+                <div class="fithub-card-inner">
+                    <form id="workoutPlanForm" class="workout-plan-form">
+                        <div class="form-section">
+                            <h3>Biometric Profile</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age" min="16" max="100" placeholder="e.g. 25" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" name="gender" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="height">Height (cm)</label>
+                                    <input type="number" id="height" name="height" min="100" max="250" placeholder="e.g. 175" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="weight">Weight (kg)</label>
+                                    <input type="number" id="weight" name="weight" min="30" max="200" placeholder="e.g. 70" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-section">
-                        <h3>Training Objectives</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="goal">Primary Goal</label>
-                                <select id="goal" name="goal" required>
-                                    <option value="">Select Goal</option>
-                                    <option value="weight-loss">Weight Loss & Shred</option>
-                                    <option value="muscle-gain">Muscle Hypertrophy</option>
-                                    <option value="endurance">Endurance & Stamina</option>
-                                    <option value="strength">Maximum Strength</option>
-                                    <option value="general-fitness">General Functional Fitness</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="experience">Experience Level</label>
-                                <select id="experience" name="experience" required>
-                                    <option value="">Select Level</option>
-                                    <option value="beginner">Beginner (0-6 months)</option>
-                                    <option value="intermediate">Intermediate (6-24 months)</option>
-                                    <option value="advanced">Advanced (2+ years)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="time">Session Duration</label>
-                                <select id="time" name="time" required>
-                                    <option value="">Select Duration</option>
-                                    <option value="20">20 minutes (Quick HIIT)</option>
-                                    <option value="30">30 minutes</option>
-                                    <option value="45">45 minutes</option>
-                                    <option value="60">60 minutes (Standard)</option>
-                                    <option value="90">90 minutes (Intensive)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="frequency">Frequency (Days / Week)</label>
-                                <select id="frequency" name="frequency" required>
-                                    <option value="">Select Frequency</option>
-                                    <option value="3">3 Days / Week</option>
-                                    <option value="4">4 Days / Week</option>
-                                    <option value="5">5 Days / Week</option>
-                                    <option value="6">6 Days / Week</option>
-                                </select>
+                        <div class="form-section">
+                            <h3>Training Objectives</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="goal">Primary Goal</label>
+                                    <select id="goal" name="goal" required>
+                                        <option value="">Select Goal</option>
+                                        <option value="weight-loss">Weight Loss & Shred</option>
+                                        <option value="muscle-gain">Muscle Hypertrophy</option>
+                                        <option value="endurance">Endurance & Stamina</option>
+                                        <option value="strength">Maximum Strength</option>
+                                        <option value="general-fitness">General Functional Fitness</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="experience">Experience Level</label>
+                                    <select id="experience" name="experience" required>
+                                        <option value="">Select Level</option>
+                                        <option value="beginner">Beginner (0-6 months)</option>
+                                        <option value="intermediate">Intermediate (6-24 months)</option>
+                                        <option value="advanced">Advanced (2+ years)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="time">Session Duration</label>
+                                    <select id="time" name="time" required>
+                                        <option value="">Select Duration</option>
+                                        <option value="20">20 minutes (Quick HIIT)</option>
+                                        <option value="30">30 minutes</option>
+                                        <option value="45">45 minutes</option>
+                                        <option value="60">60 minutes (Standard)</option>
+                                        <option value="90">90 minutes (Intensive)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="frequency">Frequency (Days / Week)</label>
+                                    <select id="frequency" name="frequency" required>
+                                        <option value="">Select Frequency</option>
+                                        <option value="3">3 Days / Week</option>
+                                        <option value="4">4 Days / Week</option>
+                                        <option value="5">5 Days / Week</option>
+                                        <option value="6">6 Days / Week</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-section">
-                        <h3>Equipment & Limitations</h3>
-                        <div class="form-group">
-                            <label>Available Equipment</label>
-                            <div class="checkbox-group">
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="equipment" value="bodyweight" checked>
-                                    <span>Bodyweight Only</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="equipment" value="dumbbells">
-                                    <span>Dumbbells</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="equipment" value="resistance-bands">
-                                    <span>Resistance Bands</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="equipment" value="barbell">
-                                    <span>Barbell & Plates</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="equipment" value="treadmill">
-                                    <span>Treadmill / Cardio</span>
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" name="equipment" value="stationary-bike">
-                                    <span>Gym Machines</span>
-                                </label>
+                        <div class="form-section">
+                            <h3>Equipment & Limitations</h3>
+                            <div class="form-group">
+                                <label>Available Equipment</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="equipment" value="bodyweight" checked>
+                                        <span>Bodyweight Only</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="equipment" value="dumbbells">
+                                        <span>Dumbbells</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="equipment" value="resistance-bands">
+                                        <span>Resistance Bands</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="equipment" value="barbell">
+                                        <span>Barbell & Plates</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="equipment" value="treadmill">
+                                        <span>Treadmill / Cardio</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="equipment" value="stationary-bike">
+                                        <span>Gym Machines</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-top: 15px;">
+                                <label for="injuries">Medical / Injury Notes</label>
+                                <textarea id="injuries" name="injuries" rows="2" placeholder="Note any joint pain, past injuries, or physical restrictions..."></textarea>
                             </div>
                         </div>
-                        <div class="form-group" style="margin-top: 15px;">
-                            <label for="injuries">Medical / Injury Notes</label>
-                            <textarea id="injuries" name="injuries" rows="2" placeholder="Note any joint pain, past injuries, or physical restrictions..."></textarea>
-                        </div>
-                    </div>
 
-                    <button type="submit" class="submit-btn generate-plan-btn">Generate Personalized Plan ➔</button>
-                </form>
+                        <button type="submit" class="fithub-submit-btn">Generate Personalized Plan ➔</button>
+                    </form>
+                </div>
             </div>
 
-            <div id="planResult" class="plan-result" style="display: none; margin-top: 30px;">
-                <div class="plan-header" style="text-align: center; margin-bottom: 20px;">
-                    <h2 id="planResultTitle" style="color: #ffffff; font-size: 1.8rem; font-weight: 800;">Your Custom Routine</h2>
-                    <p id="planResultDesc" style="color: #a1a1aa; font-size: 0.95rem;"></p>
-                </div>
+            <!-- Single Outer Card + Single Inner Card for Routine Results -->
+            <div id="planResult" class="fithub-card-outer" style="display: none; margin-top: 32px;">
+                <div class="fithub-card-inner">
+                    <div class="plan-header" style="text-align: center; margin-bottom: 20px;">
+                        <h2 id="planResultTitle" style="color: #ffffff; font-size: 1.8rem; font-weight: 800;">Your Custom Routine</h2>
+                        <p id="planResultDesc" style="color: #a1a1aa; font-size: 0.95rem;"></p>
+                    </div>
 
-                <div id="planStatsWrap"></div>
+                    <div id="planStatsWrap"></div>
 
-                <!-- Interactive Day Tabs -->
-                <div class="day-tabs-container" id="planDayTabs"></div>
+                    <!-- Interactive Day Tabs -->
+                    <div class="day-tabs-container" id="planDayTabs"></div>
 
-                <!-- Active Day Exercise Container -->
-                <div id="activeDayContent" style="margin-top: 16px;"></div>
+                    <!-- Active Day Exercise Container -->
+                    <div id="activeDayContent" style="margin-top: 16px;"></div>
 
-                <div class="plan-actions" style="display: flex; gap: 10px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
-                    <button type="button" onclick="saveCurrentPlan()" class="cta-btn cta-btn-primary">💾 Save to My Plans</button>
-                    <button type="button" onclick="downloadPlan()" class="cta-btn cta-btn-secondary">📥 Download Plan (.txt)</button>
-                    <button type="button" onclick="window.print()" class="cta-btn cta-btn-secondary">🖨️ Print View</button>
-                    <button type="button" onclick="regeneratePlan()" class="cta-btn cta-btn-secondary">↺ New Plan</button>
+                    <div class="plan-actions" style="display: flex; gap: 10px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
+                        <button type="button" onclick="saveCurrentPlan()" class="cta-btn cta-btn-primary">💾 Save to My Plans</button>
+                        <button type="button" onclick="downloadPlan()" class="cta-btn cta-btn-secondary">📥 Download Plan (.txt)</button>
+                        <button type="button" onclick="window.print()" class="cta-btn cta-btn-secondary">🖨️ Print View</button>
+                        <button type="button" onclick="regeneratePlan()" class="cta-btn cta-btn-secondary">↺ New Plan</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -254,10 +260,6 @@
             <input type="text" class="prompt" placeholder="Ask Chitti about workout splits...">
             <button class="send-btn" title="Send Message"><img src="../assets/icons/btn.svg" alt="Send"></button>
         </div>
-    </div>
-
-    <div class="virtual-assistant" title="Activate Voice Assistant">
-        <img src="../assets/images/branding/ai.png" alt="Voice Assistant" width="100px">
     </div>
 
     <script src="../js/script.js"></script>
@@ -387,24 +389,24 @@
             titleEl.innerText = plan.name;
             descEl.innerText = plan.description;
 
-            // Biometric Stats Banner
+            // Biometric Stats Ribbon (Single Unified Bar - No Nested Cards)
             statsEl.innerHTML = `
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px;">
-                    <div class="stat-card" style="text-align: center;">
-                        <div style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">BMI INDEX</div>
-                        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">${plan.bmi}</div>
+                <div class="fithub-metrics-ribbon">
+                    <div class="fithub-metric-item">
+                        <div class="fithub-metric-label">BMI INDEX</div>
+                        <div class="fithub-metric-value">${plan.bmi}</div>
                     </div>
-                    <div class="stat-card" style="text-align: center;">
-                        <div style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">GOAL</div>
-                        <div style="font-size: 1.1rem; font-weight: 800; color: #ffffff;">${plan.userData.goal.toUpperCase()}</div>
+                    <div class="fithub-metric-item">
+                        <div class="fithub-metric-label">GOAL</div>
+                        <div class="fithub-metric-value" style="font-size: 1rem;">${plan.userData.goal.toUpperCase()}</div>
                     </div>
-                    <div class="stat-card" style="text-align: center;">
-                        <div style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">DURATION</div>
-                        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">${plan.userData.time} min</div>
+                    <div class="fithub-metric-item">
+                        <div class="fithub-metric-label">DURATION</div>
+                        <div class="fithub-metric-value">${plan.userData.time} min</div>
                     </div>
-                    <div class="stat-card" style="text-align: center;">
-                        <div style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">SPLIT</div>
-                        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">${plan.userData.frequency} Days/Wk</div>
+                    <div class="fithub-metric-item">
+                        <div class="fithub-metric-label">SPLIT</div>
+                        <div class="fithub-metric-value">${plan.userData.frequency} Days/Wk</div>
                     </div>
                 </div>
             `;
@@ -445,25 +447,30 @@
             if (!dayData) return;
 
             let html = `
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 10px;">
                     <div>
-                        <h4 style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">${dayKey} — <span style="color: #d4d4d8;">${dayData.type}</span></h4>
+                        <h4 style="font-size: 1.15rem; font-weight: 700; color: #ffffff; margin: 0;">${dayKey} — <span style="color: #d4d4d8;">${dayData.type}</span></h4>
                     </div>
                     <span style="font-size: 0.8rem; color: #a1a1aa;">${dayData.exercises.length} Movements</span>
                 </div>
+                <div class="plan-exercise-list">
             `;
 
             dayData.exercises.forEach((ex, idx) => {
                 html += `
-                    <div class="plan-exercise-item" id="exItem-${dayKey}-${idx}">
-                        <div style="display: flex; align-items: center; gap: 12px;">
-                            <input type="checkbox" class="plan-complete-checkbox" onchange="toggleExerciseCompleted(this, '${ex.name}')" title="Mark completed">
-                            <div class="plan-exercise-info">
-                                <h5 id="exName-${dayKey}-${idx}">${ex.name}</h5>
-                                <p><span>🎯 ${ex.target}</span> • <span>🔄 ${ex.sets} x ${ex.reps}</span></p>
+                    <div class="plan-exercise-row" id="exItem-${dayKey}-${idx}">
+                        <div class="plan-exercise-left">
+                            <input type="checkbox" class="plan-complete-checkbox" onchange="toggleExerciseCompleted(this, '${ex.name.replace(/'/g, "\\'")}')" title="Mark completed">
+                            <div>
+                                <div class="plan-exercise-title" id="exName-${dayKey}-${idx}">${ex.name}</div>
+                                <div class="plan-exercise-meta">
+                                    <span>🎯 ${ex.target}</span>
+                                    <span>•</span>
+                                    <span>🔄 ${ex.sets} x ${ex.reps}</span>
+                                </div>
                             </div>
                         </div>
-                        <div style="display: flex; align-items: center; gap: 8px;">
+                        <div class="plan-exercise-right">
                             ${ex.rest > 0 ? `<button type="button" class="timer-start-btn" onclick="startRestTimer(${ex.rest}, '${ex.name.replace(/'/g, "\\'")}')">⏱️ Rest (${ex.rest}s)</button>` : ''}
                             ${ex.alternatives && ex.alternatives.length > 0 ? `<button type="button" class="swap-exercise-btn" onclick="swapExercise('${dayKey}', ${idx})">🔄 Swap</button>` : ''}
                         </div>
@@ -471,6 +478,7 @@
                 `;
             });
 
+            html += `</div>`;
             content.innerHTML = html;
         }
 
@@ -494,13 +502,13 @@
         }
 
         function toggleExerciseCompleted(checkbox, name) {
+            const row = checkbox.closest('.plan-exercise-row') || checkbox.closest('.plan-exercise-item');
             if (checkbox.checked) {
                 FitHubAudio.playSuccess();
-                checkbox.closest('.plan-exercise-item').style.opacity = '0.5';
-                FitHubVoice.speak(`${name} completed! Great job.`);
+                if (row) row.style.opacity = '0.5';
             } else {
                 FitHubAudio.playClick();
-                checkbox.closest('.plan-exercise-item').style.opacity = '1';
+                if (row) row.style.opacity = '1';
             }
         }
 
