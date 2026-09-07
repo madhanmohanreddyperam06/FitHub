@@ -308,7 +308,7 @@ main {
     width: 100%;
     min-height: calc(100vh - 80px);
     position: relative;
-    padding-top: 80px;
+    padding-top: 150px;
     padding: var(--spacing-md);
 }
 
