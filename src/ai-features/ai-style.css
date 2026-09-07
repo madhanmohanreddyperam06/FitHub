@@ -209,3 +209,119 @@ canvas#pose-canvas {
   border-radius: 8px;
 }
 
+
+/* Metric Cards Grid */
+.pose-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.pose-metric-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.pose-metric-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #a1a1aa;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.pose-metric-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+.rep-pulse {
+  animation: pulseRep 0.3s ease-in-out;
+}
+
+@keyframes pulseRep {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); color: #ffffff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.9); }
+  100% { transform: scale(1); }
+}
+
+/* Celebration Overlay */
+.goal-celebration-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  border-radius: 16px;
+  animation: fadeInCelebration 0.35s ease-out;
+}
+
+@keyframes fadeInCelebration {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.celebration-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+  animation: bounceCelebration 1s infinite alternate;
+}
+
+@keyframes bounceCelebration {
+  from { transform: translateY(0); }
+  to { transform: translateY(-8px); }
+}
+
+.celebration-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.celebration-desc {
+  font-size: 0.95rem;
+  color: #d4d4d8;
+  margin-bottom: 18px;
+}
+
+.trainer-sub-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.trainer-secondary-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.trainer-secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #ffffff;
+}

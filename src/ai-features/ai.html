@@ -6,43 +6,74 @@
   <title>AI Pose Trainer - FitHub</title>
   <link rel="stylesheet" href="../../public/css/style.css">
   <link rel="stylesheet" href="ai-style.css">
+  <link rel="icon" href="../../public/assets/icons/favicon.ico">
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
 </head>
 <body class="ai-trainer-body">
-  <div class="mobile-top-bar">
-    <a href="../../public/index.html" class="logo-container">
-      <img src="../../public/assets/images/branding/FitHub.png" alt="FitHub Logo" class="logo-img">
-      <span class="logo-text">FitHub</span>
-    </a>
-  </div>
-  <nav>
-    <a href="../../public/index.html" class="logo-container desktop-logo">
-      <img src="../../public/assets/images/branding/FitHub.png" alt="FitHub Logo" class="logo-img">
-      <span class="logo-text">FitHub</span>
-    </a>
-    <div class="hamburger-menu" id="hamburgerMenu">
-      <span></span><span></span><span></span>
+      <div class="mobile-top-bar">
+        <a href="../../public/index.html" class="logo-container">
+            <img src="../../public/assets/images/branding/FitHub.png" alt="FitHub Logo" class="logo-img">
+            <span class="logo-text">FitHub</span>
+        </a>
     </div>
-    <div class="right-nav" id="rightNav">
-      <div class="header-features">
-        <a href="../../public/index.html" class="header-feature-btn"><span class="feature-text">Home</span></a>
-        <a href="../../public/pages/personalized-plans.html" class="header-feature-btn"><span class="feature-text">Personalized Plan</span></a>
-        <a href="../../public/pages/nutrition-guide.html" class="header-feature-btn"><span class="feature-text">Nutrition Guide</span></a>
-        <a href="ai.html" class="header-feature-btn"><span class="feature-text">AI Pose Trainer</span></a>
-      </div>
-      <div class="chatbot-container" title="Open Chitti AI Chatbot">
-        <img src="../../public/assets/icons/chatbot.svg" alt="Chatbot" id="chatbotimg">
-        <span class="chitti-nav-label">Chitti</span>
-      </div>
-      <div class="select-box">
-        <div class="select-heading"><span>More</span><img src="../../public/assets/icons/arrow.svg" alt="arrow"></div>
-        <div class="options">
-          <a href="../../public/pages/workout.html"><div class="option">Exercise Library</div></a>
+    <nav>
+        <a href="../../public/index.html" class="logo-container desktop-logo">
+            <img src="../../public/assets/images/branding/FitHub.png" alt="FitHub Logo" class="logo-img">
+            <span class="logo-text">FitHub</span>
+        </a>
+        <div class="hamburger-menu" id="hamburgerMenu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-      </div>
-    </div>
-  </nav>
+        <div class="right-nav" id="rightNav">
+            <div class="header-features">
+                <a href="../../public/index.html" class="header-feature-btn" title="Home">
+                    <i class="fa-regular fa-house nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </i>
+                    <span class="feature-text">Home</span>
+                </a>
+                <a href="../../public/pages/personalized-plans.html" class="header-feature-btn" title="Personalized Plan">
+                    <i class="fa-regular fa-calendar nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
+                    </i>
+                    <span class="feature-text">Personalized Plan</span>
+                </a>
+                <a href="../../public/pages/nutrition-guide.html" class="header-feature-btn" title="Nutrition Guide">
+                    <i class="fa-regular fa-bowl-food nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20c0 5.5-4.5 10-10 10S2 17.5 2 12Z"/><path d="M6 7c0-2.5 2-4 4-4"/><path d="M12 8c0-3.5 2-5 4-5"/><path d="m16 8 3-4"/></svg>
+                    </i>
+                    <span class="feature-text">Nutrition Guide</span>
+                </a>
+                <a href="ai.html" class="header-feature-btn" title="AI Pose Trainer">
+                    <i class="fa-regular fa-person nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="m9 20 2-6 2-3 2 1.5 2 4.5"/><path d="m7 12 3.5-2.5L14 11l3-1"/><path d="M11 14 8 22"/></svg>
+                    </i>
+                    <span class="feature-text">AI Pose Trainer</span>
+                </a>
+            </div>
+            <div class="chatbot-container" title="Open Chitti AI Chatbot">
+                <i class="fa-regular fa-robot nav-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/><path d="M9 19h6"/></svg>
+                </i>
+                <span class="chitti-nav-label">Chitti</span>
+            </div>
+            <div class="select-box" title="More Options">
+                <div class="select-heading">
+                    <i class="fa-solid fa-bars nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </i>
+                    <span class="select-text">More</span>
+                    <img src="../../public/assets/icons/arrow.svg" alt="arrow" class="select-arrow">
+                </div>
+                <div class="options">
+                    <a href="../../public/pages/workout.html"><div class="option">Exercise Library</div></a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
   <main class="trainer-container">
     <div class="back-button-container">
@@ -51,14 +82,22 @@
 
     <div class="trainer-header">
       <h2>Real-Time AI Posture & Rep Counter</h2>
-      <p>Position your camera to see skeleton tracking and automated squat/push-up rep detection.</p>
+      <p>Precision computer vision tracks joint angles, counts reps, and delivers real-time form feedback.</p>
     </div>
 
     <div class="trainer-dashboard">
       <div class="video-container">
         <video id="webcam" autoplay playsinline width="640" height="480"></video>
         <canvas id="pose-canvas" width="640" height="480"></canvas>
-        <div class="cam-overlay-badge" id="camStatus">Camera Loading...</div>
+        <div class="cam-overlay-badge" id="camStatus">Camera Ready • Click Start</div>
+        
+        <!-- Goal Celebration Banner -->
+        <div class="goal-celebration-banner" id="goalCelebrationBanner">
+          <div class="celebration-icon">🏆</div>
+          <div class="celebration-title">Target Goal Completed!</div>
+          <div class="celebration-desc">Outstanding effort! Form remained locked and reps were clean.</div>
+          <button class="cta-btn cta-btn-primary" id="closeGoalBtn">Continue Training</button>
+        </div>
       </div>
 
       <div class="trainer-controls-panel">
@@ -67,35 +106,82 @@
           <span class="rep-count" id="repCount">0</span>
         </div>
 
+        <div class="pose-metrics-grid">
+          <div class="pose-metric-card">
+            <span class="pose-metric-label">Time</span>
+            <span class="pose-metric-value" id="elapsedTime">00:00</span>
+          </div>
+          <div class="pose-metric-card">
+            <span class="pose-metric-label">Burned</span>
+            <span class="pose-metric-value" id="calCount">0 kcal</span>
+          </div>
+          <div class="pose-metric-card">
+            <span class="pose-metric-label">Pace</span>
+            <span class="pose-metric-value" id="repPace">0 /min</span>
+          </div>
+        </div>
+
         <div class="form-feedback-box" id="formFeedback">
-          Status: Align camera and start exercising
+          Status: Click 'Start Camera' and position full body in frame
         </div>
 
         <div class="exercise-selector">
-          <label>Target Exercise:</label>
+          <label for="exerciseMode" style="font-size:0.82rem; font-weight:700; color:#a1a1aa; text-transform:uppercase;">Target Exercise:</label>
           <select id="exerciseMode">
-            <option value="squat">Squats</option>
-            <option value="pushup">Push-Ups</option>
+            <option value="squat">🏋️ Squats (Knee angle depth tracking)</option>
+            <option value="pushup">💪 Push-Ups (Elbow flexion & lockout)</option>
+            <option value="bicep_curl">🦾 Bicep Curls (Arm curl contraction)</option>
+            <option value="jumping_jack">⚡ Jumping Jacks (Full extension rhythm)</option>
+          </select>
+        </div>
+
+        <div class="exercise-selector">
+          <label for="targetRepSelect" style="font-size:0.82rem; font-weight:700; color:#a1a1aa; text-transform:uppercase;">Target Rep Goal:</label>
+          <select id="targetRepSelect">
+            <option value="5">5 Reps (Quick Set)</option>
+            <option value="10" selected>10 Reps (Standard Set)</option>
+            <option value="15">15 Reps (Hypertrophy)</option>
+            <option value="20">20 Reps (Endurance)</option>
+            <option value="0">Unlimited (Free Count)</option>
           </select>
         </div>
 
         <div class="action-btns">
           <button class="cta-btn cta-btn-primary" id="startCamBtn">Start Camera</button>
-          <button class="cta-btn cta-btn-secondary" onclick="startListening()">Voice Command</button>
+          <button class="cta-btn cta-btn-secondary" id="simBtn" style="border-color: rgba(255,255,255,0.35);">🎬 Demo Simulation</button>
+          <button class="cta-btn cta-btn-secondary" onclick="FitHubVoice.start()">🎙️ Voice Control</button>
         </div>
 
-        <div class="quick-query">
-          <input type="text" id="chat-input" placeholder="Type exercise query..." onkeydown="if(event.key==='Enter')chat()">
-          <button onclick="chat()" class="submit-tool-btn" style="padding:10px; margin-top:8px;">Ask AI</button>
-          <div id="response" style="margin-top:10px; color:#ffffff; font-size:0.9rem;"></div>
+        <div class="trainer-sub-controls">
+          <button type="button" class="trainer-secondary-btn" id="resetRepsBtn">↺ Reset Reps</button>
+          <button type="button" class="trainer-secondary-btn" id="poseSoundBtn">🔊 Sound: ON</button>
         </div>
       </div>
     </div>
   </main>
 
+  <!-- Chitti Drawer -->
+  <div class="chat-box">
+    <div class="chat-header">
+      <div class="h1">Chitti 🤖</div>
+      <button class="refresh-btn" id="refreshChat" title="Refresh Chat">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+        </svg>
+      </button>
+    </div>
+    <div class="chat-container"></div>
+    <div class="input-area">
+      <input type="text" class="prompt" placeholder="Ask Chitti about exercise form, reps...">
+      <button class="send-btn" title="Send Message"><img src="../../public/assets/icons/btn.svg" alt="Send"></button>
+    </div>
+  </div>
+
+  <div class="virtual-assistant" title="Activate Voice Assistant">
+    <img src="../../public/assets/images/branding/ai.png" alt="Voice Assistant" width="100px">
+  </div>
+
   <script type="module" src="pose.js"></script>
-  <script src="voice.js"></script>
-  <script src="chatbot.js"></script>
   <script src="../../public/js/script.js"></script>
 </body>
 </html>

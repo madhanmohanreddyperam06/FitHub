@@ -11,7 +11,7 @@
     <link rel="manifest" href="../site.webmanifest">
 </head>
 <body>
-    <div class="mobile-top-bar">
+        <div class="mobile-top-bar">
         <a href="../index.html" class="logo-container">
             <img src="../assets/images/branding/FitHub.png" alt="FitHub Logo" class="logo-img">
             <span class="logo-text">FitHub</span>
@@ -29,17 +29,45 @@
         </div>
         <div class="right-nav" id="rightNav">
             <div class="header-features">
-                <a href="../index.html" class="header-feature-btn"><span class="feature-text">Home</span></a>
-                <a href="personalized-plans.html" class="header-feature-btn"><span class="feature-text">Personalized Plan</span></a>
-                <a href="nutrition-guide.html" class="header-feature-btn"><span class="feature-text">Nutrition Guide</span></a>
-                <a href="../../src/ai-features/ai.html" class="header-feature-btn"><span class="feature-text">AI Pose Trainer</span></a>
+                <a href="../index.html" class="header-feature-btn" title="Home">
+                    <i class="fa-regular fa-house nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </i>
+                    <span class="feature-text">Home</span>
+                </a>
+                <a href="personalized-plans.html" class="header-feature-btn" title="Personalized Plan">
+                    <i class="fa-regular fa-calendar nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
+                    </i>
+                    <span class="feature-text">Personalized Plan</span>
+                </a>
+                <a href="nutrition-guide.html" class="header-feature-btn" title="Nutrition Guide">
+                    <i class="fa-regular fa-bowl-food nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20c0 5.5-4.5 10-10 10S2 17.5 2 12Z"/><path d="M6 7c0-2.5 2-4 4-4"/><path d="M12 8c0-3.5 2-5 4-5"/><path d="m16 8 3-4"/></svg>
+                    </i>
+                    <span class="feature-text">Nutrition Guide</span>
+                </a>
+                <a href="../../src/ai-features/ai.html" class="header-feature-btn" title="AI Pose Trainer">
+                    <i class="fa-regular fa-person nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="m9 20 2-6 2-3 2 1.5 2 4.5"/><path d="m7 12 3.5-2.5L14 11l3-1"/><path d="M11 14 8 22"/></svg>
+                    </i>
+                    <span class="feature-text">AI Pose Trainer</span>
+                </a>
             </div>
             <div class="chatbot-container" title="Open Chitti AI Chatbot">
-                <img src="../assets/icons/chatbot.svg" alt="Chatbot" id="chatbotimg">
+                <i class="fa-regular fa-robot nav-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/><path d="M9 19h6"/></svg>
+                </i>
                 <span class="chitti-nav-label">Chitti</span>
             </div>
-            <div class="select-box">
-                <div class="select-heading"><span>More</span><img src="../assets/icons/arrow.svg" alt="arrow"></div>
+            <div class="select-box" title="More Options">
+                <div class="select-heading">
+                    <i class="fa-solid fa-bars nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </i>
+                    <span class="select-text">More</span>
+                    <img src="../assets/icons/arrow.svg" alt="arrow" class="select-arrow">
+                </div>
                 <div class="options">
                     <a href="workout.html"><div class="option">Exercise Library</div></a>
                 </div>
@@ -60,6 +88,16 @@
             <h1 class="page-title">Personalized Workout Generator</h1>
             <p class="page-description">Advanced AI algorithm tailors an optimized workout regime based on your biometrics, target goals, and training experience.</p>
             
+            <!-- Saved Plans Quick Loader -->
+            <div id="savedPlansContainer" style="max-width: 800px; margin: 0 auto 20px; display: none;">
+                <div style="background: #0e0e11; border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 700; font-size: 0.9rem; color: #ffffff;">📂 My Saved Plans</span>
+                    <select id="savedPlansSelect" style="height: 32px; padding: 4px 8px; font-size: 0.82rem; max-width: 250px;">
+                        <option value="">Choose a saved plan...</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="plan-form-container">
                 <form id="workoutPlanForm" class="workout-plan-form">
                     <div class="form-section">
@@ -142,7 +180,7 @@
                             <label>Available Equipment</label>
                             <div class="checkbox-group">
                                 <label class="checkbox-item">
-                                    <input type="checkbox" name="equipment" value="bodyweight">
+                                    <input type="checkbox" name="equipment" value="bodyweight" checked>
                                     <span>Bodyweight Only</span>
                                 </label>
                                 <label class="checkbox-item">
@@ -177,277 +215,362 @@
                 </form>
             </div>
 
-            <div id="planResult" class="plan-result" style="display: none;">
-                <h2>Your Personalized Workout Plan</h2>
-                <div id="planContent"></div>
-                <div class="plan-actions">
-                    <button onclick="downloadPlan()" class="download-btn">Download Plan</button>
-                    <button onclick="regeneratePlan()" class="regenerate-btn">Regenerate</button>
+            <div id="planResult" class="plan-result" style="display: none; margin-top: 30px;">
+                <div class="plan-header" style="text-align: center; margin-bottom: 20px;">
+                    <h2 id="planResultTitle" style="color: #ffffff; font-size: 1.8rem; font-weight: 800;">Your Custom Routine</h2>
+                    <p id="planResultDesc" style="color: #a1a1aa; font-size: 0.95rem;"></p>
+                </div>
+
+                <div id="planStatsWrap"></div>
+
+                <!-- Interactive Day Tabs -->
+                <div class="day-tabs-container" id="planDayTabs"></div>
+
+                <!-- Active Day Exercise Container -->
+                <div id="activeDayContent" style="margin-top: 16px;"></div>
+
+                <div class="plan-actions" style="display: flex; gap: 10px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
+                    <button type="button" onclick="saveCurrentPlan()" class="cta-btn cta-btn-primary">💾 Save to My Plans</button>
+                    <button type="button" onclick="downloadPlan()" class="cta-btn cta-btn-secondary">📥 Download Plan (.txt)</button>
+                    <button type="button" onclick="window.print()" class="cta-btn cta-btn-secondary">🖨️ Print View</button>
+                    <button type="button" onclick="regeneratePlan()" class="cta-btn cta-btn-secondary">↺ New Plan</button>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- Chitti Drawer -->
+    <div class="chat-box">
+        <div class="chat-header">
+            <div class="h1">Chitti 🤖</div>
+            <button class="refresh-btn" id="refreshChat" title="Refresh Chat">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+                </svg>
+            </button>
+        </div>
+        <div class="chat-container"></div>
+        <div class="input-area">
+            <input type="text" class="prompt" placeholder="Ask Chitti about workout splits...">
+            <button class="send-btn" title="Send Message"><img src="../assets/icons/btn.svg" alt="Send"></button>
+        </div>
+    </div>
 
+    <div class="virtual-assistant" title="Activate Voice Assistant">
+        <img src="../assets/images/branding/ai.png" alt="Voice Assistant" width="100px">
+    </div>
 
     <script src="../js/script.js"></script>
     <script>
-        // Workout Plan Generation Logic
-        document.getElementById('workoutPlanForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            generateWorkoutPlan();
+        let currentGeneratedPlan = null;
+        let activeDayKey = 'Monday';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSavedPlansDropdown();
+
+            document.getElementById('workoutPlanForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                FitHubAudio.playClick();
+                generateWorkoutPlan();
+            });
+
+            document.getElementById('savedPlansSelect').addEventListener('change', function(e) {
+                const planId = e.target.value;
+                if (planId) {
+                    loadSavedPlanById(planId);
+                }
+            });
         });
 
         function generateWorkoutPlan() {
             const formData = new FormData(document.getElementById('workoutPlanForm'));
             const data = Object.fromEntries(formData.entries());
             
-            // Calculate BMI
-            const height = parseFloat(data.height) / 100; // Convert to meters
+            const height = parseFloat(data.height) / 100;
             const weight = parseFloat(data.weight);
             const bmi = (weight / (height * height)).toFixed(1);
-            
-            // Get equipment
             const equipment = formData.getAll('equipment');
             
-            // Generate workout plan based on inputs
-            const plan = createWorkoutPlan(data, bmi, equipment);
-            
-            // Display the plan
-            displayWorkoutPlan(plan, data, bmi);
+            const plan = buildStructuredPlan(data, bmi, equipment);
+            currentGeneratedPlan = { ...plan, userData: data, bmi: bmi };
+            displayWorkoutPlan(currentGeneratedPlan);
         }
 
-        function createWorkoutPlan(data, bmi, equipment) {
-            const plans = {
-                'weight-loss': {
-                    beginner: {
-                        name: 'Beginner Weight Loss Plan',
-                        description: 'Perfect for starting your weight loss journey',
-                        schedule: generateWeightLossSchedule(data.frequency, data.time, equipment, 'beginner')
-                    },
-                    intermediate: {
-                        name: 'Intermediate Weight Loss Plan',
-                        description: 'Step up your fat burning routine',
-                        schedule: generateWeightLossSchedule(data.frequency, data.time, equipment, 'intermediate')
-                    },
-                    advanced: {
-                        name: 'Advanced Weight Loss Plan',
-                        description: 'Maximum calorie burn and conditioning',
-                        schedule: generateWeightLossSchedule(data.frequency, data.time, equipment, 'advanced')
-                    }
+        function buildStructuredPlan(data, bmi, equipment) {
+            const hasDumbbells = equipment.includes('dumbbells');
+            const hasBarbell = equipment.includes('barbell');
+            const hasCardio = equipment.includes('treadmill') || equipment.includes('stationary-bike');
+
+            const chestMain = hasBarbell ? "Barbell Flat Bench Press" : (hasDumbbells ? "Flat Dumbbell Press" : "Standard Push-Ups");
+            const chestAlt = ["Incline Dumbbell Press", "Bodyweight Diamond Push-Ups", "Chest Dips"];
+
+            const backMain = hasBarbell ? "Bent-Over Barbell Row" : (hasDumbbells ? "One-Arm Dumbbell Row" : "Inverted Rows / Pull-Ups");
+            const backAlt = ["Wide-Grip Lat Pulldown", "Superman Extensions", "Resistance Band Rows"];
+
+            const legMain = hasBarbell ? "Barbell Back Squats" : (hasDumbbells ? "Goblet Squats" : "Bodyweight Air Squats");
+            const legAlt = ["Walking Lunges", "Romanian Deadlifts", "Bulgarian Split Squats"];
+
+            const shoulderMain = hasBarbell ? "Overhead Military Press" : (hasDumbbells ? "Dumbbell Shoulder Press" : "Pike Push-Ups");
+            const shoulderAlt = ["Dumbbell Lateral Raises", "Front Raises", "Rear Delt Flyes"];
+
+            const armMain = hasDumbbells ? "Bicep Dumbbell Curls & Tricep Dips" : "Chin-Ups & Diamond Push-Ups";
+            const armAlt = ["Hammer Curls", "Skull Crushers", "Resistance Band Curls"];
+
+            const days = {
+                'Monday': {
+                    type: 'Upper Body Power',
+                    exercises: [
+                        { name: chestMain, target: 'Chest & Triceps', sets: '4 Sets', reps: '8-10 Reps', rest: 60, alternatives: chestAlt },
+                        { name: backMain, target: 'Lats & Rhomboids', sets: '4 Sets', reps: '8-10 Reps', rest: 60, alternatives: backAlt },
+                        { name: shoulderMain, target: 'Anterior & Lateral Deltoids', sets: '3 Sets', reps: '10-12 Reps', rest: 45, alternatives: shoulderAlt }
+                    ]
                 },
-                'muscle-gain': {
-                    beginner: {
-                        name: 'Beginner Muscle Building Plan',
-                        description: 'Start building lean muscle mass',
-                        schedule: generateMuscleGainSchedule(data.frequency, data.time, equipment, 'beginner')
-                    },
-                    intermediate: {
-                        name: 'Intermediate Muscle Building Plan',
-                        description: 'Accelerate muscle growth and strength',
-                        schedule: generateMuscleGainSchedule(data.frequency, data.time, equipment, 'intermediate')
-                    },
-                    advanced: {
-                        name: 'Advanced Muscle Building Plan',
-                        description: 'Maximum hypertrophy and strength gains',
-                        schedule: generateMuscleGainSchedule(data.frequency, data.time, equipment, 'advanced')
-                    }
+                'Tuesday': {
+                    type: 'Lower Body & Core',
+                    exercises: [
+                        { name: legMain, target: 'Quadriceps & Glutes', sets: '4 Sets', reps: '10-12 Reps', rest: 60, alternatives: legAlt },
+                        { name: 'Romanian Deadlifts', target: 'Hamstrings & Posterior Chain', sets: '3 Sets', reps: '10-12 Reps', rest: 60, alternatives: ['Glute Bridges', 'Hamstring Curls'] },
+                        { name: 'Plank & Hanging Knee Raises', target: 'Core & Rectus Abdominis', sets: '3 Sets', reps: '30-45 Secs', rest: 45, alternatives: ['Bicycle Crunches', 'Russian Twists'] }
+                    ]
                 },
-                'endurance': {
-                    beginner: {
-                        name: 'Beginner Endurance Plan',
-                        description: 'Build cardiovascular fitness',
-                        schedule: generateEnduranceSchedule(data.frequency, data.time, equipment, 'beginner')
-                    },
-                    intermediate: {
-                        name: 'Intermediate Endurance Plan',
-                        description: 'Improve stamina and performance',
-                        schedule: generateEnduranceSchedule(data.frequency, data.time, equipment, 'intermediate')
-                    },
-                    advanced: {
-                        name: 'Advanced Endurance Plan',
-                        description: 'Peak athletic performance',
-                        schedule: generateEnduranceSchedule(data.frequency, data.time, equipment, 'advanced')
-                    }
+                'Wednesday': {
+                    type: 'Active Recovery',
+                    exercises: [
+                        { name: 'Light Mobility & Hip Openers', target: 'Joint Flexibility', sets: '2 Sets', reps: '10 Mins', rest: 30, alternatives: ['Full Body Foam Rolling', 'Dynamic Stretching'] },
+                        { name: 'Brisk Incline Walk or Light Cycling', target: 'Low Intensity Steady State', sets: '1 Session', reps: '25 Mins', rest: 60, alternatives: ['Rowing Machine', 'Casual Swimming'] }
+                    ]
                 },
-                'strength': {
-                    beginner: {
-                        name: 'Beginner Strength Plan',
-                        description: 'Build foundational strength',
-                        schedule: generateStrengthSchedule(data.frequency, data.time, equipment, 'beginner')
-                    },
-                    intermediate: {
-                        name: 'Intermediate Strength Plan',
-                        description: 'Increase power and strength',
-                        schedule: generateStrengthSchedule(data.frequency, data.time, equipment, 'intermediate')
-                    },
-                    advanced: {
-                        name: 'Advanced Strength Plan',
-                        description: 'Maximum strength and power development',
-                        schedule: generateStrengthSchedule(data.frequency, data.time, equipment, 'advanced')
-                    }
+                'Thursday': {
+                    type: 'Push Hypertrophy',
+                    exercises: [
+                        { name: 'Incline Dumbbell Press', target: 'Upper Clavicular Pectorals', sets: '3 Sets', reps: '10-12 Reps', rest: 60, alternatives: chestAlt },
+                        { name: 'Dumbbell Lateral Raises', target: 'Lateral Deltoids', sets: '4 Sets', reps: '12-15 Reps', rest: 45, alternatives: shoulderAlt },
+                        { name: 'Tricep Rope Pushdowns / Dips', target: 'Tricep Lateral Head', sets: '3 Sets', reps: '12-15 Reps', rest: 45, alternatives: armAlt }
+                    ]
                 },
-                'general-fitness': {
-                    beginner: {
-                        name: 'General Fitness Plan',
-                        description: 'Balanced approach to overall fitness',
-                        schedule: generateGeneralFitnessSchedule(data.frequency, data.time, equipment, 'beginner')
-                    },
-                    intermediate: {
-                        name: 'Enhanced Fitness Plan',
-                        description: 'Take your fitness to the next level',
-                        schedule: generateGeneralFitnessSchedule(data.frequency, data.time, equipment, 'intermediate')
-                    },
-                    advanced: {
-                        name: 'Peak Fitness Plan',
-                        description: 'Comprehensive fitness optimization',
-                        schedule: generateGeneralFitnessSchedule(data.frequency, data.time, equipment, 'advanced')
-                    }
+                'Friday': {
+                    type: 'Pull & Legs',
+                    exercises: [
+                        { name: 'Wide-Grip Lat Pulldowns', target: 'Lats & Upper Back', sets: '4 Sets', reps: '10-12 Reps', rest: 60, alternatives: backAlt },
+                        { name: 'Walking Dumbbell Lunges', target: 'Quads & Balance', sets: '3 Sets', reps: '12 Steps/Leg', rest: 60, alternatives: legAlt },
+                        { name: 'Standing Dumbbell Bicep Curls', target: 'Biceps Brachii', sets: '3 Sets', reps: '10-12 Reps', rest: 45, alternatives: armAlt }
+                    ]
+                },
+                'Saturday': {
+                    type: hasCardio ? 'Cardio Conditioning' : 'Full Body HIIT',
+                    exercises: [
+                        { name: hasCardio ? 'Interval Cardio Sprints' : 'Burpees & Mountain Climbers', target: 'Cardiovascular Conditioning', sets: '5 Rounds', reps: '40s On / 20s Off', rest: 60, alternatives: ['Jumping Jacks', 'Kettlebell Swings'] },
+                        { name: 'Hanging Leg Raises', target: 'Lower Core', sets: '3 Sets', reps: '12-15 Reps', rest: 45, alternatives: ['Ab Wheel Rollouts', 'Side Planks'] }
+                    ]
+                },
+                'Sunday': {
+                    type: 'Complete Rest',
+                    exercises: [
+                        { name: 'Full Rest & Recovery Day', target: 'Muscular Glycogen Replenishment', sets: 'Relax', reps: 'Full Day', rest: 0, alternatives: ['Meditation', 'Casual Nature Walk'] }
+                    ]
                 }
             };
 
-            return plans[data.goal]?.[data.experience] || plans['general-fitness'][data.experience];
-        }
-
-        function generateWeightLossSchedule(frequency, time, equipment, level) {
-            const cardioOptions = equipment.includes('treadmill') ? 'Treadmill' : 'Jumping Jacks';
-            const strengthOptions = equipment.includes('dumbbells') ? 'Dumbbell Exercises' : 'Bodyweight Strength';
-            
             return {
-                'Monday': { type: 'Cardio', exercises: [cardioOptions + ' - ' + time + ' minutes', 'Core Work - 10 minutes'] },
-                'Tuesday': { type: 'Strength', exercises: [strengthOptions + ' - ' + (parseInt(time) - 10) + ' minutes', 'Cool Down - 10 minutes'] },
-                'Wednesday': { type: 'Active Recovery', exercises: ['Light Walking - 30 minutes', 'Stretching - 15 minutes'] },
-                'Thursday': { type: 'HIIT', exercises: ['High Intensity Intervals - 20 minutes', 'Recovery - 10 minutes'] },
-                'Friday': { type: 'Full Body', exercises: [strengthOptions + ' - ' + (parseInt(time) - 5) + ' minutes', 'Core - 5 minutes'] },
-                'Saturday': { type: 'Cardio', exercises: [cardioOptions + ' - ' + time + ' minutes', 'Flexibility - 10 minutes'] },
-                'Sunday': { type: 'Rest', exercises: ['Complete Rest Day', 'Light stretching optional'] }
+                name: `${data.goal.replace('-', ' ').toUpperCase()} • ${data.experience.toUpperCase()} SPLIT`,
+                description: `Engineered for ${data.time}-minute sessions, ${data.frequency} days weekly with focus on progressive volume.`,
+                schedule: days
             };
         }
 
-        function generateMuscleGainSchedule(frequency, time, equipment, level) {
-            const hasWeights = equipment.includes('dumbbells') || equipment.includes('barbell');
-            const strengthType = hasWeights ? 'Weight Training' : 'Bodyweight Strength';
-            
-            return {
-                'Monday': { type: 'Upper Body', exercises: [strengthType + ' - Chest & Triceps', time + ' minutes', '3 sets of 8-12 reps'] },
-                'Tuesday': { type: 'Lower Body', exercises: [strengthType + ' - Legs & Glutes', time + ' minutes', '3-4 sets of 8-12 reps'] },
-                'Wednesday': { type: 'Rest', exercises: ['Active Recovery', 'Light cardio optional'] },
-                'Thursday': { type: 'Upper Body', exercises: [strengthType + ' - Back & Biceps', time + ' minutes', '3 sets of 8-12 reps'] },
-                'Friday': { type: 'Lower Body', exercises: [strengthType + ' - Shoulders & Legs', time + ' minutes', '3-4 sets of 8-12 reps'] },
-                'Saturday': { type: 'Core & Cardio', exercises: ['Core Workout - 20 minutes', 'Light Cardio - 20 minutes'] },
-                'Sunday': { type: 'Rest', exercises: ['Complete Rest Day'] }
-            };
-        }
-
-        function generateEnduranceSchedule(frequency, time, equipment, level) {
-            const cardioEquipment = equipment.includes('treadmill') || equipment.includes('stationary-bike') ? 'Machine Cardio' : 'Running/Jogging';
-            
-            return {
-                'Monday': { type: 'Steady State Cardio', exercises: [cardioEquipment + ' - ' + time + ' minutes', 'Moderate intensity'] },
-                'Tuesday': { type: 'Interval Training', exercises: ['HIIT Intervals - 20 minutes', 'Recovery - 10 minutes'] },
-                'Wednesday': { type: 'Active Recovery', exercises: ['Light Cardio - 30 minutes', 'Stretching'] },
-                'Thursday': { type: 'Tempo Training', exercises: [cardioEquipment + ' - ' + (parseInt(time) - 10) + ' minutes', 'High tempo pace'] },
-                'Friday': { type: 'Long Distance', exercises: [cardioEquipment + ' - ' + (parseInt(time) + 20) + ' minutes', 'Steady pace'] },
-                'Saturday': { type: 'Cross Training', exercises: ['Different Cardio Activity', time + ' minutes'] },
-                'Sunday': { type: 'Rest', exercises: ['Complete Rest'] }
-            };
-        }
-
-        function generateStrengthSchedule(frequency, time, equipment, level) {
-            const hasWeights = equipment.includes('dumbbells') || equipment.includes('barbell');
-            const trainingType = hasWeights ? 'Weight Training' : 'Progressive Bodyweight';
-            
-            return {
-                'Monday': { type: 'Power Day', exercises: [trainingType + ' - Compound Movements', time + ' minutes', '5 sets of 3-5 reps'] },
-                'Tuesday': { type: 'Strength Day', exercises: [trainingType + ' - Heavy Lifts', time + ' minutes', '4-5 sets of 5-8 reps'] },
-                'Wednesday': { type: 'Active Recovery', exercises: ['Light Movement', 'Mobility work'] },
-                'Thursday': { type: 'Hypertrophy', exercises: [trainingType + ' - Moderate Weight', time + ' minutes', '3-4 sets of 8-12 reps'] },
-                'Friday': { type: 'Power & Strength', exercises: [trainingType + ' - Mixed Intensity', time + ' minutes', 'Varied reps and sets'] },
-                'Saturday': { type: 'Accessory Work', exercises: ['Core & Stability', (parseInt(time) - 20) + ' minutes', 'High reps'] },
-                'Sunday': { type: 'Rest', exercises: ['Complete Rest'] }
-            };
-        }
-
-        function generateGeneralFitnessSchedule(frequency, time, equipment, level) {
-            const hasCardio = equipment.includes('treadmill') || equipment.includes('stationary-bike');
-            const hasWeights = equipment.includes('dumbbells') || equipment.includes('barbell');
-            
-            return {
-                'Monday': { type: 'Full Body Strength', exercises: [hasWeights ? 'Weight Training' : 'Bodyweight', time + ' minutes', 'Full body workout'] },
-                'Tuesday': { type: 'Cardio', exercises: [hasCardio ? 'Machine Cardio' : 'Bodyweight Cardio', time + ' minutes', 'Moderate intensity'] },
-                'Wednesday': { type: 'Active Recovery', exercises: ['Light Activity', '30 minutes'] },
-                'Thursday': { type: 'Upper Body', exercises: [hasWeights ? 'Upper Body Weights' : 'Upper Body BW', time + ' minutes', 'Upper focus'] },
-                'Friday': { type: 'Lower Body', exercises: [hasWeights ? 'Lower Body Weights' : 'Lower Body BW', time + ' minutes', 'Lower focus'] },
-                'Saturday': { type: 'Flexibility & Core', exercises: ['Stretching & Core', (parseInt(time) - 20) + ' minutes', 'Mobility work'] },
-                'Sunday': { type: 'Rest', exercises: ['Rest Day', 'Light walking optional'] }
-            };
-        }
-
-        function displayWorkoutPlan(plan, data, bmi) {
+        function displayWorkoutPlan(plan) {
             const resultDiv = document.getElementById('planResult');
-            const contentDiv = document.getElementById('planContent');
-            
-            let scheduleHTML = '<div class="schedule-grid">';
-            for (const [day, workout] of Object.entries(plan.schedule)) {
-                scheduleHTML += '<div class="schedule-item">' +
-                    '<h4>' + day + '</h4>' +
-                    '<div class="workout-type">' + workout.type + '</div>' +
-                    '<ul class="exercise-list">';
-                
-                workout.exercises.forEach(function(ex) {
-                    scheduleHTML += '<li>' + ex + '</li>';
-                });
-                
-                scheduleHTML += '</ul></div>';
-            }
-            scheduleHTML += '</div>';
+            const titleEl = document.getElementById('planResultTitle');
+            const descEl = document.getElementById('planResultDesc');
+            const statsEl = document.getElementById('planStatsWrap');
 
-            contentDiv.innerHTML = '<div class="plan-header">' +
-                '<h3>' + plan.name + '</h3>' +
-                '<p>' + plan.description + '</p>' +
-                '</div>' +
-                '<div class="user-stats">' +
-                '<div class="stat-item">' +
-                '<span class="stat-label">BMI:</span>' +
-                '<span class="stat-value">' + bmi + '</span>' +
-                '</div>' +
-                '<div class="stat-item">' +
-                '<span class="stat-label">Goal:</span>' +
-                '<span class="stat-value">' + data.goal.replace('-', ' ').toUpperCase() + '</span>' +
-                '</div>' +
-                '<div class="stat-item">' +
-                '<span class="stat-label">Level:</span>' +
-                '<span class="stat-value">' + data.experience.toUpperCase() + '</span>' +
-                '</div>' +
-                '</div>' +
-                '<div class="workout-schedule">' +
-                '<h4>Weekly Schedule</h4>' +
-                scheduleHTML +
-                '</div>' +
-                '<div class="plan-tips">' +
-                '<h4>Tips for Success</h4>' +
-                '<ul>' +
-                '<li>Stay hydrated - drink water before, during, and after workouts</li>' +
-                '<li>Warm up properly before each session (5-10 minutes)</li>' +
-                '<li>Focus on proper form over heavy weights</li>' +
-                '<li>Get adequate rest and recovery between sessions</li>' +
-                '<li>Listen to your body and adjust intensity as needed</li>' +
-                '<li>Track your progress and celebrate small victories</li>' +
-                '</ul>' +
-                '</div>';
-            
+            titleEl.innerText = plan.name;
+            descEl.innerText = plan.description;
+
+            // Biometric Stats Banner
+            statsEl.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                    <div class="stat-card" style="text-align: center;">
+                        <div style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">BMI INDEX</div>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">${plan.bmi}</div>
+                    </div>
+                    <div class="stat-card" style="text-align: center;">
+                        <div style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">GOAL</div>
+                        <div style="font-size: 1.1rem; font-weight: 800; color: #ffffff;">${plan.userData.goal.toUpperCase()}</div>
+                    </div>
+                    <div class="stat-card" style="text-align: center;">
+                        <div style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">DURATION</div>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">${plan.userData.time} min</div>
+                    </div>
+                    <div class="stat-card" style="text-align: center;">
+                        <div style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">SPLIT</div>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">${plan.userData.frequency} Days/Wk</div>
+                    </div>
+                </div>
+            `;
+
+            // Render Day Tabs
+            renderDayTabs(plan);
+
+            // Render Active Day
+            renderDayExercises(plan, activeDayKey);
+
             resultDiv.style.display = 'block';
             resultDiv.scrollIntoView({ behavior: 'smooth' });
         }
 
+        function renderDayTabs(plan) {
+            const tabsContainer = document.getElementById('planDayTabs');
+            tabsContainer.innerHTML = '';
+
+            const days = Object.keys(plan.schedule);
+            days.forEach(day => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `day-tab-btn ${day === activeDayKey ? 'active' : ''}`;
+                btn.innerText = day;
+                btn.addEventListener('click', () => {
+                    FitHubAudio.playClick();
+                    activeDayKey = day;
+                    renderDayTabs(plan);
+                    renderDayExercises(plan, day);
+                });
+                tabsContainer.appendChild(btn);
+            });
+        }
+
+        function renderDayExercises(plan, dayKey) {
+            const content = document.getElementById('activeDayContent');
+            const dayData = plan.schedule[dayKey];
+            if (!dayData) return;
+
+            let html = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <div>
+                        <h4 style="font-size: 1.2rem; font-weight: 700; color: #ffffff;">${dayKey} — <span style="color: #d4d4d8;">${dayData.type}</span></h4>
+                    </div>
+                    <span style="font-size: 0.8rem; color: #a1a1aa;">${dayData.exercises.length} Movements</span>
+                </div>
+            `;
+
+            dayData.exercises.forEach((ex, idx) => {
+                html += `
+                    <div class="plan-exercise-item" id="exItem-${dayKey}-${idx}">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="checkbox" class="plan-complete-checkbox" onchange="toggleExerciseCompleted(this, '${ex.name}')" title="Mark completed">
+                            <div class="plan-exercise-info">
+                                <h5 id="exName-${dayKey}-${idx}">${ex.name}</h5>
+                                <p><span>🎯 ${ex.target}</span> • <span>🔄 ${ex.sets} x ${ex.reps}</span></p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            ${ex.rest > 0 ? `<button type="button" class="timer-start-btn" onclick="startRestTimer(${ex.rest}, '${ex.name.replace(/'/g, "\\'")}')">⏱️ Rest (${ex.rest}s)</button>` : ''}
+                            ${ex.alternatives && ex.alternatives.length > 0 ? `<button type="button" class="swap-exercise-btn" onclick="swapExercise('${dayKey}', ${idx})">🔄 Swap</button>` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+
+            content.innerHTML = html;
+        }
+
+        function swapExercise(dayKey, exIdx) {
+            FitHubAudio.playClick();
+            if (!currentGeneratedPlan) return;
+            const ex = currentGeneratedPlan.schedule[dayKey].exercises[exIdx];
+            if (!ex || !ex.alternatives || ex.alternatives.length === 0) return;
+
+            const oldName = ex.name;
+            const nextAlt = ex.alternatives.shift();
+            ex.alternatives.push(oldName);
+            ex.name = nextAlt;
+
+            const nameEl = document.getElementById(`exName-${dayKey}-${exIdx}`);
+            if (nameEl) {
+                nameEl.innerText = nextAlt;
+                nameEl.classList.add('rep-pulse');
+                setTimeout(() => nameEl.classList.remove('rep-pulse'), 300);
+            }
+        }
+
+        function toggleExerciseCompleted(checkbox, name) {
+            if (checkbox.checked) {
+                FitHubAudio.playSuccess();
+                checkbox.closest('.plan-exercise-item').style.opacity = '0.5';
+                FitHubVoice.speak(`${name} completed! Great job.`);
+            } else {
+                FitHubAudio.playClick();
+                checkbox.closest('.plan-exercise-item').style.opacity = '1';
+            }
+        }
+
+        function saveCurrentPlan() {
+            if (!currentGeneratedPlan) return;
+            FitHubAudio.playSuccess();
+
+            let saved = JSON.parse(localStorage.getItem('fithub_saved_plans') || '[]');
+            const planId = 'plan-' + Date.now();
+            const planToSave = {
+                id: planId,
+                date: new Date().toLocaleDateString(),
+                ...currentGeneratedPlan
+            };
+
+            saved.push(planToSave);
+            localStorage.setItem('fithub_saved_plans', JSON.stringify(saved));
+            alert("✅ Workout plan successfully saved to 'My Saved Plans'!");
+            loadSavedPlansDropdown();
+        }
+
+        function loadSavedPlansDropdown() {
+            const select = document.getElementById('savedPlansSelect');
+            const wrap = document.getElementById('savedPlansContainer');
+            if (!select || !wrap) return;
+
+            let saved = JSON.parse(localStorage.getItem('fithub_saved_plans') || '[]');
+            if (saved.length === 0) {
+                wrap.style.display = 'none';
+                return;
+            }
+
+            wrap.style.display = 'block';
+            select.innerHTML = '<option value="">Choose a saved plan...</option>';
+            saved.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p.id;
+                opt.innerText = `${p.name} (${p.date || 'Saved'})`;
+                select.appendChild(opt);
+            });
+        }
+
+        function loadSavedPlanById(id) {
+            let saved = JSON.parse(localStorage.getItem('fithub_saved_plans') || '[]');
+            const found = saved.find(p => p.id === id);
+            if (found) {
+                FitHubAudio.playClick();
+                currentGeneratedPlan = found;
+                displayWorkoutPlan(found);
+            }
+        }
+
         function downloadPlan() {
-            const content = document.getElementById('planContent');
-            if (!content) return;
-            
-            const textContent = `FitHub - Personalized Workout Plan\n===================================\n\n` + 
-                content.innerText;
-                
-            const blob = new Blob([textContent], { type: 'text/plain' });
+            if (!currentGeneratedPlan) return;
+            FitHubAudio.playClick();
+
+            let text = `FitHub - Personalized Workout Plan\n`;
+            text += `=====================================\n`;
+            text += `Plan: ${currentGeneratedPlan.name}\n`;
+            text += `BMI: ${currentGeneratedPlan.bmi} | Frequency: ${currentGeneratedPlan.userData.frequency} Days/Wk\n\n`;
+
+            for (const [day, data] of Object.entries(currentGeneratedPlan.schedule)) {
+                text += `[${day} - ${data.type}]\n`;
+                data.exercises.forEach((ex, i) => {
+                    text += `  ${i + 1}. ${ex.name} (${ex.sets} x ${ex.reps}) - Rest: ${ex.rest}s\n`;
+                });
+                text += `\n`;
+            }
+
+            const blob = new Blob([text], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -459,6 +582,7 @@
         }
 
         function regeneratePlan() {
+            FitHubAudio.playClick();
             document.getElementById('planResult').style.display = 'none';
             document.getElementById('workoutPlanForm').scrollIntoView({ behavior: 'smooth' });
         }

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutrition Guide - FitHub</title>
+    <title>Nutrition Guide & Macro Intelligence - FitHub</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="../assets/icons/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
@@ -11,7 +11,7 @@
     <link rel="manifest" href="../site.webmanifest">
 </head>
 <body>
-    <div class="mobile-top-bar">
+        <div class="mobile-top-bar">
         <a href="../index.html" class="logo-container">
             <img src="../assets/images/branding/FitHub.png" alt="FitHub Logo" class="logo-img">
             <span class="logo-text">FitHub</span>
@@ -29,17 +29,45 @@
         </div>
         <div class="right-nav" id="rightNav">
             <div class="header-features">
-                <a href="../index.html" class="header-feature-btn"><span class="feature-text">Home</span></a>
-                <a href="personalized-plans.html" class="header-feature-btn"><span class="feature-text">Personalized Plan</span></a>
-                <a href="nutrition-guide.html" class="header-feature-btn"><span class="feature-text">Nutrition Guide</span></a>
-                <a href="../../src/ai-features/ai.html" class="header-feature-btn"><span class="feature-text">AI Pose Trainer</span></a>
+                <a href="../index.html" class="header-feature-btn" title="Home">
+                    <i class="fa-regular fa-house nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </i>
+                    <span class="feature-text">Home</span>
+                </a>
+                <a href="personalized-plans.html" class="header-feature-btn" title="Personalized Plan">
+                    <i class="fa-regular fa-calendar nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
+                    </i>
+                    <span class="feature-text">Personalized Plan</span>
+                </a>
+                <a href="nutrition-guide.html" class="header-feature-btn" title="Nutrition Guide">
+                    <i class="fa-regular fa-bowl-food nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20c0 5.5-4.5 10-10 10S2 17.5 2 12Z"/><path d="M6 7c0-2.5 2-4 4-4"/><path d="M12 8c0-3.5 2-5 4-5"/><path d="m16 8 3-4"/></svg>
+                    </i>
+                    <span class="feature-text">Nutrition Guide</span>
+                </a>
+                <a href="../../src/ai-features/ai.html" class="header-feature-btn" title="AI Pose Trainer">
+                    <i class="fa-regular fa-person nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="m9 20 2-6 2-3 2 1.5 2 4.5"/><path d="m7 12 3.5-2.5L14 11l3-1"/><path d="M11 14 8 22"/></svg>
+                    </i>
+                    <span class="feature-text">AI Pose Trainer</span>
+                </a>
             </div>
             <div class="chatbot-container" title="Open Chitti AI Chatbot">
-                <img src="../assets/icons/chatbot.svg" alt="Chatbot" id="chatbotimg">
+                <i class="fa-regular fa-robot nav-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/><path d="M9 19h6"/></svg>
+                </i>
                 <span class="chitti-nav-label">Chitti</span>
             </div>
-            <div class="select-box">
-                <div class="select-heading"><span>More</span><img src="../assets/icons/arrow.svg" alt="arrow"></div>
+            <div class="select-box" title="More Options">
+                <div class="select-heading">
+                    <i class="fa-solid fa-bars nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </i>
+                    <span class="select-text">More</span>
+                    <img src="../assets/icons/arrow.svg" alt="arrow" class="select-arrow">
+                </div>
                 <div class="options">
                     <a href="workout.html"><div class="option">Exercise Library</div></a>
                 </div>
@@ -136,24 +164,121 @@
                 </form>
             </div>
 
-            <div id="nutritionResult" class="nutrition-result" style="display: none;">
-                <h2>Your Personalized Nutrition Plan</h2>
+            <div id="nutritionResult" class="nutrition-result" style="display: none; margin-top: 30px;">
                 <div id="nutritionContent"></div>
-                <div class="nutrition-actions">
-                    <button onclick="downloadNutritionPlan()" class="download-btn">Download PDF Plan</button>
-                    <button onclick="regenerateNutritionPlan()" class="regenerate-btn">Recalculate Macros</button>
+                
+                <div class="nutrition-actions" style="display: flex; gap: 10px; justify-content: center; margin-top: 24px; flex-wrap: wrap;">
+                    <button type="button" onclick="generateGroceryListModal()" class="cta-btn cta-btn-primary">🛒 Grocery Checklist</button>
+                    <button type="button" onclick="downloadNutritionPlan()" class="cta-btn cta-btn-secondary">📥 Download Plan (.txt)</button>
+                    <button type="button" onclick="window.print()" class="cta-btn cta-btn-secondary">🖨️ Print View</button>
+                    <button type="button" onclick="regenerateNutritionPlan()" class="cta-btn cta-btn-secondary">↺ Recalculate</button>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- Chitti Drawer -->
+    <div class="chat-box">
+        <div class="chat-header">
+            <div class="h1">Chitti 🤖</div>
+            <button class="refresh-btn" id="refreshChat" title="Refresh Chat">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+                </svg>
+            </button>
+        </div>
+        <div class="chat-container"></div>
+        <div class="input-area">
+            <input type="text" class="prompt" placeholder="Ask Chitti about macros, diet...">
+            <button class="send-btn" title="Send Message"><img src="../assets/icons/btn.svg" alt="Send"></button>
+        </div>
+    </div>
 
+    <div class="virtual-assistant" title="Activate Voice Assistant">
+        <img src="../assets/images/branding/ai.png" alt="Voice Assistant" width="100px">
+    </div>
 
     <script src="../js/script.js"></script>
     <script>
-        // Nutrition Calculator Logic
+        let currentNutritionData = null;
+        let activeMealSchedule = {};
+
+        const masterRecipes = {
+            omnivore: {
+                breakfast: [
+                    { name: '4-Egg Scramble with Avocado & Sprouted Toast', pro: 32, carb: 28, fat: 22, cal: 440 },
+                    { name: 'Greek Yogurt Bowl with Mixed Berries & Almonds', pro: 30, carb: 35, fat: 12, cal: 370 },
+                    { name: 'Whey Protein Oats with Chia Seeds & Sliced Banana', pro: 35, carb: 55, fat: 10, cal: 450 },
+                    { name: 'Smoked Salmon Bagel with Light Cream Cheese', pro: 28, carb: 42, fat: 14, cal: 410 }
+                ],
+                lunch: [
+                    { name: 'Grilled Herb Chicken Breast with Steamed Quinoa & Broccoli', pro: 48, carb: 45, fat: 11, cal: 470 },
+                    { name: 'Tuna Salad Wrap with Leafy Greens & Olive Oil Dressing', pro: 40, carb: 36, fat: 14, cal: 430 },
+                    { name: 'Lean Ground Turkey Bowl with Jasmine Rice & Zucchini', pro: 44, carb: 50, fat: 12, cal: 480 },
+                    { name: 'Pan-Seared Salmon Fillet with Roasted Sweet Potato Mash', pro: 42, carb: 38, fat: 18, cal: 480 }
+                ],
+                dinner: [
+                    { name: 'Grass-Fed Sirloin Steak with Asparagus & Roasted Baby Potatoes', pro: 50, carb: 32, fat: 16, cal: 470 },
+                    { name: 'Baked Atlantic Cod with Brown Rice & Garlic Green Beans', pro: 42, carb: 46, fat: 8, cal: 425 },
+                    { name: 'Chicken Breast Stir-Fry with Bok Choy & Rice Noodles', pro: 45, carb: 52, fat: 10, cal: 480 },
+                    { name: 'Shrimp Fajita Bowl with Black Beans & Grilled Peppers', pro: 38, carb: 44, fat: 9, cal: 410 }
+                ],
+                snack: [
+                    { name: 'Isolate Protein Shake with Almond Milk & Berries', pro: 26, carb: 14, fat: 4, cal: 200 },
+                    { name: 'Cottage Cheese with Sliced Cucumber & Flaxseeds', pro: 24, carb: 8, fat: 6, cal: 180 },
+                    { name: 'Hard-Boiled Eggs with Raw Almonds', pro: 16, carb: 4, fat: 14, cal: 210 },
+                    { name: 'Apple Slices with 100% Natural Peanut Butter', pro: 8, carb: 26, fat: 16, cal: 280 }
+                ]
+            },
+            vegetarian: {
+                breakfast: [
+                    { name: 'Tofu & Turmeric Scramble with Spinach & Whole Grain Toast', pro: 24, carb: 30, fat: 14, cal: 340 },
+                    { name: 'Greek Yogurt with Hemp Hearts, Honey & Walnuts', pro: 28, carb: 32, fat: 16, cal: 380 },
+                    { name: 'Oatmeal with Plant Protein Powder & Chia Seeds', pro: 30, carb: 52, fat: 9, cal: 410 }
+                ],
+                lunch: [
+                    { name: 'Spiced Lentil Dahl with Steamed Brown Basmati Rice', pro: 22, carb: 60, fat: 8, cal: 400 },
+                    { name: 'Crispy Tempeh & Quinoa Power Bowl with Tahini Dressing', pro: 30, carb: 42, fat: 18, cal: 450 },
+                    { name: 'Mediterranean Chickpea & Feta Salad with Extra Virgin Olive Oil', pro: 20, carb: 38, fat: 18, cal: 390 }
+                ],
+                dinner: [
+                    { name: 'Grilled Paneer or Tofu Tikka with Spiced Cauliflower & Naan', pro: 28, carb: 40, fat: 18, cal: 430 },
+                    { name: 'Black Bean & Sweet Potato Enchilada Bake', pro: 24, carb: 55, fat: 12, cal: 420 },
+                    { name: 'Lentil Bolognese over High-Protein Edamame Pasta', pro: 38, carb: 48, fat: 8, cal: 415 }
+                ],
+                snack: [
+                    { name: 'Roasted Crunchy Chickpeas with Paprika', pro: 12, carb: 24, fat: 6, cal: 200 },
+                    { name: 'Plant Protein Shake with Peanut Butter & Oat Milk', pro: 25, carb: 18, fat: 10, cal: 260 },
+                    { name: 'Edamame in Pods with Sea Salt', pro: 17, carb: 14, fat: 8, cal: 190 }
+                ]
+            },
+            vegan: {
+                breakfast: [
+                    { name: 'Tofu Scramble with Bell Peppers, Kale & Nutritional Yeast', pro: 26, carb: 22, fat: 12, cal: 300 },
+                    { name: 'Spirulina & Pea Protein Smoothie Bowl with Hemp Seeds', pro: 30, carb: 45, fat: 10, cal: 390 },
+                    { name: 'Overnight Steel-Cut Oats with Soy Milk & Crushed Almonds', pro: 22, carb: 50, fat: 12, cal: 395 }
+                ],
+                lunch: [
+                    { name: 'Warm Quinoa Bowl with Black Beans, Roasted Sweet Potato & Guacamole', pro: 22, carb: 58, fat: 16, cal: 460 },
+                    { name: 'Seitan & Vegetable Skewers with Brown Rice Pilaf', pro: 38, carb: 42, fat: 6, cal: 375 },
+                    { name: 'Curried Chickpea Stew with Spinach & Coconut Rice', pro: 20, carb: 54, fat: 14, cal: 420 }
+                ],
+                dinner: [
+                    { name: 'Tempeh Stir-Fry with Edamame, Cashews & Rice Noodles', pro: 34, carb: 46, fat: 16, cal: 460 },
+                    { name: 'Lentil & Walnut Stuffed Bell Peppers with Tomato Coulis', pro: 24, carb: 48, fat: 12, cal: 395 },
+                    { name: 'High-Protein Tofu Green Curry with Mixed Veggies', pro: 28, carb: 36, fat: 18, cal: 420 }
+                ],
+                snack: [
+                    { name: 'Pea Protein Shake with Chia & Almond Milk', pro: 25, carb: 12, fat: 5, cal: 190 },
+                    { name: 'Spiced Pumpkin Seeds & Dark Chocolate Chips (85%)', pro: 10, carb: 12, fat: 16, cal: 230 },
+                    { name: 'Hummus Dip with Fresh Carrot & Celery Sticks', pro: 8, carb: 20, fat: 10, cal: 200 }
+                ]
+            }
+        };
+
         document.getElementById('nutritionForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            FitHubAudio.playClick();
             calculateNutrition();
         });
 
@@ -161,12 +286,12 @@
             const formData = new FormData(document.getElementById('nutritionForm'));
             const data = Object.fromEntries(formData.entries());
             
-            // Calculate BMR using Mifflin-St Jeor Equation
             const age = parseInt(data.age);
             const weight = parseFloat(data.weight);
             const height = parseFloat(data.height);
             const gender = data.gender;
             
+            // Mifflin-St Jeor Formula
             let bmr;
             if (gender === 'male') {
                 bmr = 10 * weight + 6.25 * height - 5 * age + 5;
@@ -174,7 +299,6 @@
                 bmr = 10 * weight + 6.25 * height - 5 * age - 161;
             }
             
-            // Calculate TDEE based on activity level
             const activityMultipliers = {
                 'sedentary': 1.2,
                 'light': 1.375,
@@ -185,65 +309,61 @@
             
             const tdee = bmr * (activityMultipliers[data.activity] || 1.2);
             
-            // Adjust calories based on goal
             let targetCalories;
             let goalDescription;
             switch(data.goal) {
                 case 'weight-loss':
-                    targetCalories = tdee - 500; // 500 calorie deficit
-                    goalDescription = 'Weight Loss (500 calorie deficit)';
+                    targetCalories = tdee - 450;
+                    goalDescription = 'Targeted Fat Loss (450 kcal deficit)';
                     break;
                 case 'muscle-gain':
-                    targetCalories = tdee + 300; // 300 calorie surplus
-                    goalDescription = 'Muscle Gain (300 calorie surplus)';
+                    targetCalories = tdee + 350;
+                    goalDescription = 'Lean Muscle Hypertrophy (350 kcal surplus)';
                     break;
-                case 'maintenance':
-                    targetCalories = tdee;
-                    goalDescription = 'Maintenance';
+                case 'endurance':
+                    targetCalories = tdee + 150;
+                    goalDescription = 'High Glycogen Performance (150 kcal surplus)';
                     break;
                 default:
                     targetCalories = tdee;
-                    goalDescription = 'Balanced Nutrition';
+                    goalDescription = 'Weight Maintenance & Body Recomposition';
             }
             
-            // Calculate macros
             const macros = calculateMacros(targetCalories, data.goal, data.diet);
+            currentNutritionData = { data, bmr, tdee, targetCalories, macros, goalDescription };
             
-            // Generate meal plan
-            const mealPlan = generateMealPlan(macros, data.diet, data.allergies);
-            
-            // Display results
-            displayNutritionPlan(data, bmr, tdee, targetCalories, macros, mealPlan, goalDescription);
+            displayNutritionPlan(currentNutritionData);
         }
 
         function calculateMacros(calories, goal, diet) {
             let proteinRatio, carbRatio, fatRatio;
             
-            // Adjust ratios based on goal
             switch(goal) {
                 case 'muscle-gain':
-                    proteinRatio = 0.3;  // 30% protein
-                    carbRatio = 0.4;     // 40% carbs
-                    fatRatio = 0.3;      // 30% fat
+                    proteinRatio = 0.30;
+                    carbRatio = 0.45;
+                    fatRatio = 0.25;
                     break;
                 case 'weight-loss':
-                    proteinRatio = 0.35; // 35% protein
-                    carbRatio = 0.35;    // 35% carbs
-                    fatRatio = 0.3;      // 30% fat
+                    proteinRatio = 0.35;
+                    carbRatio = 0.35;
+                    fatRatio = 0.30;
+                    break;
+                case 'endurance':
+                    proteinRatio = 0.22;
+                    carbRatio = 0.55;
+                    fatRatio = 0.23;
                     break;
                 default:
-                    proteinRatio = 0.25; // 25% protein
-                    carbRatio = 0.45;    // 45% carbs
-                    fatRatio = 0.3;      // 30% fat
+                    proteinRatio = 0.28;
+                    carbRatio = 0.42;
+                    fatRatio = 0.30;
             }
             
-            // Adjust for specific diets
             if (diet === 'keto') {
                 proteinRatio = 0.25;
                 carbRatio = 0.05;
-                fatRatio = 0.7;
-            } else if (diet === 'vegan') {
-                proteinRatio = Math.max(proteinRatio, 0.2);
+                fatRatio = 0.70;
             }
             
             const protein = Math.round((calories * proteinRatio) / 4);
@@ -253,214 +373,221 @@
             return { protein, carbs, fat, proteinRatio, carbRatio, fatRatio };
         }
 
-        function generateMealPlan(macros, diet, allergies) {
-            const mealPlans = {
-                'omnivore': {
-                    breakfast: [
-                        'Scrambled eggs with whole wheat toast',
-                        'Greek yogurt with berries and nuts',
-                        'Oatmeal with protein powder and fruit'
-                    ],
-                    lunch: [
-                        'Grilled chicken salad with quinoa',
-                        'Turkey sandwich with vegetables',
-                        'Salmon with sweet potato and broccoli'
-                    ],
-                    dinner: [
-                        'Lean beef with roasted vegetables',
-                        'Chicken stir-fry with brown rice',
-                        'Baked fish with asparagus and quinoa'
-                    ],
-                    snacks: [
-                        'Protein shake with banana',
-                        'Apple with almond butter',
-                        'Greek yogurt with granola'
-                    ]
-                },
-                'vegetarian': {
-                    breakfast: [
-                        'Tofu scramble with vegetables',
-                        'Greek yogurt with nuts and honey',
-                        'Oatmeal with plant protein powder'
-                    ],
-                    lunch: [
-                        'Lentil curry with brown rice',
-                        'Quinoa salad with chickpeas',
-                        'Vegetable stir-fry with tofu'
-                    ],
-                    dinner: [
-                        'Black bean burgers with sweet potato',
-                        'Eggplant parmesan with whole wheat pasta',
-                        'Vegetable curry with lentils'
-                    ],
-                    snacks: [
-                        'Hummus with carrot sticks',
-                        'Protein smoothie with plant milk',
-                        'Trail mix with nuts and seeds'
-                    ]
-                },
-                'vegan': {
-                    breakfast: [
-                        'Tofu scramble with nutritional yeast',
-                        'Oatmeal with plant protein and berries',
-                        'Smoothie bowl with plant protein'
-                    ],
-                    lunch: [
-                        'Lentil and vegetable bowl',
-                        'Chickpea salad with tahini dressing',
-                        'Quinoa stir-fry with tempeh'
-                    ],
-                    dinner: [
-                        'Vegan curry with coconut milk',
-                        'Stuffed bell peppers with quinoa',
-                        'Pasta with walnut bolognese'
-                    ],
-                    snacks: [
-                        'Vegan protein shake',
-                        'Fruit with nut butter',
-                        'Roasted chickpeas'
-                    ]
+        function filterRecipesByAllergies(recipes, allergiesStr) {
+            if (!allergiesStr || !allergiesStr.trim()) return recipes;
+            const allergies = allergiesStr.toLowerCase().split(',').map(s => s.trim()).filter(Boolean);
+            
+            const filtered = {};
+            for (const mealType in recipes) {
+                filtered[mealType] = recipes[mealType].filter(r => {
+                    const text = (r.name).toLowerCase();
+                    return !allergies.some(allergy => text.includes(allergy));
+                });
+                // Fallback if too many excluded
+                if (filtered[mealType].length === 0) {
+                    filtered[mealType] = recipes[mealType];
                 }
-            };
-
-            const basePlan = mealPlans[diet] || mealPlans['omnivore'];
-            
-            // Filter out meals with common allergens if specified
-            if (allergies) {
-                const allergenList = allergies.toLowerCase().split(',').map(a => a.trim());
-                // Simple filtering - in real app, this would be more sophisticated
-                return basePlan;
             }
-            
-            return basePlan;
+            return filtered;
         }
 
-        function displayNutritionPlan(data, bmr, tdee, targetCalories, macros, mealPlan, goalDescription) {
+        function displayNutritionPlan(planData) {
+            const { data, bmr, tdee, targetCalories, macros, goalDescription } = planData;
             const resultDiv = document.getElementById('nutritionResult');
             const contentDiv = document.getElementById('nutritionContent');
             
-            // Calculate BMI
-            const height = parseFloat(data.height) / 100;
-            const weight = parseFloat(data.weight);
-            const bmi = (weight / (height * height)).toFixed(1);
-            
-            // Generate meal schedule
-            let mealScheduleHTML = '<div class="meal-schedule">';
+            const heightM = parseFloat(data.height) / 100;
+            const weightKg = parseFloat(data.weight);
+            const bmi = (weightKg / (heightM * heightM)).toFixed(1);
+
+            const basePool = masterRecipes[data.diet] || masterRecipes.omnivore;
+            const safePool = filterRecipesByAllergies(basePool, data.allergies);
+
+            // Initialize active meal schedule
             const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-            
-            days.forEach(day => {
-                mealScheduleHTML += `
-                    <div class="meal-day">
-                        <h4>${day}</h4>
-                        <div class="meal-item">
-                            <span class="meal-time">🌅 Breakfast</span>
-                            <span class="meal-food">${mealPlan.breakfast[Math.floor(Math.random() * mealPlan.breakfast.length)]}</span>
-                        </div>
-                        <div class="meal-item">
-                            <span class="meal-time">☀️ Lunch</span>
-                            <span class="meal-food">${mealPlan.lunch[Math.floor(Math.random() * mealPlan.lunch.length)]}</span>
-                        </div>
-                        <div class="meal-item">
-                            <span class="meal-time">🌙 Dinner</span>
-                            <span class="meal-food">${mealPlan.dinner[Math.floor(Math.random() * mealPlan.dinner.length)]}</span>
-                        </div>
-                        <div class="meal-item">
-                            <span class="meal-time">🍎 Snack</span>
-                            <span class="meal-food">${mealPlan.snacks[Math.floor(Math.random() * mealPlan.snacks.length)]}</span>
-                        </div>
-                    </div>
-                `;
+            activeMealSchedule = {};
+
+            days.forEach((day, dIdx) => {
+                activeMealSchedule[day] = {
+                    breakfast: safePool.breakfast[dIdx % safePool.breakfast.length],
+                    lunch: safePool.lunch[dIdx % safePool.lunch.length],
+                    dinner: safePool.dinner[dIdx % safePool.dinner.length],
+                    snack: safePool.snack[dIdx % safePool.snack.length]
+                };
             });
-            mealScheduleHTML += '</div>';
 
             contentDiv.innerHTML = `
-                <div class="nutrition-header">
-                    <h3>Your Personalized Nutrition Plan</h3>
-                    <p>${goalDescription}</p>
+                <div class="nutrition-header" style="text-align: center; margin-bottom: 20px;">
+                    <h2 style="color: #ffffff; font-size: 1.8rem; font-weight: 800;">Your Optimized Nutrition Plan</h2>
+                    <p style="color: #a1a1aa;">${goalDescription} • ${data.diet.toUpperCase()}</p>
                 </div>
-                
-                <div class="nutrition-stats">
-                    <div class="stat-grid">
-                        <div class="stat-item">
-                            <span class="stat-label">BMI:</span>
-                            <span class="stat-value">${bmi}</span>
+
+                <!-- Metrics Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                    <div class="stat-card" style="text-align: center;">
+                        <span style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">BMI</span>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">${bmi}</div>
+                    </div>
+                    <div class="stat-card" style="text-align: center;">
+                        <span style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">BMR</span>
+                        <div style="font-size: 1.3rem; font-weight: 800; color: #ffffff;">${Math.round(bmr)} kcal</div>
+                    </div>
+                    <div class="stat-card" style="text-align: center;">
+                        <span style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">TDEE EXPENSE</span>
+                        <div style="font-size: 1.3rem; font-weight: 800; color: #ffffff;">${Math.round(tdee)} kcal</div>
+                    </div>
+                    <div class="stat-card" style="text-align: center;">
+                        <span style="font-size: 0.72rem; color: #a1a1aa; font-weight: 700;">TARGET INTAKE</span>
+                        <div style="font-size: 1.4rem; font-weight: 800; color: #ffffff;">${Math.round(targetCalories)} kcal</div>
+                    </div>
+                </div>
+
+                <!-- Interactive Macro Progress Bars -->
+                <div class="water-tracker-card" style="margin-bottom: 24px;">
+                    <h4 style="color: #ffffff; font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;">📊 Daily Macronutrient Targets</h4>
+                    <div class="macro-progress-container">
+                        <div class="macro-bar-row">
+                            <div class="macro-bar-header">
+                                <span>🍗 Protein (${Math.round(macros.proteinRatio * 100)}%)</span>
+                                <span>${macros.protein}g / day</span>
+                            </div>
+                            <div class="macro-bar-track">
+                                <div class="macro-bar-fill macro-bar-pro" style="width: ${macros.proteinRatio * 100}%"></div>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-label">BMR:</span>
-                            <span class="stat-value">${Math.round(bmr)} kcal</span>
+                        <div class="macro-bar-row">
+                            <div class="macro-bar-header">
+                                <span>🌾 Carbohydrates (${Math.round(macros.carbRatio * 100)}%)</span>
+                                <span>${macros.carbs}g / day</span>
+                            </div>
+                            <div class="macro-bar-track">
+                                <div class="macro-bar-fill macro-bar-carb" style="width: ${macros.carbRatio * 100}%"></div>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-label">TDEE:</span>
-                            <span class="stat-value">${Math.round(tdee)} kcal</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Target Calories:</span>
-                            <span class="stat-value">${Math.round(targetCalories)} kcal</span>
+                        <div class="macro-bar-row">
+                            <div class="macro-bar-header">
+                                <span>🥑 Healthy Fats (${Math.round(macros.fatRatio * 100)}%)</span>
+                                <span>${macros.fat}g / day</span>
+                            </div>
+                            <div class="macro-bar-track">
+                                <div class="macro-bar-fill macro-bar-fat" style="width: ${macros.fatRatio * 100}%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="macro-breakdown">
-                    <h4>Daily Macro Targets</h4>
-                    <div class="macro-grid">
-                        <div class="macro-item">
-                            <div class="macro-badge">PRO</div>
-                            <div class="macro-info">
-                                <span class="macro-name">Protein</span>
-                                <span class="macro-amount">${macros.protein}g</span>
-                                <span class="macro-percent">${Math.round(macros.proteinRatio * 100)}%</span>
-                            </div>
-                        </div>
-                        <div class="macro-item">
-                            <div class="macro-badge">CARB</div>
-                            <div class="macro-info">
-                                <span class="macro-name">Carbs</span>
-                                <span class="macro-amount">${macros.carbs}g</span>
-                                <span class="macro-percent">${Math.round(macros.carbRatio * 100)}%</span>
-                            </div>
-                        </div>
-                        <div class="macro-item">
-                            <div class="macro-badge">FAT</div>
-                            <div class="macro-info">
-                                <span class="macro-name">Fats</span>
-                                <span class="macro-amount">${macros.fat}g</span>
-                                <span class="macro-percent">${Math.round(macros.fatRatio * 100)}%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="meal-plan-section">
-                    <h4>Sample Meal Plan</h4>
-                    ${mealScheduleHTML}
-                </div>
-                
-                <div class="nutrition-tips">
-                    <h4>Nutrition Tips</h4>
-                    <ul>
-                        <li>Drink at least 8 glasses of water per day</li>
-                        <li>Eat every 3-4 hours to maintain energy levels</li>
-                        <li>Include protein in every meal for muscle recovery</li>
-                        <li>Choose whole foods over processed options</li>
-                        <li>Listen to your hunger and fullness cues</li>
-                        <li>Plan meals ahead to stay on track</li>
-                        <li>Allow for occasional treats to maintain sustainability</li>
-                    </ul>
-                </div>
+
+                <!-- Meal Schedule with Swap Feature -->
+                <h4 style="color: #ffffff; font-size: 1.2rem; font-weight: 700; margin-bottom: 14px;">🍽️ Weekly Meal Blueprint</h4>
+                <div id="mealScheduleWrap"></div>
             `;
-            
+
+            renderMealBlueprint(safePool);
+
             resultDiv.style.display = 'block';
             resultDiv.scrollIntoView({ behavior: 'smooth' });
         }
 
+        function renderMealBlueprint(pool) {
+            const wrap = document.getElementById('mealScheduleWrap');
+            if (!wrap) return;
+
+            let html = '';
+            for (const day in activeMealSchedule) {
+                const meals = activeMealSchedule[day];
+                html += `
+                    <div style="background: #0d0d10; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; margin-bottom: 14px;">
+                        <h5 style="color: #ffffff; font-size: 1.05rem; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 12px;">${day}</h5>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
+                            ${renderMealCard(day, 'breakfast', '🌅 Breakfast', meals.breakfast, pool.breakfast)}
+                            ${renderMealCard(day, 'lunch', '☀️ Lunch', meals.lunch, pool.lunch)}
+                            ${renderMealCard(day, 'dinner', '🌙 Dinner', meals.dinner, pool.dinner)}
+                            ${renderMealCard(day, 'snack', '🍎 Snack', meals.snack, pool.snack)}
+                        </div>
+                    </div>
+                `;
+            }
+            wrap.innerHTML = html;
+        }
+
+        function renderMealCard(day, type, label, meal, pool) {
+            return `
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="font-size: 0.75rem; font-weight: 700; color: #a1a1aa; margin-bottom: 4px;">${label}</div>
+                        <div id="mealText-${day}-${type}" style="font-size: 0.88rem; font-weight: 600; color: #ffffff; line-height: 1.3; margin-bottom: 6px;">${meal.name}</div>
+                        <div style="font-size: 0.75rem; color: #a1a1aa;">${meal.pro}g Pro • ${meal.carb}g Carb • ${meal.cal} kcal</div>
+                    </div>
+                    <button type="button" class="swap-exercise-btn" style="margin-top: 10px; align-self: flex-start;" onclick="swapMeal('${day}', '${type}')">🔄 Swap Meal</button>
+                </div>
+            `;
+        }
+
+        function swapMeal(day, type) {
+            FitHubAudio.playClick();
+            if (!currentNutritionData) return;
+            const basePool = masterRecipes[currentNutritionData.data.diet] || masterRecipes.omnivore;
+            const safePool = filterRecipesByAllergies(basePool, currentNutritionData.data.allergies);
+            const pool = safePool[type];
+            if (!pool || pool.length <= 1) return;
+
+            const current = activeMealSchedule[day][type];
+            const currentIdx = pool.findIndex(m => m.name === current.name);
+            const nextIdx = (currentIdx + 1) % pool.length;
+            const nextMeal = pool[nextIdx];
+
+            activeMealSchedule[day][type] = nextMeal;
+
+            const textEl = document.getElementById(`mealText-${day}-${type}`);
+            if (textEl) {
+                textEl.innerText = nextMeal.name;
+                textEl.classList.add('rep-pulse');
+                setTimeout(() => textEl.classList.remove('rep-pulse'), 300);
+            }
+        }
+
+        function generateGroceryListModal() {
+            FitHubAudio.playClick();
+            let items = new Set();
+            for (const day in activeMealSchedule) {
+                for (const type in activeMealSchedule[day]) {
+                    const meal = activeMealSchedule[day][type];
+                    items.add(meal.name);
+                }
+            }
+
+            let listHTML = `<ul style="text-align: left; padding-left: 20px; margin: 12px 0;">`;
+            items.forEach(item => {
+                listHTML += `<li style="margin-bottom: 6px; color: #e4e4e7;">${item}</li>`;
+            });
+            listHTML += `</ul>`;
+
+            showFeatureModal("🛒 Consolidated Weekly Grocery Checklist", `
+                <p>Based on your personalized 7-day meal plan, here are your weekly core provisions:</p>
+                ${listHTML}
+                <p style="font-size: 0.8rem; color: #a1a1aa;">Pro-tip: Purchase seasonal produce and bulk lean protein sources to maximize cost efficiency.</p>
+            `);
+        }
+
         function downloadNutritionPlan() {
-            const content = document.getElementById('nutritionContent');
-            if (!content) return;
-            
-            const textContent = `FitHub - Personalized Nutrition Plan\n=====================================\n\n` + 
-                content.innerText;
-                
-            const blob = new Blob([textContent], { type: 'text/plain' });
+            if (!currentNutritionData) return;
+            FitHubAudio.playClick();
+
+            let text = `FitHub - Smart Nutrition & Macro Plan\n`;
+            text += `=======================================\n`;
+            text += `Goal: ${currentNutritionData.goalDescription}\n`;
+            text += `Target Daily Calories: ${Math.round(currentNutritionData.targetCalories)} kcal\n`;
+            text += `Macros: Protein ${currentNutritionData.macros.protein}g | Carbs ${currentNutritionData.macros.carbs}g | Fat ${currentNutritionData.macros.fat}g\n\n`;
+
+            for (const day in activeMealSchedule) {
+                text += `[${day}]\n`;
+                text += `  Breakfast: ${activeMealSchedule[day].breakfast.name}\n`;
+                text += `  Lunch:     ${activeMealSchedule[day].lunch.name}\n`;
+                text += `  Dinner:    ${activeMealSchedule[day].dinner.name}\n`;
+                text += `  Snack:     ${activeMealSchedule[day].snack.name}\n\n`;
+            }
+
+            const blob = new Blob([text], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -472,6 +599,7 @@
         }
 
         function regenerateNutritionPlan() {
+            FitHubAudio.playClick();
             document.getElementById('nutritionResult').style.display = 'none';
             document.getElementById('nutritionForm').scrollIntoView({ behavior: 'smooth' });
         }

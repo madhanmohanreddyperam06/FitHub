@@ -1,3 +1,66 @@
+
+/* Ensure absolutely no pseudo-elements or font glyphs interfere with SVG icons */
+.nav-icon::before,
+.nav-icon::after,
+.header-feature-btn i::before,
+.header-feature-btn i::after,
+.chatbot-container i::before,
+.chatbot-container i::after,
+.select-heading i::before,
+.select-heading i::after {
+    display: none !important;
+    content: "" !important;
+    font-size: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    text-decoration: none;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.nav-icon svg {
+    display: block;
+    stroke: #ffffff;
+    fill: none;
+    flex-shrink: 0;
+}
+
+
+/* Navigation Icons (FontAwesome & SVG) */
+.nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+    font-size: 1rem;
+    line-height: 1;
+    color: #ffffff;
+    vertical-align: middle;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.nav-icon svg {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    stroke: #ffffff;
+    color: #ffffff;
+}
+
+.header-feature-btn:hover .nav-icon,
+.chatbot-container:hover .nav-icon,
+.select-heading:hover .nav-icon {
+    transform: scale(1.1);
+}
+
 /* Base styles and CSS variables */
 :root {
     --primary-color: wheat;
@@ -112,27 +175,31 @@ nav a:has(.logo) {
 /* Navigation */
 nav {
     width: 100%;
-    padding: 6px 20px;
-    min-height: 48px;
+    padding: 8px clamp(16px, 3vw, 40px);
+    min-height: 56px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
     z-index: 1000;
     flex-wrap: nowrap;
-    gap: 16px;
-    background-color: #1a1a1a;
-    border-bottom: 1px solid #2e2e2e;
+    gap: 20px;
+    background-color: #09090b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 nav a {
     text-decoration: none;
 }
 
+.sound-toggle-btn {
+    display: none !important;
+}
+
 .right-nav {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: clamp(8px, 1.2vw, 16px);
     position: relative;
     z-index: 1001;
     flex-wrap: nowrap;
@@ -141,77 +208,74 @@ nav a {
 /* Header Features */
 .header-features {
     display: flex;
-    gap: 8px;
+    gap: clamp(8px, 1.2vw, 16px);
     align-items: center;
     margin-right: 0;
 }
 
-.header-feature-btn {
-    display: flex;
+.header-feature-btn,
+.chatbot-container,
+.select-heading {
+    display: inline-flex;
     align-items: center;
-    padding: 5px 10px;
+    justify-content: center;
+    height: 38px;
+    padding: 6px clamp(10px, 1.2vw, 16px);
     background: transparent;
-    border: none;
-    border-radius: 6px;
+    border: 1px solid transparent;
+    border-radius: 8px;
     color: #ffffff;
     text-decoration: none;
-    transition: all 0.2s ease;
-    font-size: 0.88rem;
-    font-weight: 500;
-    height: auto;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 0.90rem;
+    font-weight: 600;
     white-space: nowrap;
+    cursor: pointer;
     box-shadow: none;
+    gap: 6px;
 }
 
-.header-feature-btn:hover {
+.header-feature-btn:hover,
+.chatbot-container:hover,
+.select-heading:hover {
     background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
     color: #ffffff;
-    transform: none;
-    box-shadow: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-.feature-text {
+.header-feature-btn:active,
+.chatbot-container:active,
+.select-heading:active {
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.feature-text,
+.chitti-nav-label,
+.select-text {
+    font-size: 0.90rem;
+    font-weight: 600;
+    color: #ffffff;
     white-space: nowrap;
 }
 
 /* Select Box */
 .select-box {
     position: relative;
-    min-width: 100px;
     z-index: 1002;
-    height: auto;
+    height: 38px;
+    min-width: auto;
 }
 
 .select-heading {
-    background: transparent;
-    border: none;
-    color: #ffffff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.2s ease;
     width: 100%;
-    height: auto;
-    user-select: none;
-    position: relative;
-    z-index: 1003;
-    font-size: 0.95rem;
-    font-weight: 500;
-    white-space: nowrap;
-    box-shadow: none;
 }
 
-.select-heading:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: none;
-    box-shadow: none;
-}
-
-.select-heading img {
-    transition: transform 0.3s;
+.select-heading img,
+.select-heading .select-arrow {
+    transition: transform 0.3s ease;
     margin-left: 6px;
     width: 10px;
     height: 10px;
@@ -270,37 +334,10 @@ nav a {
 }
 
 /* Chatbot Nav Container */
-.chatbot-container {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 12px;
-    background: transparent;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    height: auto;
-    white-space: nowrap;
-    box-shadow: none;
-}
-
-.chatbot-container:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: none;
-    box-shadow: none;
-}
-
 .chatbot-container img {
     width: 18px;
     height: 18px;
     object-fit: contain;
-}
-
-.chitti-nav-label {
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 500;
 }
 
 /* Main Content */
@@ -932,7 +969,7 @@ body:not(.index-page) .plan-tips ul li {
 
 body:not(.index-page) .plan-tips ul li::before {
     content: '✓';
-    color: #4ecdc4;
+    color: #ffffff;
     position: absolute;
     left: 0;
     font-weight: bold;
@@ -992,7 +1029,7 @@ body:not(.index-page) .meal-plan {
 }
 
 body:not(.index-page) .meal-plan h4 {
-    color: #4ecdc4;
+    color: #ffffff;
     margin-bottom: var(--spacing-sm);
     font-weight: 600;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
@@ -1114,14 +1151,14 @@ body:not(.index-page) .meal-plan ul li::before {
     border-radius: 3px;
 }
 
-/* Media Queries */
+    /* Media Queries */
 @media screen and (max-width: 768px) {
     /* Hide Hamburger Menu completely on mobile */
     .hamburger-menu {
         display: none !important;
     }
 
-    /* Entire Navbar Fixed at Bottom in Grey */
+    /* Entire Navbar Fixed at Bottom in Dark Graphite */
     nav {
         position: fixed !important;
         bottom: 0 !important;
@@ -1131,20 +1168,62 @@ body:not(.index-page) .meal-plan ul li::before {
         width: 100% !important;
         max-width: 100% !important;
         height: 60px !important;
-        background: #1a1a1a !important;
-        border-top: 1px solid #2e2e2e !important;
+        background: #09090b !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
         border-bottom: none !important;
-        box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.8) !important;
-        backdrop-filter: blur(10px) !important;
+        box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.95) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
         display: flex !important;
         justify-content: space-around !important;
         align-items: center !important;
-        padding: 2px 4px !important;
+        padding: 0 4px !important;
         margin: 0 !important;
         z-index: 10000 !important;
     }
 
-    /* Separate Top Logo Header for Mobile (No grey background box) */
+    /* Remove sound icon completely on mobile view */
+    .sound-toggle-btn {
+        display: none !important;
+    }
+
+    /* Hide desktop floating dock on mobile to avoid UI overlap */
+    .fithub-floating-dock {
+        display: none !important;
+    }
+
+    /* Remove text names on mobile navbar as requested */
+    .feature-text,
+    .chitti-nav-label,
+    .select-heading span,
+    .select-heading .select-text,
+    .select-heading img,
+    .select-heading .select-arrow {
+        display: none !important;
+    }
+
+    /* Display SVG icons in mobile navbar */
+    .nav-icon {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+        font-size: 1.35rem !important;
+        color: #ffffff !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .nav-icon svg {
+        width: 23px !important;
+        height: 23px !important;
+        stroke: #ffffff !important;
+        stroke-width: 2 !important;
+        color: #ffffff !important;
+        display: block !important;
+    }
+
+    /* Separate Top Logo Header for Mobile */
     .mobile-top-bar {
         display: flex !important;
         position: absolute !important;
@@ -1212,7 +1291,7 @@ body:not(.index-page) .meal-plan ul li::before {
         align-items: center !important;
         padding: 0 !important;
         margin: 0 !important;
-        gap: 2px !important;
+        gap: 0 !important;
         overflow: visible !important;
         transform: none !important;
     }
@@ -1223,80 +1302,66 @@ body:not(.index-page) .meal-plan ul li::before {
         align-items: center !important;
         justify-content: space-around !important;
         flex: 4 1 0% !important;
-        gap: 2px !important;
+        gap: 0 !important;
         margin: 0 !important;
         width: auto !important;
+        height: 100% !important;
     }
 
     .header-feature-btn {
         display: flex !important;
-        flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        padding: 4px 1px !important;
-        height: 52px !important;
+        padding: 8px 2px !important;
+        height: 100% !important;
         min-width: 0 !important;
         flex: 1 1 0px !important;
         background: transparent !important;
         border: none !important;
-        border-radius: 6px !important;
+        border-radius: 8px !important;
         color: #ffffff !important;
         text-decoration: none !important;
-        gap: 0 !important;
         box-shadow: none !important;
+        transition: background 0.2s ease;
     }
 
-    .feature-text {
-        display: block !important;
-        font-size: 0.60rem !important;
-        font-weight: 500 !important;
-        color: #e1e1e1 !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        max-width: 100% !important;
-        line-height: 1.1 !important;
-        text-align: center !important;
+    .header-feature-btn:active,
+    .header-feature-btn:hover {
+        background: rgba(255, 255, 255, 0.12) !important;
     }
 
     .chatbot-container {
         display: flex !important;
-        flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
         flex: 1 1 0px !important;
         min-width: 0 !important;
-        height: 52px !important;
-        padding: 4px 1px !important;
+        height: 100% !important;
+        padding: 8px 2px !important;
         background: transparent !important;
         border: none !important;
-        border-radius: 6px !important;
+        border-radius: 8px !important;
         margin: 0 !important;
-        gap: 2px !important;
         box-shadow: none !important;
+        transition: background 0.2s ease;
+    }
+
+    .chatbot-container:active,
+    .chatbot-container:hover {
+        background: rgba(255, 255, 255, 0.12) !important;
     }
 
     .chatbot-container img {
-        width: 16px !important;
-        height: 16px !important;
-    }
-
-    .chitti-nav-label {
-        font-size: 0.60rem !important;
-        color: #e1e1e1 !important;
-        font-weight: 500 !important;
-        line-height: 1.1 !important;
-        text-align: center !important;
+        display: none !important;
     }
 
     .select-box {
         display: flex !important;
-        flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
         flex: 1 1 0px !important;
         min-width: 0 !important;
-        height: 52px !important;
+        height: 100% !important;
         position: relative !important;
         margin: 0 !important;
         max-width: none !important;
@@ -1304,31 +1369,22 @@ body:not(.index-page) .meal-plan ul li::before {
 
     .select-heading {
         display: flex !important;
-        flex-direction: row !important;
         align-items: center !important;
         justify-content: center !important;
-        height: 52px !important;
+        height: 100% !important;
         width: 100% !important;
-        padding: 4px 1px !important;
+        padding: 8px 2px !important;
         background: transparent !important;
         border: none !important;
         color: #ffffff !important;
-        gap: 2px !important;
         box-shadow: none !important;
-        border-radius: 6px !important;
+        border-radius: 8px !important;
+        transition: background 0.2s ease;
     }
 
-    .select-heading span {
-        font-size: 0.60rem !important;
-        color: #e1e1e1 !important;
-        font-weight: 500 !important;
-        line-height: 1.1 !important;
-    }
-
-    .select-heading img {
-        width: 8px !important;
-        height: 8px !important;
-        margin: 0 !important;
+    .select-heading:active,
+    .select-heading:hover {
+        background: rgba(255, 255, 255, 0.12) !important;
     }
 
     /* Dropdown options pop UP above bottom bar */
@@ -1349,6 +1405,10 @@ body:not(.index-page) .meal-plan ul li::before {
         gap: 4px !important;
     }
 
+    .options.active-options {
+        display: flex !important;
+    }
+
     .options a {
         display: block !important;
         width: 100% !important;
@@ -1358,35 +1418,6 @@ body:not(.index-page) .meal-plan ul li::before {
         padding: 8px 12px !important;
         font-size: 0.85rem !important;
         text-align: left !important;
-    }
-
-    .chatbot-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        flex: 1 1 0px !important;
-        min-width: 0 !important;
-        height: 54px !important;
-        padding: 4px 1px !important;
-        background: transparent !important;
-        border: none !important;
-        border-radius: 8px !important;
-        margin: 0 !important;
-        gap: 3px !important;
-        box-shadow: none !important;
-    }
-
-    .chatbot-container img {
-        width: 20px !important;
-        height: 20px !important;
-    }
-
-    .chitti-nav-label {
-        font-size: 0.62rem !important;
-        color: #d1d1d1 !important;
-        font-weight: 500 !important;
-        line-height: 1 !important;
     }
 
     .chat-box {
@@ -2781,7 +2812,7 @@ body:not(.index-page) .meal-plan ul li::before {
 
 .feature-card:hover {
     transform: translateY(-6px);
-    border-color: #4ecdc4;
+    border-color: #ffffff;
     box-shadow: 0 10px 30px rgba(78, 205, 196, 0.2);
     background: rgba(255, 255, 255, 0.1);
 }
@@ -2805,7 +2836,7 @@ body:not(.index-page) .meal-plan ul li::before {
 }
 
 .card-link {
-    color: #4ecdc4;
+    color: #ffffff;
     font-weight: 600;
     font-size: 0.9rem;
     display: inline-flex;
@@ -3323,7 +3354,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #4ecdc4;
+    background: #ffffff;
 }
 
 /* Universal Pure Black Dark Theme & Natural Compact Component Sizing */
@@ -3358,9 +3389,9 @@ textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: #4ecdc4;
+    border-color: #ffffff;
     outline: none;
-    box-shadow: 0 0 6px rgba(78, 205, 196, 0.3);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 /* Compact Natural Buttons */
@@ -3405,4 +3436,1953 @@ button,
     margin: 0 auto;
 }
 
+/* ==========================================================================
+   ADVANCED INTERACTIVE UI COMPONENTS (PURE BLACK / WHITE / GREY THEME)
+   ========================================================================== */
 
+/* 1. Global Floating Dockable Rest Timer */
+.fithub-floating-timer {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    background: rgba(12, 12, 14, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    width: 320px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.fithub-floating-timer.minimized {
+    width: auto;
+    border-radius: 50px;
+    padding: 6px 14px;
+    cursor: pointer;
+}
+
+.fithub-floating-timer.minimized .timer-body,
+.fithub-floating-timer.minimized .timer-presets,
+.fithub-floating-timer.minimized .timer-quick-adjust {
+    display: none;
+}
+
+.fithub-floating-timer.minimized .timer-header {
+    padding: 0;
+    border: none;
+}
+
+.fithub-floating-timer.minimized .timer-mini-display {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.timer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.timer-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #a1a1aa;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.timer-header-btns {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.timer-icon-btn {
+    background: transparent;
+    border: none;
+    color: #a1a1aa;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.timer-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+.timer-body {
+    padding: 14px 16px 10px;
+    text-align: center;
+}
+
+.timer-exercise-name {
+    font-size: 0.85rem;
+    color: #d4d4d8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.timer-time-readout {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+.timer-progress-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin: 10px 0 14px;
+    overflow: hidden;
+}
+
+.timer-progress-fill {
+    height: 100%;
+    background: #ffffff;
+    width: 100%;
+    transition: width 0.3s linear;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.timer-main-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.timer-btn-primary {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.timer-btn-primary:hover {
+    background: #e4e4e7 !important;
+    transform: scale(1.02);
+}
+
+.timer-btn-secondary {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.timer-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+}
+
+.timer-presets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 14px 12px;
+}
+
+.timer-preset-chip {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #a1a1aa;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.timer-preset-chip:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.timer-quick-adjust {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 14px 12px;
+}
+
+.timer-adjust-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #d4d4d8;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.timer-adjust-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* 2. Interactive Set Logger Drawer on Exercise Cards */
+.exercise-card {
+    position: relative;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exercise-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+.exercise-fav-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #71717a;
+    font-size: 1.1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+}
+
+.exercise-fav-btn:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.exercise-fav-btn.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.exercise-actions-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.set-log-toggle-btn {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    height: 34px;
+}
+
+.set-log-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.set-logger-drawer {
+    display: none;
+    margin-top: 12px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    animation: drawerSlideDown 0.25s ease-out;
+}
+
+.set-logger-drawer.open {
+    display: block;
+}
+
+@keyframes drawerSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.set-log-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+}
+
+.set-log-table th {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #a1a1aa;
+    padding: 4px 6px;
+    text-align: center;
+}
+
+.set-log-table td {
+    padding: 4px 6px;
+    text-align: center;
+}
+
+.set-log-input {
+    width: 65px;
+    height: 28px !important;
+    padding: 2px 6px !important;
+    font-size: 0.82rem !important;
+    text-align: center;
+    background: #141416 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 6px !important;
+    color: #ffffff !important;
+}
+
+.set-check-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: transparent;
+    color: #71717a;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.set-check-btn:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.set-check-btn.completed {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.add-set-btn {
+    background: transparent;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    color: #a1a1aa;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 4px;
+    transition: all 0.2s ease;
+}
+
+.add-set-btn:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* 3. Global Sound Toggle Button */
+.sound-toggle-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.sound-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.sound-toggle-btn.muted {
+    opacity: 0.5;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 4. Enhanced Chatbot UI (Mic, Speech, Markdown) */
+.input-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mic-input-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.mic-input-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+}
+
+.mic-input-btn.listening {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+    animation: micPulse 1.2s infinite ease-in-out;
+}
+
+@keyframes micPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); box-shadow: 0 0 18px rgba(255, 255, 255, 0.9); }
+    100% { transform: scale(1); }
+}
+
+.ai-speak-answer-btn {
+    background: transparent;
+    border: none;
+    color: #a1a1aa;
+    font-size: 0.75rem;
+    cursor: pointer;
+    margin-top: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: color 0.2s ease;
+}
+
+.ai-speak-answer-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.ai-chat-link {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.ai-chat-link:hover {
+    color: #d4d4d8;
+}
+
+/* 5. Enhanced Global Voice Assistant Modal */
+.speak-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.92);
+    z-index: 10005;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    text-align: center;
+    padding: 20px;
+}
+
+.speak-page.active-speak {
+    display: flex;
+}
+
+.speak-visualizer {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    animation: voiceRingPulse 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 2.2rem;
+}
+
+@keyframes voiceRingPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+    50% { transform: scale(1.08); box-shadow: 0 0 45px rgba(255, 255, 255, 0.5); }
+    100% { transform: scale(0.95); box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+}
+
+.speak-transcript {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    max-width: 500px;
+    min-height: 40px;
+    margin: 10px 0;
+    letter-spacing: 0.2px;
+}
+
+.speak-hint-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    max-width: 500px;
+    margin-top: 18px;
+}
+
+.speak-hint-chip {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #d4d4d8;
+}
+
+.speak-close-btn {
+    margin-top: 24px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    padding: 8px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.speak-close-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+}
+
+/* 6. Interactive Water Intake Tracker */
+.water-tracker-card {
+    background: #0a0a0c;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 24px auto;
+    max-width: 800px;
+}
+
+.water-tracker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.water-tracker-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.water-tracker-stats {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #d4d4d8;
+}
+
+.water-glasses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.water-glass-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    padding: 12px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #71717a;
+}
+
+.water-glass-btn:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.water-glass-btn.drank {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+.water-glass-icon {
+    font-size: 1.5rem;
+}
+
+.water-glass-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.water-progress-bar-track {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.water-progress-bar-fill {
+    height: 100%;
+    background: #ffffff;
+    width: 0%;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* 7. Interactive Macro Bars for Nutrition */
+.macro-progress-container {
+    margin: 16px 0;
+}
+
+.macro-bar-row {
+    margin-bottom: 12px;
+}
+
+.macro-bar-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #d4d4d8;
+    margin-bottom: 4px;
+}
+
+.macro-bar-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.macro-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.macro-bar-pro {
+    background: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.macro-bar-carb {
+    background: #a1a1aa;
+    box-shadow: 0 0 6px rgba(161, 161, 170, 0.3);
+}
+
+.macro-bar-fat {
+    background: #71717a;
+    box-shadow: 0 0 6px rgba(113, 113, 122, 0.3);
+}
+
+/* 8. Interactive Day Tabs & Swapper for Workout Plans */
+.day-tabs-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    margin: 20px 0 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.day-tab-btn {
+    background: transparent;
+    border: none;
+    color: #71717a;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.day-tab-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.day-tab-btn.active {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.day-tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.plan-exercise-item {
+    background: #0e0e11;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.2s ease;
+}
+
+.plan-exercise-item:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.plan-exercise-info h5 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.plan-exercise-info p {
+    font-size: 0.8rem;
+    color: #a1a1aa;
+}
+
+.swap-exercise-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.swap-exercise-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: #ffffff;
+}
+
+.plan-complete-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: #ffffff;
+    cursor: pointer;
+}
+
+/* 9. Skip Button on Splash Screen */
+.splash-skip-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10006;
+}
+
+.splash-skip-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #ffffff;
+}
+
+/* 10. Search Empty State */
+.exercise-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #a1a1aa;
+    grid-column: 1 / -1;
+    font-size: 0.95rem;
+}
+
+.exercise-empty-state h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+}
+
+
+
+
+/* ==========================================================================
+   SYSTEMATIC INTERACTIVE COMMAND CENTER & GUIDED WORKOUT PLAYER STYLES
+   ========================================================================== */
+
+/* Activity Rings & Live Stats Grid */
+.interactive-command-center {
+    max-width: 1200px;
+    margin: 20px auto 40px;
+    padding: 0 20px;
+}
+
+.command-center-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.command-center-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.interactive-grid-3col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.interactive-card {
+    background: #09090b;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.interactive-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9), 0 0 15px rgba(255, 255, 255, 0.04);
+}
+
+.card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.card-title-sm {
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #a1a1aa;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 1. Activity Rings UI */
+.rings-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.ring-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.ring-wrap:hover {
+    transform: translateY(-2px);
+}
+
+.ring-svg {
+    transform: rotate(-90deg);
+    width: 80px;
+    height: 80px;
+}
+
+.ring-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.08);
+    stroke-width: 7;
+}
+
+.ring-bar {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 7;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+}
+
+.ring-bar-secondary {
+    stroke: #a1a1aa;
+    filter: drop-shadow(0 0 4px rgba(161, 161, 170, 0.5));
+}
+
+.ring-bar-tertiary {
+    stroke: #71717a;
+    filter: drop-shadow(0 0 4px rgba(113, 113, 122, 0.4));
+}
+
+.ring-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+}
+
+.ring-sub {
+    font-size: 0.68rem;
+    color: #a1a1aa;
+}
+
+/* 2. Interactive Biometrics Live Slider */
+.slider-group {
+    margin-bottom: 14px;
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+}
+
+.slider-val-badge {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #ffffff;
+    font-variant-numeric: tabular-nums;
+}
+
+.interactive-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 6px !important;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.15) !important;
+    outline: none;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+.interactive-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    border: 2px solid #000000;
+    transition: transform 0.15s ease;
+}
+
+.interactive-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.bmi-readout-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-top: 12px;
+}
+
+.bmi-val {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.bmi-cat-pill {
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* 3. Daily Habit & Streak Calendar */
+.habit-calendar-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin: 14px 0;
+}
+
+.habit-day-pill {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 4px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.habit-day-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.habit-day-pill.checked {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+}
+
+.habit-day-pill.today {
+    border-color: #ffffff;
+    position: relative;
+}
+
+.habit-day-pill.today::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+}
+
+.habit-day-name {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #a1a1aa;
+}
+
+.habit-check-icon {
+    font-size: 0.85rem;
+    color: #71717a;
+}
+
+.habit-day-pill.checked .habit-check-icon {
+    color: #ffffff;
+}
+
+.streak-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    color: #d4d4d8;
+    font-weight: 600;
+}
+
+/* 4. Live Guided Workout Player Modal */
+.guided-workout-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10009;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 20px;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.guided-workout-overlay.active {
+    display: flex;
+}
+
+.guided-player-container {
+    background: #0c0c0e;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.95);
+    padding: 24px;
+    position: relative;
+    color: #ffffff;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.player-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.player-progress-badge {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.player-gif-wrap {
+    width: 100%;
+    max-height: 250px;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.player-gif-wrap img {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.player-exercise-name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.player-target-muscle {
+    font-size: 0.85rem;
+    color: #a1a1aa;
+    margin-bottom: 14px;
+}
+
+.player-set-tracker-box {
+    background: #131317;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.player-inputs-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.player-inputs-wrap label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #a1a1aa;
+    text-transform: uppercase;
+}
+
+.player-inputs-wrap input {
+    width: 65px !important;
+    height: 32px !important;
+    font-size: 0.9rem !important;
+    text-align: center;
+    padding: 2px 6px !important;
+}
+
+.player-actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Rest countdown overlay on player */
+.player-rest-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 12, 0.96);
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+    padding: 24px;
+    animation: fadeInCelebration 0.25s ease-out;
+}
+
+.player-rest-overlay.active {
+    display: flex;
+}
+
+.rest-time-giant {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin: 10px 0;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+/* 5. Systematic Floating Action Dock */
+.fithub-floating-dock {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(14, 14, 17, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 40px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9998;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.dock-item-btn {
+    background: transparent;
+    border: none;
+    color: #d4d4d8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+}
+
+.dock-item-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.dock-item-btn.primary-highlight {
+    background: #ffffff;
+    color: #000000;
+}
+
+.dock-item-btn.primary-highlight:hover {
+    background: #e4e4e7;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .fithub-floating-dock {
+        bottom: 12px;
+        padding: 4px 8px;
+        gap: 6px;
+        width: 95%;
+        justify-content: space-around;
+    }
+    .dock-item-btn span.dock-label {
+        display: none;
+    }
+    .dock-item-btn {
+        padding: 8px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ==========================================================================
+   SYSTEMATIC INTERACTIVE COMMAND CENTER & GUIDED WORKOUT PLAYER STYLES
+   ========================================================================== */
+
+/* Activity Rings & Live Stats Grid */
+.interactive-command-center {
+    max-width: 1200px;
+    margin: 20px auto 40px;
+    padding: 0 20px;
+}
+
+.command-center-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.command-center-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.interactive-grid-3col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.interactive-card {
+    background: #09090b;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.interactive-card:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9), 0 0 15px rgba(255, 255, 255, 0.04);
+}
+
+.card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.card-title-sm {
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #a1a1aa;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 1. Activity Rings UI */
+.rings-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.ring-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.ring-wrap:hover {
+    transform: translateY(-2px);
+}
+
+.ring-svg {
+    transform: rotate(-90deg);
+    width: 80px;
+    height: 80px;
+}
+
+.ring-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.08);
+    stroke-width: 7;
+}
+
+.ring-bar {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 7;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+}
+
+.ring-bar-secondary {
+    stroke: #a1a1aa;
+    filter: drop-shadow(0 0 4px rgba(161, 161, 170, 0.5));
+}
+
+.ring-bar-tertiary {
+    stroke: #71717a;
+    filter: drop-shadow(0 0 4px rgba(113, 113, 122, 0.4));
+}
+
+.ring-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+}
+
+.ring-sub {
+    font-size: 0.68rem;
+    color: #a1a1aa;
+}
+
+/* 2. Interactive Biometrics Live Slider */
+.slider-group {
+    margin-bottom: 14px;
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #d4d4d8;
+    margin-bottom: 6px;
+}
+
+.slider-val-badge {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #ffffff;
+    font-variant-numeric: tabular-nums;
+}
+
+.interactive-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 6px !important;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.15) !important;
+    outline: none;
+    padding: 0 !important;
+    cursor: pointer;
+}
+
+.interactive-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    border: 2px solid #000000;
+    transition: transform 0.15s ease;
+}
+
+.interactive-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.bmi-readout-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #121215;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-top: 12px;
+}
+
+.bmi-val {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.bmi-cat-pill {
+    background: #ffffff;
+    color: #000000;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* 3. Daily Habit & Streak Calendar */
+.habit-calendar-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin: 14px 0;
+}
+
+.habit-day-pill {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 4px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.habit-day-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.habit-day-pill.checked {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
+}
+
+.habit-day-pill.today {
+    border-color: #ffffff;
+    position: relative;
+}
+
+.habit-day-pill.today::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+}
+
+.habit-day-name {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #a1a1aa;
+}
+
+.habit-check-icon {
+    font-size: 0.85rem;
+    color: #71717a;
+}
+
+.habit-day-pill.checked .habit-check-icon {
+    color: #ffffff;
+}
+
+.streak-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    color: #d4d4d8;
+    font-weight: 600;
+}
+
+/* 4. Live Guided Workout Player Modal */
+.guided-workout-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10009;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 20px;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.guided-workout-overlay.active {
+    display: flex;
+}
+
+.guided-player-container {
+    background: #0c0c0e;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.95);
+    padding: 24px;
+    position: relative;
+    color: #ffffff;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.player-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.player-progress-badge {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.player-gif-wrap {
+    width: 100%;
+    max-height: 250px;
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.player-gif-wrap img {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.player-exercise-name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.player-target-muscle {
+    font-size: 0.85rem;
+    color: #a1a1aa;
+    margin-bottom: 14px;
+}
+
+.player-set-tracker-box {
+    background: #131317;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.player-inputs-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.player-inputs-wrap label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #a1a1aa;
+    text-transform: uppercase;
+}
+
+.player-inputs-wrap input {
+    width: 65px !important;
+    height: 32px !important;
+    font-size: 0.9rem !important;
+    text-align: center;
+    padding: 2px 6px !important;
+}
+
+.player-actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Rest countdown overlay on player */
+.player-rest-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 12, 0.96);
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    text-align: center;
+    padding: 24px;
+    animation: fadeInCelebration 0.25s ease-out;
+}
+
+.player-rest-overlay.active {
+    display: flex;
+}
+
+.rest-time-giant {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin: 10px 0;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+/* 5. Systematic Floating Action Dock */
+.fithub-floating-dock {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(14, 14, 17, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 40px;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9998;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.dock-item-btn {
+    background: transparent;
+    border: none;
+    color: #d4d4d8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+}
+
+.dock-item-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.dock-item-btn.primary-highlight {
+    background: #ffffff;
+    color: #000000;
+}
+
+.dock-item-btn.primary-highlight:hover {
+    background: #e4e4e7;
+    color: #000000;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .fithub-floating-dock {
+        bottom: 12px;
+        padding: 4px 8px;
+        gap: 6px;
+        width: 95%;
+        justify-content: space-around;
+    }
+    .dock-item-btn span.dock-label {
+        display: none;
+    }
+    .dock-item-btn {
+        padding: 8px;
+        font-size: 1.1rem;
+    }
+}

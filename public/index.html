@@ -36,7 +36,7 @@
             <div class="splash-status" id="splashStatus">Initializing Engine...</div>
         </div>
     </div>
-    <div class="mobile-top-bar">
+        <div class="mobile-top-bar">
         <a href="index.html" class="logo-container">
             <img src="assets/images/branding/FitHub.png" alt="FitHub Logo" class="logo-img">
             <span class="logo-text">FitHub</span>
@@ -54,19 +54,44 @@
         </div>
         <div class="right-nav" id="rightNav">
             <div class="header-features">
-                <a href="index.html" class="header-feature-btn"><span class="feature-text">Home</span></a>
-                <a href="pages/personalized-plans.html" class="header-feature-btn"><span class="feature-text">Personalized Plan</span></a>
-                <a href="pages/nutrition-guide.html" class="header-feature-btn"><span class="feature-text">Nutrition Guide</span></a>
-                <a href="../src/ai-features/ai.html" class="header-feature-btn"><span class="feature-text">AI Pose Trainer</span></a>
+                <a href="index.html" class="header-feature-btn" title="Home">
+                    <i class="fa-regular fa-house nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </i>
+                    <span class="feature-text">Home</span>
+                </a>
+                <a href="pages/personalized-plans.html" class="header-feature-btn" title="Personalized Plan">
+                    <i class="fa-regular fa-calendar nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
+                    </i>
+                    <span class="feature-text">Personalized Plan</span>
+                </a>
+                <a href="pages/nutrition-guide.html" class="header-feature-btn" title="Nutrition Guide">
+                    <i class="fa-regular fa-bowl-food nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20c0 5.5-4.5 10-10 10S2 17.5 2 12Z"/><path d="M6 7c0-2.5 2-4 4-4"/><path d="M12 8c0-3.5 2-5 4-5"/><path d="m16 8 3-4"/></svg>
+                    </i>
+                    <span class="feature-text">Nutrition Guide</span>
+                </a>
+                <a href="../src/ai-features/ai.html" class="header-feature-btn" title="AI Pose Trainer">
+                    <i class="fa-regular fa-person nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="m9 20 2-6 2-3 2 1.5 2 4.5"/><path d="m7 12 3.5-2.5L14 11l3-1"/><path d="M11 14 8 22"/></svg>
+                    </i>
+                    <span class="feature-text">AI Pose Trainer</span>
+                </a>
             </div>
             <div class="chatbot-container" title="Open Chitti AI Chatbot">
-                <img src="assets/icons/chatbot.svg" alt="Chatbot" id="chatbotimg">
+                <i class="fa-regular fa-robot nav-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/><path d="M9 19h6"/></svg>
+                </i>
                 <span class="chitti-nav-label">Chitti</span>
             </div>
-            <div class="select-box">
+            <div class="select-box" title="More Options">
                 <div class="select-heading">
-                    <span>More</span>
-                    <img src="assets/icons/arrow.svg" alt="arrow">
+                    <i class="fa-solid fa-bars nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </i>
+                    <span class="select-text">More</span>
+                    <img src="assets/icons/arrow.svg" alt="arrow" class="select-arrow">
                 </div>
                 <div class="options">
                     <a href="pages/workout.html"><div class="option">Exercise Library</div></a>
@@ -105,8 +130,169 @@
             </div>
         </section>
 
-        <!-- Daily Motivational Quote -->
-        <div class="daily-tip-spacer"></div>
+        <!-- Daily Motivational Quote Card -->
+        <div style="max-width: 900px; margin: 30px auto; height: 120px;"></div>
+
+                <!-- Systematic Interactive Command Center -->
+        <section class="interactive-command-center" id="commandCenter">
+            <div class="command-center-header">
+                <div>
+                    <h2 class="command-center-title">
+                        <span>⚡ Live Training Command Center</span>
+                    </h2>
+                    <p style="color: #a1a1aa; font-size: 0.9rem; margin-top: 4px;">Real-time biometrics, synchronized activity rings, and interactive workout sessions.</p>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <span class="live-badge"><span class="pulse-dot"></span> LIVE SYNCED</span>
+                </div>
+            </div>
+
+            <div class="interactive-grid-3col">
+                <!-- 1. Live Activity & Hydration Rings Card -->
+                <div class="interactive-card">
+                    <div class="card-top-row">
+                        <span class="card-title-sm"><span>⭕</span> Daily Activity Rings</span>
+                        <span style="font-size: 0.72rem; color: #71717a; text-transform: uppercase;">Real-Time</span>
+                    </div>
+
+                    <div class="rings-container">
+                        <!-- Move/Reps Ring -->
+                        <div class="ring-wrap" title="Reps / Movement Goal">
+                            <div class="ring-svg-box">
+                                <svg class="ring-svg" width="76" height="76" viewBox="0 0 76 76">
+                                    <circle class="ring-bg" cx="38" cy="38" r="32"></circle>
+                                    <circle class="ring-fill ring-move" id="ringBarMove" cx="38" cy="38" r="32"></circle>
+                                </svg>
+                                <span class="ring-center-icon">🏋️</span>
+                            </div>
+                            <span class="ring-stat-val" id="ringValMove">0 Reps</span>
+                            <span class="ring-stat-label">Movement</span>
+                        </div>
+
+                        <!-- Water Ring -->
+                        <div class="ring-wrap" title="Hydration Goal">
+                            <div class="ring-svg-box">
+                                <svg class="ring-svg" width="76" height="76" viewBox="0 0 76 76">
+                                    <circle class="ring-bg" cx="38" cy="38" r="32"></circle>
+                                    <circle class="ring-fill ring-water" id="ringBarWater" cx="38" cy="38" r="32"></circle>
+                                </svg>
+                                <span class="ring-center-icon">💧</span>
+                            </div>
+                            <span class="ring-stat-val" id="ringValWater">0/8 Cups</span>
+                            <span class="ring-stat-label">Hydration</span>
+                        </div>
+
+                        <!-- Calorie Ring -->
+                        <div class="ring-wrap" title="Calorie Burn Goal">
+                            <div class="ring-svg-box">
+                                <svg class="ring-svg" width="76" height="76" viewBox="0 0 76 76">
+                                    <circle class="ring-bg" cx="38" cy="38" r="32"></circle>
+                                    <circle class="ring-fill ring-cal" id="ringBarCal" cx="38" cy="38" r="32"></circle>
+                                </svg>
+                                <span class="ring-center-icon">🔥</span>
+                            </div>
+                            <span class="ring-stat-val" id="ringValCal">0 kcal</span>
+                            <span class="ring-stat-label">Energy</span>
+                        </div>
+                    </div>
+
+                    <div class="rings-quick-actions">
+                        <button type="button" class="btn-ring-action" onclick="FitHubState.addReps(10)">+10 Reps</button>
+                        <button type="button" class="btn-ring-action" onclick="FitHubState.addWater(1)">+1 Cup 💧</button>
+                        <button type="button" class="btn-ring-action" onclick="FitHubState.addReps(25, 30)">+25 Reps 🔥</button>
+                    </div>
+                </div>
+
+                <!-- 2. Interactive Biometric & Metabolic Projector -->
+                <div class="interactive-card">
+                    <div class="card-top-row">
+                        <span class="card-title-sm"><span>📊</span> Live Biometric Projector</span>
+                        <span id="dashBmiPill" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 2px 8px; font-size: 0.7rem; font-weight: 700; color: #fff;">Normal</span>
+                    </div>
+
+                    <!-- Draggable Weight Slider -->
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-label">Body Weight</span>
+                            <span class="slider-val-readout" id="dashWeightVal">70 kg</span>
+                        </div>
+                        <input type="range" class="interactive-slider" id="dashWeightSlider" min="40" max="160" step="0.5" value="70">
+                    </div>
+
+                    <!-- Draggable Height Slider -->
+                    <div class="slider-group">
+                        <div class="slider-header">
+                            <span class="slider-label">Height</span>
+                            <span class="slider-val-readout" id="dashHeightVal">175 cm</span>
+                        </div>
+                        <input type="range" class="interactive-slider" id="dashHeightSlider" min="130" max="220" step="1" value="175">
+                    </div>
+
+                    <div class="biometric-results-grid">
+                        <div class="bio-res-item">
+                            <span class="bio-res-lbl">BMI Index</span>
+                            <span class="bio-res-num" id="dashBmiVal">22.9</span>
+                        </div>
+                        <div class="bio-res-item">
+                            <span class="bio-res-lbl">Rec. Water</span>
+                            <span class="bio-res-num" id="dashWaterRec">2.3L / day</span>
+                        </div>
+                        <div class="bio-res-item">
+                            <span class="bio-res-lbl">Maintenance</span>
+                            <span class="bio-res-num" id="dashCalRec">~2100 kcal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 7-Day Consistency & Daily Challenge Card -->
+                <div class="interactive-card">
+                    <div class="card-top-row">
+                        <span class="card-title-sm"><span>🔥</span> Weekly Streak & Challenge</span>
+                        <span id="dashStreakCount" style="font-size: 0.75rem; font-weight: 800; color: #ffffff;">🔥 3 Day Streak</span>
+                    </div>
+
+                    <!-- 7-Day Habit Tracker Row -->
+                    <div style="font-size: 0.72rem; color: #a1a1aa; text-transform: uppercase; font-weight: 700; margin-bottom: 6px;">Tap day to check-in</div>
+                    <div class="habit-row" id="dashHabitRow">
+                        <!-- Populated dynamically by FitHubDashboard -->
+                    </div>
+
+                    <!-- Daily Push-Up Challenge -->
+                    <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08);">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; margin-bottom: 6px;">
+                            <span style="color: #ffffff;">Today's Target: 30 Push-Ups</span>
+                            <span id="dashChallengeProgress" style="color: #a1a1aa;">0 / 30 Reps (0%)</span>
+                        </div>
+                        <div class="challenge-progress-track">
+                            <div class="challenge-progress-fill" id="dashChallengeFill" style="width: 0%;"></div>
+                        </div>
+                        <div class="challenge-actions">
+                            <button type="button" class="btn-challenge" onclick="FitHubState.addChallengeReps(-1)">-1</button>
+                            <button type="button" class="btn-challenge active-action" onclick="FitHubState.addChallengeReps(1)">+1 Push-Up 👊</button>
+                            <button type="button" class="btn-challenge" onclick="FitHubState.addChallengeReps(5)">+5 Push-Ups 🔥</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guided Live Workout Session Banner -->
+            <div class="guided-session-card">
+                <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                    <div style="font-size: 2.2rem; background: rgba(255,255,255,0.08); width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.15);">🏋️</div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.15rem; font-weight: 800; color: #ffffff;">Launch Live Guided Workout Session</span>
+                            <span style="background: #ffffff; color: #000000; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; text-transform: uppercase;">Interactive</span>
+                        </div>
+                        <p style="font-size: 0.85rem; color: #a1a1aa; margin-top: 4px;">Follow along with real animated exercise demonstrations, automated rest countdowns with sound cues, and set-by-set progress tracking.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button type="button" class="guided-launch-btn" onclick="FitHubWorkoutPlayer.start('quick')">⚡ 15-Min Full Body Power</button>
+                    <button type="button" class="guided-launch-btn" onclick="FitHubWorkoutPlayer.start('chest')" style="background: transparent; color: #ffffff; border: 1px solid rgba(255,255,255,0.25);">💥 Heavy Chest Session</button>
+                </div>
+            </div>
+        </section>
 
         <!-- Features Grid -->
         <section class="features-section">

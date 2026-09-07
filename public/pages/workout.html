@@ -11,7 +11,7 @@
     <link rel="manifest" href="../site.webmanifest">
 </head>
 <body>
-    <div class="mobile-top-bar">
+        <div class="mobile-top-bar">
         <a href="../index.html" class="logo-container">
             <img src="../assets/images/branding/FitHub.png" alt="FitHub Logo" class="logo-img">
             <span class="logo-text">FitHub</span>
@@ -29,19 +29,44 @@
         </div>
         <div class="right-nav" id="rightNav">
             <div class="header-features">
-                <a href="../index.html" class="header-feature-btn"><span class="feature-text">Home</span></a>
-                <a href="personalized-plans.html" class="header-feature-btn"><span class="feature-text">Personalized Plan</span></a>
-                <a href="nutrition-guide.html" class="header-feature-btn"><span class="feature-text">Nutrition Guide</span></a>
-                <a href="../../src/ai-features/ai.html" class="header-feature-btn"><span class="feature-text">AI Pose Trainer</span></a>
+                <a href="../index.html" class="header-feature-btn" title="Home">
+                    <i class="fa-regular fa-house nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </i>
+                    <span class="feature-text">Home</span>
+                </a>
+                <a href="personalized-plans.html" class="header-feature-btn" title="Personalized Plan">
+                    <i class="fa-regular fa-calendar nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
+                    </i>
+                    <span class="feature-text">Personalized Plan</span>
+                </a>
+                <a href="nutrition-guide.html" class="header-feature-btn" title="Nutrition Guide">
+                    <i class="fa-regular fa-bowl-food nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20c0 5.5-4.5 10-10 10S2 17.5 2 12Z"/><path d="M6 7c0-2.5 2-4 4-4"/><path d="M12 8c0-3.5 2-5 4-5"/><path d="m16 8 3-4"/></svg>
+                    </i>
+                    <span class="feature-text">Nutrition Guide</span>
+                </a>
+                <a href="../../src/ai-features/ai.html" class="header-feature-btn" title="AI Pose Trainer">
+                    <i class="fa-regular fa-person nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="m9 20 2-6 2-3 2 1.5 2 4.5"/><path d="m7 12 3.5-2.5L14 11l3-1"/><path d="M11 14 8 22"/></svg>
+                    </i>
+                    <span class="feature-text">AI Pose Trainer</span>
+                </a>
             </div>
             <div class="chatbot-container" title="Open Chitti AI Chatbot">
-                <img src="../assets/icons/chatbot.svg" alt="Chatbot" id="chatbotimg">
+                <i class="fa-regular fa-robot nav-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/><path d="M9 19h6"/></svg>
+                </i>
                 <span class="chitti-nav-label">Chitti</span>
             </div>
-            <div class="select-box">
+            <div class="select-box" title="More Options">
                 <div class="select-heading">
-                    <span>More</span>
-                    <img src="../assets/icons/arrow.svg" alt="arrow">
+                    <i class="fa-solid fa-bars nav-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                    </i>
+                    <span class="select-text">More</span>
+                    <img src="../assets/icons/arrow.svg" alt="arrow" class="select-arrow">
                 </div>
                 <div class="options">
                     <a href="workout.html"><div class="option">Exercise Library</div></a>
@@ -508,7 +533,7 @@
     <div class="speak-page">
         <img src="../assets/images/branding/ai.png" alt="img" width="200px">
         <h1>Speak Now</h1>
-        <img src="../assets/animations/voice.gif" alt="" width="200px" id="voice">
+        <img src="../assets/animations/ui/voice.gif" alt="" width="200px" id="voice">
     </div>
 
     <script src="../js/script.js"></script>
