@@ -1,429 +1,173 @@
-# FitHub - AI Powered Fitness Trainer 🏋️‍♂️
+# FitHub — AI-Powered Fitness Ecosystem 🏋️‍♂️⚡
 
-A modern fitness web application with AI-powered chatbot, voice assistant, personalized workout plans, and nutrition guidance.
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Google Gemini](https://img.shields.io/badge/Google%20Gemini%202.0-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com/)
+[![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://www.tensorflow.org/js)
+[![License: MIT](https://img.shields.io/badge/License-MIT-white.svg?style=for-the-badge)](LICENSE)
+
+A high-performance, client-side fitness platform featuring real-time computer vision pose tracking, Google Gemini AI fitness coaching, interactive biometric dashboards, algorithm-driven workout generation, and scientific nutrition planning.
+
+---
+
+## ⚡ Highlights
+
+- **Zero Build Dependencies**: Runs directly in the browser via native ES6+ JavaScript, HTML5, and CSS3.
+- **Pure Black UI/UX**: Ultra-clean `#000000` dark theme with high-contrast `#ffffff` typography and subtle hairline accents.
+- **2-Tier Card Architecture**: Systematic, clutter-free layouts using single outer and inner card containers (`.fithub-card-outer` + `.fithub-card-inner`).
+- **Real-Time Computer Vision**: Client-side pose estimation and repetition tracking powered by TensorFlow.js MoveNet.
+- **AI Intelligence with Offline Fallback**: Google Gemini 2.0 Flash integration with instant offline demo mode when API keys or quotas are limited.
+- **Mobile-First Dock Navigation**: Persistent bottom floating dock with clean SVG iconography (`fa-regular` series).
+
+---
+
+## 🎯 Core Features
+
+### 1. ⚡ Live Training Command Center (`public/index.html`)
+- **Daily Activity Rings**: Real-time interactive SVG progress rings tracking Movement, Hydration (cups), and Energy expenditure (kcal) with instant increment buttons.
+- **Biometric & Metabolic Projector**: Draggable weight and height sliders with real-time BMI categorization, recommended water intake calculation, and maintenance calorie estimates.
+- **Weekly Habit Streak**: Interactive 7-day visual tracker and daily push-up challenge progress bar.
+
+### 2. 📷 AI Pose Trainer (`src/ai-features/ai.html`)
+- **MoveNet Skeleton Tracking**: 17-point anatomical landmark detection running locally at 30+ FPS via TensorFlow.js.
+- **Real-Time Rep Counting**: Automated angle calculation across key joints for Squats, Push-Ups, Jumping Jacks, and Crunches.
+- **Live Form Feedback**: Visual color-coded alerts (`Correct Form`, `Go Lower`, `Push Higher`) with real-time accuracy scoring.
+- **Webcam Simulation Mode**: Built-in test environment to preview detection algorithms without requiring a live camera feed.
+
+### 3. 🤖 AI Fitness Coach — "Chitti" (`public/js/script.js`)
+- **Gemini 2.0 Flash Engine**: Instant context-aware responses covering workout programming, injury prevention, and meal prep.
+- **Instant Suggestion Chips**: One-tap query pills for common fitness topics.
+- **Offline Demo Mode**: Intelligent rule-based fallback responses ensuring 100% uptime even without an active API key or internet connection.
+- **Session Management**: Live typing indicators, conversation clearing, and markdown rendering.
+
+### 4. 📋 Personalized Workout Generator (`public/pages/personalized-plans.html`)
+- **Custom Routine Engineering**: Generates multi-week programs tailored by age, gender, biometrics, target goals, schedule frequency, and equipment.
+- **Biometrics Ribbon**: Single flattened metrics bar summarizing BMI, target calorie expenditure, hydration, and training frequency.
+- **Clean Exercise Rows**: Unboxed, divider-separated exercise breakdowns with sets, reps, rest periods, and execution cues.
+- **Export Capabilities**: One-click PDF / text export and instant plan regeneration.
+
+### 5. 🥗 Scientific Nutrition Guide (`public/pages/nutrition-guide.html`)
+- **Metabolic Engine**: Accurate BMR (Mifflin-St Jeor) and TDEE calculation across 5 physical activity tiers.
+- **Dynamic Macro Distribution**: Visual breakdown of Protein, Carbohydrates, and Fats tailored for Fat Loss, Maintenance, or Hypertrophy.
+- **Day-by-Day Meal Blueprint**: Interactive Monday–Sunday tabs displaying 4 daily meals (Breakfast, Lunch, Snack, Dinner) with one-click meal swapping.
+- **Dietary Preferences**: Full support for Omnivore, Vegetarian, Vegan, Keto, Paleo, and Mediterranean diets with allergy filtering.
+
+### 6. 🏋️ Animated Exercise Library (`public/pages/workout.html`)
+- **Comprehensive Library**: 30+ exercises across 5 muscle groups (Chest, Back, Arms, Shoulders, Legs).
+- **Animated GIF Demonstrations**: Real-time visual form demonstrations for every exercise.
+- **Instant Search & Filter**: Dynamic client-side filtering by muscle group and movement name.
+- **Rest Countdown Timer**: Circular modal stopwatch with audio cues and pause/resume functionality.
+
+---
 
 ## 🛠️ Technology Stack
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Gemini API](https://img.shields.io/badge/Gemini_API-4285F4?style=for-the-badge&logo=google&logoColor=white)
-![Web Speech API](https://img.shields.io/badge/Web_Speech_API-FF6B35?style=for-the-badge&logo=mozilla&logoColor=white)
-![TensorFlow.js](https://img.shields.io/badge/TensorFlow.js-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend Core** | HTML5 (Semantic), CSS3 (Modern Flexbox, CSS Grid, Custom Properties), Vanilla JavaScript (ES6+) |
+| **Machine Learning** | TensorFlow.js, MoveNet SinglePose Lightning Model |
+| **Generative AI** | Google Gemini 2.0 Flash REST API |
+| **Icons & Media** | FontAwesome 6 (Regular SVG Icons), Optimized GIF animations |
+| **Audio** | Web Audio API (Synthesized feedback beeps and chimes) |
+| **Storage** | Browser `localStorage` (Offline state & biometrics persistence) |
 
-## ✨ Key Features
+---
 
-### 🤖 AI-Powered Features
-- **AI Chatbot "Chitti"**: Intelligent fitness assistant powered by Google Gemini 2.0 Flash API
-  - Real-time fitness advice and workout guidance
-  - Demo mode fallback when API rate limits are reached
-  - Context-aware responses for exercises, nutrition, and training tips
-  - Refresh functionality to clear conversation history
-- **Voice Assistant**: Hands-free navigation using Web Speech API
-  - Voice commands for navigating between workout pages
-  - Speech synthesis for audio feedback
-  - Support for opening external applications and websites
-  - Real-time speech recognition and transcription
-- **AI Pose Trainer**: Real-time posture and rep counting using TensorFlow.js
-  - Webcam-based pose detection with skeleton tracking
-  - Automated squat and push-up rep counting
-  - Real-time form feedback and guidance
-  - Voice command integration for hands-free control
-  - Stylish back button for easy navigation
-
-### 🏋️ Workout System
-- **Multiple Workout Categories**: Comprehensive exercise library with animated demonstrations
-  - Back workouts (5 different exercises with GIF demonstrations)
-  - Chest workouts (5 different exercises with GIF demonstrations)
-  - Biceps & Triceps workouts (5 different exercises with GIF demonstrations)
-  - Shoulder workouts (5 different exercises with GIF demonstrations)
-  - Leg workouts (5 different exercises with GIF demonstrations)
-  - Full-body workout compilation page
-- **Personalized Workout Plans**: AI-generated custom routines
-  - Based on age, gender, height, weight, and fitness goals
-  - Experience level adjustment (beginner, intermediate, advanced)
-  - Time availability and frequency customization
-  - Equipment selection and injury considerations
-  - BMI calculation and health metrics
-  - Downloadable workout plans with regeneration options
-
-### 🥗 Nutrition Guidance
-- **Advanced Nutrition Calculator**: Scientifically-based meal planning
-  - BMR calculation using Mifflin-St Jeor Equation
-  - TDEE calculation based on activity level (5 levels)
-  - Calorie adjustment for specific goals (weight loss, muscle gain, maintenance)
-  - Macro nutrient distribution (protein, carbs, fats)
-  - Dietary preference support (omnivore, vegetarian, vegan, keto, paleo, mediterranean)
-  - Allergy consideration in meal planning
-  - Personalized meal plans for breakfast, lunch, dinner, and snacks
-
-### 🎨 User Interface
-- **Modern Responsive Design**: Mobile-first approach with seamless cross-device experience
-  - CSS custom properties for consistent theming
-  - Glassmorphism effects with backdrop blur
-  - Smooth animations and transitions
-  - Hamburger menu for mobile navigation
-  - Professional footer with social media integration
-- **Interactive Navigation**: Intuitive user experience
-  - Dropdown workout selector with smooth animations
-  - Back button navigation on all subpages
-  - Feature buttons for quick access to tools
-  - Modal system for additional features and legal pages
-
-### 🔧 Technical Features
-- **Client-Side Architecture**: Pure JavaScript implementation
-  - No backend dependencies for core functionality
-  - Local form processing and calculations
-  - Efficient DOM manipulation
-  - Event-driven programming model
-- **Progressive Enhancement**: Graceful degradation
-  - Demo responses when AI API is unavailable
-  - Fallback functionality for unsupported features
-  - Error handling and user feedback
-- **Performance Optimization**: Smooth user experience
-  - Lazy loading considerations
-  - Optimized asset delivery
-  - Efficient CSS animations
-
-## 🚀 Quick Start
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/madhanmohanreddyperam06/AI-Fitness-Trainer.git
-   cd AI-Fitness-Trainer
-   ```
-
-2. **Start a local server**:
-
-   ```bash
-   # Using Python
-   python -m http.server 8000
-   
-   # Or using Node.js
-   npx serve -p 8000
-   ```
-
-3. **Open in browser**: Navigate to `http://localhost:8000`
-
-4. **Configure API Key** (optional for AI features):
-   - Get API key from [Google AI Studio](https://aistudio.google.com/)
-   - Update `script.js` with your API key
-
-## 📁 Project Structure
+## 📁 Directory Structure
 
 ```text
 AI-Powered Fitness Trainer/
 ├── public/
-│   ├── index.html                    # Main dashboard with AI features
-│   ├── script.js                     # Core JavaScript functionality
+│   ├── index.html                    # Main dashboard & Live Command Center
 │   ├── css/
-│   │   └── style.css                 # Main stylesheet with responsive design
+│   │   └── style.css                 # Master stylesheet (Pure Black theme, 2-tier cards)
 │   ├── js/
-│   │   └── script.js                 # JavaScript functionality
-│   ├── pages/                        # Workout and feature pages
-│   │   ├── workout.html              # All workouts compilation page
-│   │   ├── back.html                 # Back workout exercises
-│   │   ├── chest.html                # Chest workout exercises
-│   │   ├── biceps-triceps.html       # Arms workout exercises
-│   │   ├── shoulder.html             # Shoulder workout exercises
-│   │   ├── leg.html                  # Leg workout exercises
-│   │   ├── personalized-plans.html  # AI workout plan generator
-│   │   └── nutrition-guide.html      # Nutrition calculator and meal planner
-│   ├── assets/                       # Images, GIFs, and media
-│   │   ├── images/
-│   │   │   ├── branding/             # Logo and branding images
-│   │   │   └── *.png                 # UI elements and screenshots
-│   │   ├── icons/                    # UI icons and favicons
-│   │   │   ├── favicon.ico
-│   │   │   ├── apple-touch-icon.png
-│   │   │   └── *.svg                 # SVG icons
-│   │   └── animations/
-│   │       ├── workouts/            # Exercise demonstration GIFs (30+ files)
-│   │       └── ui/                   # UI animations
-│   └── site.webmanifest             # PWA manifest
+│   │   └── script.js                 # App state, Command Center, Gemini chatbot, timer
+│   ├── pages/
+│   │   ├── workout.html              # Exercise library compilation
+│   │   ├── chest.html                # Chest exercises with animated GIFs
+│   │   ├── back.html                 # Back exercises with animated GIFs
+│   │   ├── biceps-triceps.html       # Arms exercises with animated GIFs
+│   │   ├── shoulder.html             # Shoulder exercises with animated GIFs
+│   │   ├── leg.html                  # Leg exercises with animated GIFs
+│   │   ├── personalized-plans.html   # AI personalized workout plan generator
+│   │   └── nutrition-guide.html      # Nutrition calculator & weekly meal planner
+│   └── assets/
+│       ├── animations/workouts/      # 30+ exercise demonstration GIFs
+│       ├── backgrounds/              # Background imagery
+│       └── icons/                    # App icons & favicons
 ├── src/
-│   └── ai-features/                  # AI and voice assistant modules
+│   └── ai-features/
 │       ├── ai.html                   # AI Pose Trainer interface
-│       ├── ai-style.css              # AI feature styling
-│       ├── chatbot.js                # Chatbot logic
-│       ├── voice.js                  # Voice recognition
-│       └── pose.js                   # Pose detection (TensorFlow.js)
+│       ├── ai-style.css              # Pose trainer UI stylesheet
+│       ├── pose.js                   # TensorFlow.js MoveNet tracking & rep counter
+│       ├── chatbot.js                # Chatbot interface helper
+│       └── voice.js                  # Speech recognition module (deferred)
 ├── LICENSE                           # MIT License
-└── README.md                         # This file
+└── README.md                         # Project documentation
 ```
-
-## 🏗️ Architecture Overview
-
-### Frontend Architecture
-The application follows a client-side architecture with no backend dependencies:
-
-- **Single Page Application (SPA) Elements**: Seamless navigation between pages
-- **Component-Based Design**: Modular HTML structure with reusable components
-- **Event-Driven Programming**: JavaScript event listeners for user interactions
-- **Progressive Enhancement**: Core functionality works without advanced features
-
-### Key Technical Components
-
-#### 1. AI Integration (`script.js`)
-- **Gemini API Integration**: Google's generative AI for fitness advice
-- **Demo Mode Fallback**: Pre-programmed responses when API is unavailable
-- **Error Handling**: Graceful degradation for rate limits and API errors
-- **Real-time Processing**: Async/await pattern for API calls
-
-#### 2. Voice Assistant System (`script.js` + `src/ai-features/voice.js`)
-- **Web Speech API**: Browser-native speech recognition
-- **Speech Synthesis**: Text-to-speech for audio feedback
-- **Command Processing**: Natural language parsing for navigation
-- **Cross-Platform Support**: Works on Chrome, Firefox, Safari, Edge
-
-#### 3. AI Pose Trainer (`src/ai-features/pose.js`)
-- **TensorFlow.js Integration**: MoveNet model for pose detection
-- **Real-time Tracking**: Webcam-based skeleton visualization
-- **Rep Counting**: Automated squat and push-up counting
-- **Form Analysis**: Exercise form feedback and guidance
-- **Canvas Rendering**: Real-time pose visualization overlay
-
-#### 4. Workout Plan Generator (`pages/personalized-plans.html`)
-- **Form Processing**: Client-side form validation and data collection
-- **Algorithmic Planning**: Rule-based workout generation
-- **BMI Calculation**: Health metric computations
-- **Equipment Logic**: Adaptive exercise selection based on available equipment
-- **Schedule Generation**: Weekly workout planning based on frequency
-
-#### 5. Nutrition Calculator (`pages/nutrition-guide.html`)
-- **Scientific Calculations**: Mifflin-St Jeor Equation for BMR
-- **Activity Multipliers**: TDEE calculation with 5 activity levels
-- **Macro Distribution**: Protein/carb/fat ratio optimization
-- **Dietary Adaptation**: Meal plan adjustment for different diets
-- **Allergy Filtering**: Basic allergen consideration in meal planning
-
-#### 6. Responsive UI (`css/style.css`)
-- **CSS Custom Properties**: Consistent theming and easy maintenance
-- **Media Queries**: Mobile-first responsive design
-- **Glassmorphism**: Modern UI with backdrop blur effects
-- **Animation System**: Smooth transitions and micro-interactions
-- **Cross-Browser Compatibility**: Vendor prefixes and fallbacks
-
-## 🎯 How to Use
-
-### Getting Started
-1. **Navigate to Main Dashboard**: The homepage provides access to all features
-2. **Explore Workout Categories**: Use the dropdown menu to select specific body part workouts
-3. **Access AI Features**: Click the chatbot icon or AI assistant for intelligent guidance
-
-### AI Chatbot Usage
-- **Open Chat**: Click the chatbot icon in the navigation bar
-- **Ask Questions**: Type fitness-related queries in the input field
-- **Get Responses**: Receive AI-powered advice about exercises, nutrition, and training
-- **Refresh Chat**: Use the refresh button to clear conversation history
-- **Close Chat**: Click the X icon to minimize the chat interface
-
-### Voice Assistant Commands
-- **Activate**: Click the AI assistant icon to start voice recognition
-- **Navigation Commands**:
-  - "Open chat" / "Close chat"
-  - "Back" / "Chest" / "Biceps" / "Triceps" / "Shoulder" / "Leg"
-  - "All Workout" / "Home"
-- **General Commands**:
-  - "Hello" / "Hey" (greeting)
-  - "Who are you" (assistant introduction)
-  - "Open YouTube/Google/Facebook/Instagram"
-  - "Time" / "Date" (current time/date)
-- **External Apps**: "Open calculator/WhatsApp"
-
-### AI Pose Trainer Usage
-- **Open AI Trainer**: Click "AI Pose Trainer" in the navigation menu
-- **Start Camera**: Click "Start Camera" to enable webcam access
-- **Select Exercise**: Choose between Squats or Push-Ups
-- **Perform Exercise**: Position yourself in front of the camera
-- **Track Reps**: Watch the rep counter update as you complete reps
-- **Get Feedback**: Receive real-time form feedback and guidance
-- **Voice Commands**: Use voice commands for hands-free control
-- **Navigate Back**: Use the stylish back button to return to home
-
-### Personalized Workout Plans
-1. **Enter Personal Information**: Age, gender, height, weight
-2. **Set Fitness Goals**: Choose from weight loss, muscle gain, endurance, strength, or general fitness
-3. **Specify Experience Level**: Beginner, intermediate, or advanced
-4. **Define Schedule**: Available time and workout frequency
-5. **Select Equipment**: Choose available gym equipment
-6. **Note Limitations**: Mention any injuries or physical limitations
-7. **Generate Plan**: Click the generate button for a custom workout routine
-8. **Download/Regenerate**: Save your plan or create variations
-
-### Nutrition Guide
-1. **Input Personal Data**: Age, gender, height, weight
-2. **Set Fitness Goal**: Weight loss, muscle gain, maintenance, or endurance
-3. **Choose Activity Level**: From sedentary to very active
-4. **Select Diet Preference**: Omnivore, vegetarian, vegan, keto, paleo, or mediterranean
-5. **Note Allergies**: Specify any food allergies or restrictions
-6. **Calculate**: Click to generate personalized nutrition plan
-7. **Review Results**: See BMR, TDEE, target calories, and macro breakdown
-8. **Get Meal Plan**: Receive customized meal suggestions for all meals
-
-### Workout Pages
-- **Browse Exercises**: View animated GIF demonstrations for each exercise
-- **Navigate Categories**: Use the back button to return to main dashboard
-- **Access Chat**: Use the integrated chatbot for exercise-specific questions
-
-## 🔧 Development & Configuration
-
-### API Configuration
-The application uses Google's Gemini AI for the chatbot functionality:
-
-1. **Get API Key**: Register at [Google AI Studio](https://aistudio.google.com/)
-2. **Update Configuration**: Replace the API key in `script.js` (line 141):
-   ```javascript
-   let Api_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=YOUR_API_KEY";
-   ```
-3. **Demo Mode**: The app includes fallback responses when API limits are reached
-
-### Local Development Setup
-1. **Clone Repository**:
-   ```bash
-   git clone https://github.com/madhanmohanreddyperam06/AI-Fitness-Trainer.git
-   cd AI-Fitness-Trainer
-   ```
-
-2. **Start Local Server**:
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
-
-   # Using Python 2
-   python -m SimpleHTTPServer 8000
-
-   # Using Node.js
-   npx serve -p 8000
-
-   # Using PHP
-   php -S localhost:8000
-   ```
-
-3. **Open in Browser**: Navigate to `http://localhost:8000`
-
-### File Modifications
-- **Custom Styling**: Modify `styles/style.css` for design changes
-- **JavaScript Logic**: Update `script.js` for functionality changes
-- **Content Updates**: Edit HTML files in `pages/` for content modifications
-- **Asset Management**: Add/update GIFs and images in `assets/`
-
-### Browser Compatibility
-- **Chrome/Edge**: Full support for all features including Web Speech API
-- **Firefox**: Full support except some Web Speech API limitations
-- **Safari**: Full support with prefix considerations for some CSS features
-- **Mobile Browsers**: Responsive design ensures good mobile experience
-
-### Performance Considerations
-- **Image Optimization**: GIF files are large; consider compression for production
-- **API Rate Limits**: Gemini API has usage limits; demo mode handles this gracefully
-- **Voice Recognition**: Requires HTTPS for production deployment (browser security)
-- **Memory Management**: Large GIF files may impact mobile performance
-
-## 🎨 Design System
-
-### Color Palette
-- **Primary**: Wheat accent color for highlights
-- **Background**: Dark theme with glassmorphism effects
-- **Chat Interface**: Semi-transparent backgrounds with blur effects
-- **Gradients**: Used for buttons and interactive elements
-- **Accessibility**: High contrast ratios for text readability
-
-### Typography
-- **Font Family**: Gill Sans, Gill Sans MT, Calibri, Trebuchet MS (system fonts)
-- **Responsive Sizing**: Uses `clamp()` for fluid typography
-- **Hierarchy**: Clear distinction between headings, body text, and labels
-- **Weight**: Font weights range from 400 (regular) to 700 (bold)
-
-### UI Components
-- **Buttons**: Gradient backgrounds with hover effects
-- **Forms**: Modern input styling with focus states
-- **Cards**: Glassmorphism effects with backdrop blur
-- **Navigation**: Dropdown menus with smooth animations
-- **Modals**: Dynamic modal system for additional content
-
-## 🔒 Security & Privacy
-
-### Data Handling
-- **Client-Side Processing**: All calculations happen locally in the browser
-- **No Server Storage**: No user data is stored or transmitted to servers
-- **API Usage**: Only AI chatbot uses external API (Gemini)
-- **Local Storage**: Application doesn't use persistent local storage
-
-### Best Practices
-- **API Key Security**: API key should be kept secure and not committed to public repositories
-- **Input Validation**: Form inputs are validated before processing
-- **XSS Prevention**: Dynamic content is handled safely
-- **HTTPS Required**: Voice recognition features require HTTPS in production
-
-## 🚀 Deployment Options
-
-### Static Hosting
-The application can be deployed to any static hosting service:
-- **GitHub Pages**: Free hosting for public repositories
-- **Netlify**: Easy deployment with continuous deployment
-- **Vercel**: Optimized for frontend applications
-- **AWS S3**: Scalable static file hosting
-- **Firebase Hosting**: Google's static hosting solution
-
-### Deployment Steps
-1. **Build**: No build process required (pure HTML/CSS/JS)
-2. **Configure API**: Ensure API key is properly configured
-3. **Upload Files**: Deploy all files to hosting service
-4. **Enable HTTPS**: Required for voice recognition features
-5. **Test**: Verify all features work in production environment
-
-### Environment Variables
-For production deployment, consider:
-- **API Key Management**: Use environment variables or server-side proxy
-- **Domain Configuration**: Set up custom domain
-- **SSL Certificate**: Enable HTTPS for voice features
-- **CDN Configuration**: Use CDN for asset delivery
-
-## 🤝 Contributing
-
-### Development Guidelines
-- **Code Style**: Follow existing code formatting and conventions
-- **File Organization**: Maintain the current folder structure
-- **Comments**: Add comments for complex logic (keep existing comments)
-- **Testing**: Test features across different browsers and devices
-- **Performance**: Consider performance implications of changes
-
-### Feature Suggestions
-Potential areas for enhancement:
-- **User Authentication**: Add login/save functionality
-- **Progress Tracking**: Implement workout history and progress charts
-- **Social Features**: Add workout sharing and community features
-- **Exercise Database**: Expand exercise library with more movements
-- **Video Integration**: Replace GIFs with optimized video content
-- **Offline Support**: Add PWA capabilities for offline usage
-- **Multi-language**: Add internationalization support
-
-## 📄 License
-
-This project is open source under the [MIT License](LICENSE).
-
-## 📞 Contact & Support
-
-### Developer Information
-**Madhan Mohan Reddy Peram**
-- 📧 Email: [madhanmohanreddyperam06@gmail.com](mailto:madhanmohanreddyperam06@gmail.com)
-- 📱 Mobile: [+91 9110395993](tel:+919110395993)
-
-### Application Support
-- **Support Email**: [support@fithub.com](mailto:support@fithub.com)
-- **Support Phone**: +1 (234) 567-890
-- **Social Media**: Facebook, Twitter, Instagram links in footer
-
-### Legal & Policies
-- **Privacy Policy**: Data handling and user privacy information
-- **Terms of Service**: Usage terms and conditions
-- **Cookie Policy**: Information about cookie usage
-- **Accessibility**: Accessibility features and compliance
-- **Sitemap**: Site structure and navigation map
-- **FAQ**: Frequently asked questions and troubleshooting
 
 ---
 
-🎉 Built with ❤️ for fitness enthusiasts
+## 🚀 Quick Start
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/madhanmohanreddyperam06/FitHub.git
+cd FitHub
+```
+
+### 2. Launch Local Server
+Because the application uses standard client-side web technologies and camera APIs, serve it with any local HTTP server:
+
+```bash
+# Option A: Python 3
+python -m http.server 8000
+
+# Option B: Node.js (npx)
+npx serve public -p 8000
+
+# Option C: VS Code
+# Install the "Live Server" extension, right-click public/index.html, and click "Open with Live Server".
+```
+
+### 3. Open in Browser
+Navigate to `http://localhost:8000/public/index.html` (or `http://localhost:8000`).
+
+---
+
+## ⚙️ Configuration (Optional)
+
+### Google Gemini API Key
+The AI chatbot works out-of-the-box using the built-in offline demo responses. To connect your live Google Gemini API key:
+
+1. Obtain a free API key from [Google AI Studio](https://aistudio.google.com/).
+2. Open `public/js/script.js`.
+3. Locate `Api_url` inside `FitHubChat.sendMessage()` and supply your key:
+   ```javascript
+   const Api_url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${YOUR_API_KEY}`;
+   ```
+
+---
+
+## 🎨 Design Guidelines
+
+- **Palette**: `#000000` (Background), `#08080a` (Outer Card), `#111115` (Inner Card), `#ffffff` (Headings & Accents), `#a1a1aa` (Body Text), `rgba(255, 255, 255, 0.12)` (Borders).
+- **Card Rule**: Maximum 2 nesting layers (`.fithub-card-outer` > `.fithub-card-inner`). Never place cards within inner cards; use list rows with hairline dividers instead.
+- **Form Controls**: Pure black background (`#000000 !important`), white text, crisp 1px borders, and custom SVG chevron dropdown indicators across all inputs and select menus.
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## 👨‍💻 Author
+
+**Madhan Mohan Reddy Peram**  
+- 📧 Email: [madhanmohanreddyperam06@gmail.com](mailto:madhanmohanreddyperam06@gmail.com)  
+- 📱 Phone: [+91 9110395993](tel:+919110395993)  
+- 🌐 GitHub: [@madhanmohanreddyperam06](https://github.com/madhanmohanreddyperam06)
